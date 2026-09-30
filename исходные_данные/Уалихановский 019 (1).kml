@@ -1,0 +1,2084 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<kml xmlns="http://www.opengis.net/kml/2.2" xmlns:gx="http://www.google.com/kml/ext/2.2" xmlns:kml="http://www.opengis.net/kml/2.2" xmlns:atom="http://www.w3.org/2005/Atom">
+<Document id="1bx43KwnGAInDptz5OsOCmJ1uN7izDOGG">
+	<name>Уалихановский 019</name>
+	<visibility>0</visibility>
+	<description>Карта отбора образцов травостоя, почвы и воды сельхоз округов Уалихановского района. </description>
+	<Schema name="__managed_schema" id="__managed_schema">
+		<SimpleField type="int" name="177F799DE5412BB750BE">
+			<displayName>Точность (м)</displayName>
+		</SimpleField>
+		<SimpleField type="int" name="0239AA1FEB412AED2309">
+			<displayName>Точность (м)</displayName>
+		</SimpleField>
+		<SimpleField type="int" name="143241CC3F4126666432">
+			<displayName>Точность (м)</displayName>
+		</SimpleField>
+		<SimpleField type="int" name="08E0E5270E4125512E97">
+			<displayName>Точность (м)</displayName>
+		</SimpleField>
+		<SimpleField type="int" name="17E57F330441251EEE4D">
+			<displayName>Точность (м)</displayName>
+		</SimpleField>
+		<SimpleField type="int" name="13B11089594124F6E0F3">
+			<displayName>Точность (м)</displayName>
+		</SimpleField>
+		<SimpleField type="int" name="06A3EBEBAB411AF5261D">
+			<displayName>Точность (м)</displayName>
+		</SimpleField>
+		<SimpleField type="int" name="0E8F3EDC42411ABA7573">
+			<displayName>Точность (м)</displayName>
+		</SimpleField>
+		<SimpleField type="int" name="1B268D3F5B411593AC4F">
+			<displayName>Точность (м)</displayName>
+		</SimpleField>
+		<SimpleField type="int" name="1631DA0ABF4111BD89B3">
+			<displayName>Точность (м)</displayName>
+		</SimpleField>
+		<SimpleField type="int" name="1329F71A4C41118E29C8">
+			<displayName>Точность (м)</displayName>
+		</SimpleField>
+		<SimpleField type="int" name="1F8E7FA0EA411164B396">
+			<displayName>Точность (м)</displayName>
+		</SimpleField>
+		<SimpleField type="int" name="1ABC2A35724110AD5667">
+			<displayName>Точность (м)</displayName>
+		</SimpleField>
+		<SimpleField type="int" name="18710BF2D341109F9BF6">
+			<displayName>Точность (м)</displayName>
+		</SimpleField>
+		<SimpleField type="int" name="01F764B3304110661B63">
+			<displayName>Точность (м)</displayName>
+		</SimpleField>
+		<SimpleField type="int" name="0B0915CCAC41103D974D">
+			<displayName>Точность (м)</displayName>
+		</SimpleField>
+		<SimpleField type="int" name="1B04A948A3410BEC9576">
+			<displayName>Точность (м)</displayName>
+		</SimpleField>
+	</Schema>
+	<gx:CascadingStyle kml:id="__managed_style_05FD87215841686124F3_normal">
+		<Style>
+			<IconStyle>
+				<Icon>
+					<href>https://earth.google.com/earth/document/icon?color=1976d2&amp;id=2000&amp;scale=4</href>
+				</Icon>
+				<hotSpot x="64" y="128" xunits="pixels" yunits="insetPixels"/>
+			</IconStyle>
+			<LabelStyle>
+			</LabelStyle>
+			<LineStyle>
+				<color>ff2dc0fb</color>
+				<width>1.45455</width>
+			</LineStyle>
+			<PolyStyle>
+				<color>40ffffff</color>
+			</PolyStyle>
+			<BalloonStyle>
+			</BalloonStyle>
+		</Style>
+	</gx:CascadingStyle>
+	<StyleMap id="__managed_style_05FD87215841686124F3">
+		<Pair>
+			<key>normal</key>
+			<styleUrl>#__managed_style_05FD87215841686124F3_normal</styleUrl>
+		</Pair>
+		<Pair>
+			<key>highlight</key>
+			<styleUrl>#__managed_style_05FD87215841686124F3_highlight</styleUrl>
+		</Pair>
+	</StyleMap>
+	<gx:CascadingStyle kml:id="__managed_style_08BDA4E49C41686124F8_highlight">
+		<Style>
+			<IconStyle>
+				<scale>1.2</scale>
+				<Icon>
+					<href>https://earth.google.com/earth/document/icon?color=388e3c&amp;id=2000&amp;scale=4</href>
+				</Icon>
+				<hotSpot x="64" y="128" xunits="pixels" yunits="insetPixels"/>
+			</IconStyle>
+			<LabelStyle>
+			</LabelStyle>
+			<LineStyle>
+				<color>ff2dc0fb</color>
+				<width>2.18182</width>
+			</LineStyle>
+			<PolyStyle>
+				<color>40ffffff</color>
+			</PolyStyle>
+			<BalloonStyle>
+			</BalloonStyle>
+		</Style>
+	</gx:CascadingStyle>
+	<gx:CascadingStyle kml:id="__managed_style_08A078F8BD41686124FA_highlight">
+		<styleUrl>https://earth.google.com/balloon_components/base/1.1.0.0/card_template.kml#main</styleUrl>
+		<Style>
+			<IconStyle>
+				<scale>1.2</scale>
+				<Icon>
+					<href>https://earth.google.com/earth/document/icon?color=1976d2&amp;id=2000&amp;scale=4</href>
+				</Icon>
+				<hotSpot x="64" y="128" xunits="pixels" yunits="insetPixels"/>
+			</IconStyle>
+			<LabelStyle>
+			</LabelStyle>
+			<LineStyle>
+				<color>ff2dc0fb</color>
+				<width>2.18182</width>
+			</LineStyle>
+			<PolyStyle>
+				<color>40ffffff</color>
+			</PolyStyle>
+			<BalloonStyle>
+			</BalloonStyle>
+		</Style>
+	</gx:CascadingStyle>
+	<gx:CascadingStyle kml:id="__managed_style_08BDA4E49C41686124F8_normal">
+		<Style>
+			<IconStyle>
+				<Icon>
+					<href>https://earth.google.com/earth/document/icon?color=388e3c&amp;id=2000&amp;scale=4</href>
+				</Icon>
+				<hotSpot x="64" y="128" xunits="pixels" yunits="insetPixels"/>
+			</IconStyle>
+			<LabelStyle>
+			</LabelStyle>
+			<LineStyle>
+				<color>ff2dc0fb</color>
+				<width>1.45455</width>
+			</LineStyle>
+			<PolyStyle>
+				<color>40ffffff</color>
+			</PolyStyle>
+			<BalloonStyle>
+			</BalloonStyle>
+		</Style>
+	</gx:CascadingStyle>
+	<StyleMap id="__managed_style_08394F308D41686124F9">
+		<Pair>
+			<key>normal</key>
+			<styleUrl>#__managed_style_08394F308D41686124F9_normal</styleUrl>
+		</Pair>
+		<Pair>
+			<key>highlight</key>
+			<styleUrl>#__managed_style_08394F308D41686124F9_highlight</styleUrl>
+		</Pair>
+	</StyleMap>
+	<StyleMap id="__managed_style_08BDA4E49C41686124F8">
+		<Pair>
+			<key>normal</key>
+			<styleUrl>#__managed_style_08BDA4E49C41686124F8_normal</styleUrl>
+		</Pair>
+		<Pair>
+			<key>highlight</key>
+			<styleUrl>#__managed_style_08BDA4E49C41686124F8_highlight</styleUrl>
+		</Pair>
+	</StyleMap>
+	<StyleMap id="__managed_style_08A078F8BD41686124FA">
+		<Pair>
+			<key>normal</key>
+			<styleUrl>#__managed_style_08A078F8BD41686124FA_normal</styleUrl>
+		</Pair>
+		<Pair>
+			<key>highlight</key>
+			<styleUrl>#__managed_style_08A078F8BD41686124FA_highlight</styleUrl>
+		</Pair>
+	</StyleMap>
+	<StyleMap id="__managed_style_0C0CEFF7BA41686124F4">
+		<Pair>
+			<key>normal</key>
+			<styleUrl>#__managed_style_0C0CEFF7BA41686124F4_normal</styleUrl>
+		</Pair>
+		<Pair>
+			<key>highlight</key>
+			<styleUrl>#__managed_style_0C0CEFF7BA41686124F4_highlight</styleUrl>
+		</Pair>
+	</StyleMap>
+	<gx:CascadingStyle kml:id="__managed_style_04607AD4AB41686124FC_highlight">
+		<Style>
+			<IconStyle>
+				<scale>1.2</scale>
+				<Icon>
+					<href>https://earth.google.com/earth/document/icon?color=1976d2&amp;id=2000&amp;scale=4</href>
+				</Icon>
+				<hotSpot x="64" y="128" xunits="pixels" yunits="insetPixels"/>
+			</IconStyle>
+			<LabelStyle>
+			</LabelStyle>
+			<LineStyle>
+				<color>ff2f2fd3</color>
+				<width>2.18182</width>
+			</LineStyle>
+			<PolyStyle>
+				<color>40ffffff</color>
+			</PolyStyle>
+			<BalloonStyle>
+			</BalloonStyle>
+		</Style>
+	</gx:CascadingStyle>
+	<gx:CascadingStyle kml:id="__managed_style_04607AD4AB41686124FC_normal">
+		<Style>
+			<IconStyle>
+				<Icon>
+					<href>https://earth.google.com/earth/document/icon?color=1976d2&amp;id=2000&amp;scale=4</href>
+				</Icon>
+				<hotSpot x="64" y="128" xunits="pixels" yunits="insetPixels"/>
+			</IconStyle>
+			<LabelStyle>
+			</LabelStyle>
+			<LineStyle>
+				<color>ff2f2fd3</color>
+				<width>1.45455</width>
+			</LineStyle>
+			<PolyStyle>
+				<color>40ffffff</color>
+			</PolyStyle>
+			<BalloonStyle>
+			</BalloonStyle>
+		</Style>
+	</gx:CascadingStyle>
+	<StyleMap id="__managed_style_04607AD4AB41686124FC">
+		<Pair>
+			<key>normal</key>
+			<styleUrl>#__managed_style_04607AD4AB41686124FC_normal</styleUrl>
+		</Pair>
+		<Pair>
+			<key>highlight</key>
+			<styleUrl>#__managed_style_04607AD4AB41686124FC_highlight</styleUrl>
+		</Pair>
+	</StyleMap>
+	<gx:CascadingStyle kml:id="__managed_style_03E45F28D141686124FB_normal">
+		<Style>
+			<IconStyle>
+				<Icon>
+					<href>https://earth.google.com/earth/document/icon?color=1976d2&amp;id=2000&amp;scale=4</href>
+				</Icon>
+				<hotSpot x="64" y="128" xunits="pixels" yunits="insetPixels"/>
+			</IconStyle>
+			<LabelStyle>
+			</LabelStyle>
+			<LineStyle>
+				<color>ff2dc0fb</color>
+				<width>1.45455</width>
+			</LineStyle>
+			<PolyStyle>
+				<color>40ffffff</color>
+			</PolyStyle>
+			<BalloonStyle>
+			</BalloonStyle>
+		</Style>
+	</gx:CascadingStyle>
+	<gx:CascadingStyle kml:id="__managed_style_0C0CEFF7BA41686124F4_highlight">
+		<Style>
+			<IconStyle>
+				<scale>1.2</scale>
+				<Icon>
+					<href>https://earth.google.com/earth/document/icon?color=388e3c&amp;id=2000&amp;scale=4</href>
+				</Icon>
+				<hotSpot x="64" y="128" xunits="pixels" yunits="insetPixels"/>
+			</IconStyle>
+			<LabelStyle>
+			</LabelStyle>
+			<LineStyle>
+				<color>ff2dc0fb</color>
+				<width>2.18182</width>
+			</LineStyle>
+			<PolyStyle>
+				<color>40ffffff</color>
+			</PolyStyle>
+			<BalloonStyle>
+			</BalloonStyle>
+		</Style>
+	</gx:CascadingStyle>
+	<StyleMap id="__managed_style_03E45F28D141686124FB">
+		<Pair>
+			<key>normal</key>
+			<styleUrl>#__managed_style_03E45F28D141686124FB_normal</styleUrl>
+		</Pair>
+		<Pair>
+			<key>highlight</key>
+			<styleUrl>#__managed_style_03E45F28D141686124FB_highlight</styleUrl>
+		</Pair>
+	</StyleMap>
+	<gx:CascadingStyle kml:id="__managed_style_08A078F8BD41686124FA_normal">
+		<styleUrl>https://earth.google.com/balloon_components/base/1.1.0.0/card_template.kml#main</styleUrl>
+		<Style>
+			<IconStyle>
+				<Icon>
+					<href>https://earth.google.com/earth/document/icon?color=1976d2&amp;id=2000&amp;scale=4</href>
+				</Icon>
+				<hotSpot x="64" y="128" xunits="pixels" yunits="insetPixels"/>
+			</IconStyle>
+			<LabelStyle>
+			</LabelStyle>
+			<LineStyle>
+				<color>ff2dc0fb</color>
+				<width>1.45455</width>
+			</LineStyle>
+			<PolyStyle>
+				<color>40ffffff</color>
+			</PolyStyle>
+			<BalloonStyle>
+			</BalloonStyle>
+		</Style>
+	</gx:CascadingStyle>
+	<StyleMap id="__managed_style_08D81EF2C741686124F7">
+		<Pair>
+			<key>normal</key>
+			<styleUrl>#__managed_style_08D81EF2C741686124F7_normal</styleUrl>
+		</Pair>
+		<Pair>
+			<key>highlight</key>
+			<styleUrl>#__managed_style_08D81EF2C741686124F7_highlight</styleUrl>
+		</Pair>
+	</StyleMap>
+	<StyleMap id="__managed_style_080317712D41686124F5">
+		<Pair>
+			<key>normal</key>
+			<styleUrl>#__managed_style_080317712D41686124F5_normal</styleUrl>
+		</Pair>
+		<Pair>
+			<key>highlight</key>
+			<styleUrl>#__managed_style_080317712D41686124F5_highlight</styleUrl>
+		</Pair>
+	</StyleMap>
+	<gx:CascadingStyle kml:id="__managed_style_08D81EF2C741686124F7_highlight">
+		<styleUrl>https://earth.google.com/balloon_components/base/1.1.0.0/card_template.kml#main</styleUrl>
+		<Style>
+			<IconStyle>
+				<scale>1.2</scale>
+				<Icon>
+					<href>https://earth.google.com/earth/document/icon?color=388e3c&amp;id=2000&amp;scale=4</href>
+				</Icon>
+				<hotSpot x="64" y="128" xunits="pixels" yunits="insetPixels"/>
+			</IconStyle>
+			<LabelStyle>
+			</LabelStyle>
+			<LineStyle>
+				<color>ff2dc0fb</color>
+				<width>2.18182</width>
+			</LineStyle>
+			<PolyStyle>
+				<color>40ffffff</color>
+			</PolyStyle>
+			<BalloonStyle>
+			</BalloonStyle>
+		</Style>
+	</gx:CascadingStyle>
+	<gx:CascadingStyle kml:id="__managed_style_080317712D41686124F5_normal">
+		<Style>
+			<IconStyle>
+				<Icon>
+					<href>https://earth.google.com/earth/document/icon?color=1976d2&amp;id=2000&amp;scale=4</href>
+				</Icon>
+				<hotSpot x="64" y="128" xunits="pixels" yunits="insetPixels"/>
+			</IconStyle>
+			<LabelStyle>
+			</LabelStyle>
+			<LineStyle>
+				<color>ff2dc0fb</color>
+				<width>1.45455</width>
+			</LineStyle>
+			<PolyStyle>
+				<color>40ffffff</color>
+			</PolyStyle>
+			<BalloonStyle>
+			</BalloonStyle>
+		</Style>
+	</gx:CascadingStyle>
+	<gx:CascadingStyle kml:id="__managed_style_03E45F28D141686124FB_highlight">
+		<Style>
+			<IconStyle>
+				<scale>1.2</scale>
+				<Icon>
+					<href>https://earth.google.com/earth/document/icon?color=1976d2&amp;id=2000&amp;scale=4</href>
+				</Icon>
+				<hotSpot x="64" y="128" xunits="pixels" yunits="insetPixels"/>
+			</IconStyle>
+			<LabelStyle>
+			</LabelStyle>
+			<LineStyle>
+				<color>ff2dc0fb</color>
+				<width>2.18182</width>
+			</LineStyle>
+			<PolyStyle>
+				<color>40ffffff</color>
+			</PolyStyle>
+			<BalloonStyle>
+			</BalloonStyle>
+		</Style>
+	</gx:CascadingStyle>
+	<gx:CascadingStyle kml:id="__managed_style_08D81EF2C741686124F7_normal">
+		<styleUrl>https://earth.google.com/balloon_components/base/1.1.0.0/card_template.kml#main</styleUrl>
+		<Style>
+			<IconStyle>
+				<Icon>
+					<href>https://earth.google.com/earth/document/icon?color=388e3c&amp;id=2000&amp;scale=4</href>
+				</Icon>
+				<hotSpot x="64" y="128" xunits="pixels" yunits="insetPixels"/>
+			</IconStyle>
+			<LabelStyle>
+			</LabelStyle>
+			<LineStyle>
+				<color>ff2dc0fb</color>
+				<width>1.45455</width>
+			</LineStyle>
+			<PolyStyle>
+				<color>40ffffff</color>
+			</PolyStyle>
+			<BalloonStyle>
+			</BalloonStyle>
+		</Style>
+	</gx:CascadingStyle>
+	<gx:CascadingStyle kml:id="__managed_style_080317712D41686124F5_highlight">
+		<Style>
+			<IconStyle>
+				<scale>1.2</scale>
+				<Icon>
+					<href>https://earth.google.com/earth/document/icon?color=1976d2&amp;id=2000&amp;scale=4</href>
+				</Icon>
+				<hotSpot x="64" y="128" xunits="pixels" yunits="insetPixels"/>
+			</IconStyle>
+			<LabelStyle>
+			</LabelStyle>
+			<LineStyle>
+				<color>ff2dc0fb</color>
+				<width>2.18182</width>
+			</LineStyle>
+			<PolyStyle>
+				<color>40ffffff</color>
+			</PolyStyle>
+			<BalloonStyle>
+			</BalloonStyle>
+		</Style>
+	</gx:CascadingStyle>
+	<gx:CascadingStyle kml:id="__managed_style_0C0CEFF7BA41686124F4_normal">
+		<Style>
+			<IconStyle>
+				<Icon>
+					<href>https://earth.google.com/earth/document/icon?color=388e3c&amp;id=2000&amp;scale=4</href>
+				</Icon>
+				<hotSpot x="64" y="128" xunits="pixels" yunits="insetPixels"/>
+			</IconStyle>
+			<LabelStyle>
+			</LabelStyle>
+			<LineStyle>
+				<color>ff2dc0fb</color>
+				<width>1.45455</width>
+			</LineStyle>
+			<PolyStyle>
+				<color>40ffffff</color>
+			</PolyStyle>
+			<BalloonStyle>
+			</BalloonStyle>
+		</Style>
+	</gx:CascadingStyle>
+	<gx:CascadingStyle kml:id="__managed_style_08394F308D41686124F9_highlight">
+		<styleUrl>https://earth.google.com/balloon_components/base/1.1.0.0/card_template.kml#main</styleUrl>
+		<Style>
+			<IconStyle>
+				<scale>1.2</scale>
+				<Icon>
+					<href>https://earth.google.com/earth/document/icon?color=388e3c&amp;id=2000&amp;scale=4</href>
+				</Icon>
+				<hotSpot x="64" y="128" xunits="pixels" yunits="insetPixels"/>
+			</IconStyle>
+			<LabelStyle>
+			</LabelStyle>
+			<LineStyle>
+				<color>ff2dc0fb</color>
+				<width>2.18182</width>
+			</LineStyle>
+			<PolyStyle>
+				<color>40ffffff</color>
+			</PolyStyle>
+			<BalloonStyle>
+			</BalloonStyle>
+		</Style>
+	</gx:CascadingStyle>
+	<gx:CascadingStyle kml:id="__managed_style_05FD87215841686124F3_highlight">
+		<Style>
+			<IconStyle>
+				<scale>1.2</scale>
+				<Icon>
+					<href>https://earth.google.com/earth/document/icon?color=1976d2&amp;id=2000&amp;scale=4</href>
+				</Icon>
+				<hotSpot x="64" y="128" xunits="pixels" yunits="insetPixels"/>
+			</IconStyle>
+			<LabelStyle>
+			</LabelStyle>
+			<LineStyle>
+				<color>ff2dc0fb</color>
+				<width>2.18182</width>
+			</LineStyle>
+			<PolyStyle>
+				<color>40ffffff</color>
+			</PolyStyle>
+			<BalloonStyle>
+			</BalloonStyle>
+		</Style>
+	</gx:CascadingStyle>
+	<gx:CascadingStyle kml:id="__managed_style_08394F308D41686124F9_normal">
+		<styleUrl>https://earth.google.com/balloon_components/base/1.1.0.0/card_template.kml#main</styleUrl>
+		<Style>
+			<IconStyle>
+				<Icon>
+					<href>https://earth.google.com/earth/document/icon?color=388e3c&amp;id=2000&amp;scale=4</href>
+				</Icon>
+				<hotSpot x="64" y="128" xunits="pixels" yunits="insetPixels"/>
+			</IconStyle>
+			<LabelStyle>
+			</LabelStyle>
+			<LineStyle>
+				<color>ff2dc0fb</color>
+				<width>1.45455</width>
+			</LineStyle>
+			<PolyStyle>
+				<color>40ffffff</color>
+			</PolyStyle>
+			<BalloonStyle>
+			</BalloonStyle>
+		</Style>
+	</gx:CascadingStyle>
+	<Placemark id="06DD4A8F32410BEC9576">
+		<name>Аккудык, трава+почва, ТС#2</name>
+		<LookAt>
+			<longitude>72.37556720000001</longitude>
+			<latitude>53.1441394</latitude>
+			<altitude>167.7823193698298</altitude>
+			<heading>146</heading>
+			<tilt>0</tilt>
+			<gx:fovy>35</gx:fovy>
+			<range>500</range>
+			<altitudeMode>absolute</altitudeMode>
+		</LookAt>
+		<styleUrl>#__managed_style_08394F308D41686124F9</styleUrl>
+		<ExtendedData>
+			<SchemaData schemaUrl="#__managed_schema">
+				<SimpleData name="1B04A948A3410BEC9576">20</SimpleData>
+			</SchemaData>
+		</ExtendedData>
+		<gx:Carousel>
+			<gx:Image kml:id="hosted_image_QUFqUWJSNkNuQnRoenBkRzl4V3FiMEVuZllQbm4wWVdCUWdvTTFtSjdQZVhnQnZZME1MTEtRYVhEcHhtOWtmblNWU0dWYk1jKzZuZk9rbkhQNVh3SW9XKzlJZElzR0RFSUJYYkZNRjlmL2tNZU03MS83Q3BMQ211TVMzeVRpREJGc1BaZmlGakNFczJUdDhMTUNSUlNyQkFjYWRlMndQQTFkLzFzbG9LcE81MFUySmd2bFg4eUZtRjYyWk95bWtWZ1pSRDJzRkVMS0F3Q1pMRDNBVlRUNCtQNjhXdFN4WG9qT2pXbmRkUmhsTHN2ZTVtZVRkbzhZNUF1NWJLbGhsQUIxWGhSdHc9">
+				<gx:imageUrl>https://earth.usercontent.google.com/hostedimage/e/*/4AAjQbR7lA4Y8F--hG6-sGfPfrl-8u0G0c5aQS5KqQxMFDgKIqF-4ITlZP8XjhwQuubp-2NXXBaVfk627NcujQ_FyxZd5Bl9-JEjRMlVXNdQTsjf-jUHU49GZ4JJIoW0688wD_6OsNMKjAnm9C21Tlki72EQwFhYBuFajzgHLw1oDN-6NMxxzxJFhsJgn5YWBfhlkxzom11UM4sMwoPybnehf7ZD6Sy3gkmWOeN8w3fcDPKPueSIwLYzWosrNTw0kcEeldTkfVyW_P4cDzW2_?fife=s{size}</gx:imageUrl>
+			</gx:Image>
+		</gx:Carousel>
+		<Point>
+			<extrude>1</extrude>
+			<coordinates>72.37556720000001,53.1441394,168.0551823223884</coordinates>
+		</Point>
+	</Placemark>
+	<Placemark id="0DA271C450410C1022C0">
+		<name>Аккудык, вода-скважина, ТС#2</name>
+		<LookAt>
+			<longitude>72.3460096</longitude>
+			<latitude>53.1324999</latitude>
+			<altitude>170.2162788789153</altitude>
+			<heading>266</heading>
+			<tilt>0</tilt>
+			<gx:fovy>35</gx:fovy>
+			<range>500</range>
+			<altitudeMode>absolute</altitudeMode>
+		</LookAt>
+		<styleUrl>#__managed_style_080317712D41686124F5</styleUrl>
+		<Point>
+			<coordinates>72.3460096,53.1324999,170.2162788789153</coordinates>
+		</Point>
+	</Placemark>
+	<Placemark id="050D4BFA67410C5FFE39">
+		<name>Аккудык, трава+почва, ТС#3</name>
+		<LookAt>
+			<longitude>72.20279755351446</longitude>
+			<latitude>53.07634436230401</latitude>
+			<altitude>194.0209170699278</altitude>
+			<heading>351.0000097848576</heading>
+			<tilt>0</tilt>
+			<gx:fovy>35</gx:fovy>
+			<range>500.5289729515789</range>
+			<altitudeMode>absolute</altitudeMode>
+		</LookAt>
+		<styleUrl>#__managed_style_08D81EF2C741686124F7</styleUrl>
+		<gx:Carousel>
+			<gx:Image kml:id="hosted_image_QUFqUWJSN2dkK25SVCtFanpzZVFiTFhneDVxKys4UmhUdytyaGJJbTRPMnFmbFJWeUZpSU1rbHVhcEtlbWFGMFZubTdUenNQMllheEFBRUplWFlKWnpDZzlVeHBnVm02V3FuYWx1RFZ4VVJENEdHMEQ0eVQrNldzUTZHeDRDU2JKKytkeVZ3bjk5ZTdGYWFUVlVjWDBrVVhmbXcvKzhzQzJaVmVHZHJ0TFUwNWJvbDVkaS9MVFU0OGc0RkRNTVppdDh6Q21VRlpjbzVEcHAxT3kxNS9NcG5aM3ZTcE1taUtmZkxZM0FmeFNEemsrSUNiaHVkN1JTZTRtdWUzY2NQZW1sQU5RNU09">
+				<gx:imageUrl>https://earth.usercontent.google.com/hostedimage/e/*/4AAjQbR5TnkpZEGC_oAlHp8qFH6tO7UBOd8FvLrotzKOqc9kEl4vEu70QiGjqSvrQDejKNG7x7Dvhl87PvIh2xwzAa7Oi0S_xHRoUrOsK-LfrkM-dS9br5X4OchM-BQpda1cG8TsA3J69Doe01wYIyKeJpDFRoJS_Fr7gILUMkG0BraECcB8K3bfS7_wgrpL5TUPDlVek1oOBhFz1ip9EkOAzjomRmRSYOO0W2JHu3d1js1pGNvvx3wLytANSNm4vlqZ0uEmYMYAZUIj6uR2H?fife=s{size}</gx:imageUrl>
+			</gx:Image>
+		</gx:Carousel>
+		<Point>
+			<coordinates>72.20279755351446,53.07634436230401,194.0209170699278</coordinates>
+		</Point>
+	</Placemark>
+	<Placemark id="078A7CA2DE410C888A98">
+		<name>Аккудык, вода, ТС#4</name>
+		<LookAt>
+			<longitude>72.10532709919202</longitude>
+			<latitude>53.04109235222139</latitude>
+			<altitude>197.4345066252686</altitude>
+			<heading>359.9999562517486</heading>
+			<tilt>0</tilt>
+			<gx:fovy>35</gx:fovy>
+			<range>2922.43383594614</range>
+			<altitudeMode>absolute</altitudeMode>
+		</LookAt>
+		<styleUrl>#__managed_style_08A078F8BD41686124FA</styleUrl>
+		<gx:Carousel>
+			<gx:Image kml:id="hosted_image_QUFqUWJSNGN4TGlITTB3QWhvVm5tNENOTGFGZ05vRUUvVXdKbHl6L0VSczJ0bHZ0TVlVc0NDSkRFa2NVT3kzTWdqNGJNcy9pbldtM3ZSZ1VpZjFFTGYxK0RwRHcydWhpbGo4NkYzRUYxQnBHUWtqYVAyZzRDOUJ5VHdLbXRWUHI2OTRCdXRxaFlRMXVqd2ZRajBpMjdTR3BFKzhSUytDRlZvV3lKeHpnWnlTeU1BamUrYjBFRHpaRWJQeHd5WHJqd1VOSWZibjFFdUJMWmNtWGJTcWZyYy9POFpSSmZJdmFBS3hVUTFvN2hLL3ZLTnRDelJvemRxSy9wY1J4TktZcTFrSmhjWnM9">
+				<gx:imageUrl>https://earth.usercontent.google.com/hostedimage/e/*/4AAjQbR7qogPZ1F1ONMR4z4QulAorJc018QGGv2wd6hgOnqJA6JwNbWrKSBnIHJtDrTJdmo5RMMOJXPnlSCRcFkQWc3fFraSdDGyqIfiLNCvxIoB0UgR0L9gz1fqa18yhSrcgp_1pGX5EbdPjJowA8N26PCxov-ubqkCAluQAwq2TjuQ810edU6PvvW8pKvV2c2SwgW67oudaidlI1yZfF6T1awUhyWrIVx7dwRsgdbZ1Mg-XjpEi_gj6aka62afA9q1MesbNEqtp8Ce44jfQ?fife=s{size}</gx:imageUrl>
+			</gx:Image>
+		</gx:Carousel>
+		<Point>
+			<coordinates>72.10532709919202,53.04109235222139,197.4345066252686</coordinates>
+		</Point>
+	</Placemark>
+	<Placemark id="071EC48AA6410C88FAA5">
+		<name>Аккудык, трава+почва, ТС#4</name>
+		<LookAt>
+			<longitude>72.10316522200833</longitude>
+			<latitude>53.04191181563195</latitude>
+			<altitude>199.3473968533997</altitude>
+			<heading>23.55391681413502</heading>
+			<tilt>0</tilt>
+			<gx:fovy>35</gx:fovy>
+			<range>526.2274607281142</range>
+			<altitudeMode>absolute</altitudeMode>
+		</LookAt>
+		<styleUrl>#__managed_style_08D81EF2C741686124F7</styleUrl>
+		<gx:Carousel>
+			<gx:Image kml:id="hosted_image_QUFqUWJSNlQ3L0JyU1BabTFxSXRxM2V5M1lIT3c3K1Q5UzlaUERROFpSdFlMb0xoWFhEeVRaYjcvMnlZalRpeVBvUnVyeVE3NmJhMWcyN0JiTWhnUXo0VytXK0liUUpWbS92bUxTVmd0VVBkbXZxT0tUeTdWcEpJOXpubVJIS2hBNUFjTUY3RTMzMExmRTlSZlExdFlRaFAxU2t0Si9MQUFuVjhReGcwbWdBNUQ5NjV4dE1xc3Q1WjNQWm9LK2MvVGoyQ1Q3c01taTkzVUhGNHV3NWg1L2pncjh4L2taLzI5UXhGR0FKYmF6VUp1NjBJcEJ2ZHVtc1F4bzFRakZCVCs3Wm5wZk09">
+				<gx:imageUrl>https://earth.usercontent.google.com/hostedimage/e/*/4AAjQbR7lK4CS3cvtTP5aaiD66itaFewrnXVAmgMGXxb-KDkjtl3koTomixhcBg1jWgVEXMXaIx0DjaM0EgXih2xh2xmHHVq2JBPi1Ywo8xA7SPgfhJpz-qhOzuuzRZ3ou1_M-anal6WPVWYcYnz_WEzkAokL6pF28LBK75yQV1SWSEOkUGYzgkNU9r9tXAszU25hASowTv3M--XT7rWYaNZdXDIEWb-Ep2cF7nVjOTY8GsImqjmqrbylxmZ75fcdFUn0RaYfkwFzesbUFvCF?fife=s{size}</gx:imageUrl>
+			</gx:Image>
+		</gx:Carousel>
+		<Point>
+			<coordinates>72.10316522200833,53.04191181563195,199.3473968533997</coordinates>
+		</Point>
+	</Placemark>
+	<Placemark id="029CDEF4E6410D9093C7">
+		<name>Аккудык, вода, ТС#3</name>
+		<LookAt>
+			<longitude>72.21449669383787</longitude>
+			<latitude>53.08111705410821</latitude>
+			<altitude>187.9860070797601</altitude>
+			<heading>86.61360352288816</heading>
+			<tilt>0</tilt>
+			<gx:fovy>35</gx:fovy>
+			<range>2891.951398951351</range>
+			<altitudeMode>absolute</altitudeMode>
+		</LookAt>
+		<styleUrl>#__managed_style_080317712D41686124F5</styleUrl>
+		<Point>
+			<coordinates>72.21449669383787,53.08111705410821,187.9860070797601</coordinates>
+		</Point>
+	</Placemark>
+	<Placemark id="02F7ED1C86410D94C2CC">
+		<name>Аккудык, вода, ТС#1</name>
+		<description><![CDATA[<div>Точка отбора образца воды.<br></div><div>Водоем, используемый для поения скота.&nbsp;<br></div><div>mS=2.7<br></div><div>Температура во время сбора образцов составляла 27.1°С.&nbsp;<br></div>]]></description>
+		<LookAt>
+			<longitude>72.4502083</longitude>
+			<latitude>53.18596110000001</latitude>
+			<altitude>0</altitude>
+			<heading>0</heading>
+			<tilt>0</tilt>
+			<gx:fovy>35</gx:fovy>
+			<range>1455.090495249609</range>
+			<altitudeMode>relativeToGround</altitudeMode>
+		</LookAt>
+		<styleUrl>#__managed_style_03E45F28D141686124FB</styleUrl>
+		<Point>
+			<extrude>1</extrude>
+			<coordinates>72.4502083,53.1859611,0</coordinates>
+		</Point>
+	</Placemark>
+	<Placemark id="00F01676FB410DA22AD6">
+		<name>Аккудык, трава+почва, ТС#1</name>
+		<LookAt>
+			<longitude>72.4509790668141</longitude>
+			<latitude>53.18469803411231</latitude>
+			<altitude>143.2013379139215</altitude>
+			<heading>259.3807813067546</heading>
+			<tilt>0</tilt>
+			<gx:fovy>35</gx:fovy>
+			<range>307.0151398169764</range>
+			<altitudeMode>absolute</altitudeMode>
+		</LookAt>
+		<styleUrl>#__managed_style_08D81EF2C741686124F7</styleUrl>
+		<gx:Carousel>
+			<gx:Image kml:id="hosted_image_QUFqUWJSN2htNzQvUXk3WjJBaWZYR2NKV2ZTZitCV0h1aEI1K3JlOUNpZHlSb0V3YlVrVXdzUDJ0ZVNFNWRtcVRwOWFHZkJwUkNmajBnd0lRZWpXOXFoOElmZzF0RDlSVG8zS3BQVHpkYjNpNFhoQlpaREtWd2N3RXNEOXhNeGh1Q3lzQXc4WFVUaTNYN1BaWXFkZG8rMUdscUdldnVDTHR3dlF4bG1kaUptZjE4K05LSjZRNE40QzVZK2Z4cENrWnZZVGhqUVRTeHdMSEdpeHYzNHJ3cVUwb2RsdTVhRk5DbWd1NFVrOWorNG9CdktiZUJreW1GSG1hVjhVT1B2cjdxNUdEL3c9">
+				<gx:imageUrl>https://earth.usercontent.google.com/hostedimage/e/*/4AAjQbR4rAgzW1Rl3aDeHKIIChQREPAw9_tDMfmZRQaaFGJiFGTIjLAfyFJFK63up4FqlUMshHbZC84EcylbnvHe3hjUw0iFW1l8nLTj-ipd_Ehshp1Z_V3oGTZjPe1GM9088goUj2vZj6GaLlpXX1EsOY4SIghSkhm0gUXjJUGgrBfKFkwrWXdPTzQzOWv9BwX7XNjVi2FCRZdmDAP8XJ8xrb-XzQbzBfVMz4WA6rXHRw1noLw_ufAEdnRud_7J4FAHlhPge6ocgKJBKtndL?fife=s{size}</gx:imageUrl>
+			</gx:Image>
+		</gx:Carousel>
+		<Point>
+			<coordinates>72.4509790668141,53.18469803411231,143.2013379139215</coordinates>
+		</Point>
+	</Placemark>
+	<Placemark id="02A25B2156410DA5BF91">
+		<name>Аккудык, маршрут ТС#1-ТС#4</name>
+		<LookAt>
+			<longitude>72.10285776496708</longitude>
+			<latitude>53.04345476637845</latitude>
+			<altitude>195.2299477906308</altitude>
+			<heading>2.708534937160379</heading>
+			<tilt>0</tilt>
+			<gx:fovy>30.00005483273771</gx:fovy>
+			<range>18827.86336717894</range>
+			<altitudeMode>absolute</altitudeMode>
+		</LookAt>
+		<styleUrl>#__managed_style_04607AD4AB41686124FC</styleUrl>
+		<LineString>
+			<coordinates>
+				72.4510075343761,53.18465464336106,0 72.45044439237066,53.18375398520327,0 72.44861356488686,53.18264991097384,0 72.44454646520494,53.18197675459001,0 72.44263407555138,53.18154088960488,0 72.44062641667323,53.18049196928509,0 72.43624989835457,53.17620868058653,0 72.43243710163482,53.17268804062129,0 72.4306504270925,53.17167094314433,0 72.42417006589788,53.1686972621162,0 72.41121123813002,53.16125547888449,0 72.395201233846,53.15394791074914,0 72.38633415798265,53.14979292195127,0 72.38281828443846,53.14857070266686,0 72.37974930346013,53.14643398128242,0 72.37587041337164,53.14421802985441,0 72.36632719665951,53.13977790466168,0 72.36146790527548,53.13630292681626,0 72.35837294599811,53.13431370780567,0 72.35180332721799,53.13187590621875,0 72.34612913442385,53.13141802395,0 72.34550779146019,53.13267832531542,0 72.33498719660987,53.13175759435068,0 72.32471136415111,53.13216238695456,0 72.30091331343881,53.11271394610011,0 72.27684473860809,53.10339234920557,0 72.21557050874753,53.08146688659962,0 72.20287525084099,53.07695158791111,0 72.14987790278654,53.06447680863082,0 72.14162745613602,53.06096689379821,0 72.13182993000612,53.05956475695907,0 72.10276113206169,53.04341822648054,0 
+			</coordinates>
+		</LineString>
+	</Placemark>
+	<GroundOverlay id="0A0970DB24410DA956DE">
+		<name>Наложение без названия</name>
+		<styleUrl>#__managed_style_03E45F28D141686124FB</styleUrl>
+		<Icon>
+			<href>data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw==</href>
+		</Icon>
+		<LatLonBox>
+			<north>85</north>
+			<south>-85</south>
+			<east>180</east>
+			<west>-180</west>
+		</LatLonBox>
+		<gx:MapTilePyramid>
+			<Link>
+			</Link>
+			<gx:minLevel>0</gx:minLevel>
+			<gx:maxLevel>22</gx:maxLevel>
+		</gx:MapTilePyramid>
+	</GroundOverlay>
+	<Placemark id="037F0D028441103D974B">
+		<name>Акбулак, вода, ТС#1</name>
+		<LookAt>
+			<longitude>72.40388280000001</longitude>
+			<latitude>53.4071614</latitude>
+			<altitude>116.8555468427175</altitude>
+			<heading>62.49081039428711</heading>
+			<tilt>0</tilt>
+			<gx:fovy>35</gx:fovy>
+			<range>500</range>
+			<altitudeMode>absolute</altitudeMode>
+		</LookAt>
+		<styleUrl>#__managed_style_08A078F8BD41686124FA</styleUrl>
+		<ExtendedData>
+			<SchemaData schemaUrl="#__managed_schema">
+				<SimpleData name="0B0915CCAC41103D974D">5</SimpleData>
+			</SchemaData>
+		</ExtendedData>
+		<gx:Carousel>
+			<gx:Image kml:id="hosted_image_QUFqUWJSNzlIQXVRRnE0eW9ud2daME53eEdlTlc3VW1FdEhxVE94aVk1NEtFNk9ZWjFmTVlrcWdzUmI1c2t2Wk5lam53MTdlRWJMclhEUHlUMDdjU1c4M0RXa01FQVZhZHk0alJDQnYwZG02WDF0WW9Kd0NxMUw5OGc3UlFkRUp1alpMYlROWkxZb2pReHNOd3NnSlhPZ0lHMy90L3hUSHlrajhJLzN3RFNrcGViaGJBZXZnM1NnVFBHZlFlKzFtS290UUFLcUs0bHFFZDVwQWV5Q3dDZ2Q1ZVFzNzhwdXo5TS9lV3pjd1ppQTdYbzE0TkdIUUFpdzNMNFIxWkRyUnlsaTYvYjQ9">
+				<gx:imageUrl>https://earth.usercontent.google.com/hostedimage/e/*/4AAjQbR4BcPb6-51QgiLp1SaQzxnAliRoODLSKLOZpx6u4LO6PP3vn0SgbLRqm7bQ3AgNU3E83Shzd8g3nfMTF14B0l-1U2XtgrmGVDgv7jjd695Rsu7QdphbBlrZJ8GSS90LitBQtEbx5hCgh6zvdWwADdz851rI0_k7XR5hmBASPJpufWlcy7BEhTD1acOTIPYMbv9ZzGaQ_YixayMS3wBnBqUhU66NxY9rDWfX37KC0nwY_WF7mM2pjz-hgP3gJOKZUgbZy1fhrCQch8Hv?fife=s{size}</gx:imageUrl>
+			</gx:Image>
+		</gx:Carousel>
+		<Point>
+			<extrude>1</extrude>
+			<coordinates>72.40388280000001,53.40716139999999,116.8555468427175</coordinates>
+		</Point>
+	</Placemark>
+	<Placemark id="00467F9CDF411040C1AE">
+		<name>Акбулак, трава+почва, ТС#1</name>
+		<LookAt>
+			<longitude>72.4047686</longitude>
+			<latitude>53.4081089</latitude>
+			<altitude>119.4404622219471</altitude>
+			<heading>159.9756164550781</heading>
+			<tilt>0</tilt>
+			<gx:fovy>35</gx:fovy>
+			<range>500</range>
+			<altitudeMode>absolute</altitudeMode>
+		</LookAt>
+		<styleUrl>#__managed_style_0C0CEFF7BA41686124F4</styleUrl>
+		<Point>
+			<coordinates>72.4047686,53.4081089,119.4404622219471</coordinates>
+		</Point>
+	</Placemark>
+	<Placemark id="0AB1E385E64110661B60">
+		<name>Акбулак, вода, ТС#2</name>
+		<LookAt>
+			<longitude>72.3538815</longitude>
+			<latitude>53.3552504</latitude>
+			<altitude>116.2303393162656</altitude>
+			<heading>111.2224502563477</heading>
+			<tilt>0</tilt>
+			<gx:fovy>35</gx:fovy>
+			<range>500</range>
+			<altitudeMode>absolute</altitudeMode>
+		</LookAt>
+		<styleUrl>#__managed_style_08A078F8BD41686124FA</styleUrl>
+		<ExtendedData>
+			<SchemaData schemaUrl="#__managed_schema">
+				<SimpleData name="01F764B3304110661B63">5</SimpleData>
+			</SchemaData>
+		</ExtendedData>
+		<gx:Carousel>
+			<gx:Image kml:id="hosted_image_QUFqUWJSNUdKR1ZCcFNMQ2pzWUJreWFRalR5NVVrTUVwMFJRQW1Ndk8rMTc0MndWNGVwNjJqczZ4TkoyMFNSZU15aUVFZlFteDVsa0lFVHo1TWpLZnJkVk91cGpWcHk1YkxQK2RLMVdKRTJIbzE5UFY1aWZ1QXRqUVNhSjJCL1NhVEd2cmMraS9jaHhiYXBCQytRaUZiNThLaUtZeVFvWHh6WUt0VW14SlZCendVemN5N245QUdaMi9nUkpPdzExZ1lPOGhsVXhBMUt2S3E0ZktUUlE4QmQvY3JmcytxbHpQSUVhNHVGdlJzYWdNT0tNN2dYY1k4VVROT0Ntdy9kLzdERXlRRXM9">
+				<gx:imageUrl>https://earth.usercontent.google.com/hostedimage/e/*/4AAjQbR6fZit-UfajQha5t_m3Y95LYSCo2GWhRM4bZd-seWYgeb855yHia8Y1dR50CJLQAsw3MKBOXhDqq5W2Kf_lz02WMrMRYK3vBnlMPuEp2bkSsnEF766kJalCaxq5qZXT0EQJMKV71shk4nkJYeStriHCpk19gCSfvT8d02LG4lvVQ4QsPCuUmEbX8Sj5vapT8w8HWfPRc8Rv_S8p9VNA1VMUlWekl16go9FcagygQ6nsZXvaf1f0OeFSFF0KnpnOdV9k4p1M8_Oav1dt?fife=s{size}</gx:imageUrl>
+			</gx:Image>
+		</gx:Carousel>
+		<Point>
+			<extrude>1</extrude>
+			<coordinates>72.3538815,53.3552504,116.2303393162656</coordinates>
+		</Point>
+	</Placemark>
+	<Placemark id="0BA865F86F4110675AC8">
+		<name>Акбулак, трава+почва, ТС#2</name>
+		<LookAt>
+			<longitude>72.3534502</longitude>
+			<latitude>53.3555399</latitude>
+			<altitude>116.2139738742188</altitude>
+			<heading>322.5452880859375</heading>
+			<tilt>0</tilt>
+			<gx:fovy>35</gx:fovy>
+			<range>500</range>
+			<altitudeMode>absolute</altitudeMode>
+		</LookAt>
+		<styleUrl>#__managed_style_0C0CEFF7BA41686124F4</styleUrl>
+		<Point>
+			<coordinates>72.3534502,53.3555399,116.2139738742188</coordinates>
+		</Point>
+	</Placemark>
+	<Placemark id="0B2D54CB7041109F9BF6">
+		<name>Акбулак, вода, ТС#3</name>
+		<LookAt>
+			<longitude>72.7520999</longitude>
+			<latitude>53.4038706</latitude>
+			<altitude>94.33123391984606</altitude>
+			<heading>89</heading>
+			<tilt>0</tilt>
+			<gx:fovy>35</gx:fovy>
+			<range>500</range>
+			<altitudeMode>absolute</altitudeMode>
+		</LookAt>
+		<styleUrl>#__managed_style_080317712D41686124F5</styleUrl>
+		<ExtendedData>
+			<SchemaData schemaUrl="#__managed_schema">
+				<SimpleData name="18710BF2D341109F9BF6">9</SimpleData>
+			</SchemaData>
+		</ExtendedData>
+		<Point>
+			<extrude>1</extrude>
+			<coordinates>72.7520999,53.4038706,94.13374733979963</coordinates>
+		</Point>
+	</Placemark>
+	<Placemark id="0AEB04DBBC4110AD5667">
+		<name>Акбулак, трава+почва, ТС#3</name>
+		<LookAt>
+			<longitude>72.75335111996579</longitude>
+			<latitude>53.40382052195579</latitude>
+			<altitude>94.64509514422826</altitude>
+			<heading>33.22288569129984</heading>
+			<tilt>0</tilt>
+			<gx:fovy>35</gx:fovy>
+			<range>678.6966625964852</range>
+			<altitudeMode>absolute</altitudeMode>
+		</LookAt>
+		<styleUrl>#__managed_style_0C0CEFF7BA41686124F4</styleUrl>
+		<ExtendedData>
+			<SchemaData schemaUrl="#__managed_schema">
+				<SimpleData name="1ABC2A35724110AD5667">7</SimpleData>
+			</SchemaData>
+		</ExtendedData>
+		<Point>
+			<extrude>1</extrude>
+			<coordinates>72.7537774,53.40406209999999,96.02672752768557</coordinates>
+		</Point>
+	</Placemark>
+	<Placemark id="0AF78E408E4110D2E283">
+		<name>Акбулак, вода, ТС#4</name>
+		<LookAt>
+			<longitude>72.55952357172976</longitude>
+			<latitude>53.42377054370775</latitude>
+			<altitude>117.2949916962128</altitude>
+			<heading>222.7648573369</heading>
+			<tilt>0</tilt>
+			<gx:fovy>35</gx:fovy>
+			<range>499.6970825553581</range>
+			<altitudeMode>absolute</altitudeMode>
+		</LookAt>
+		<styleUrl>#__managed_style_08A078F8BD41686124FA</styleUrl>
+		<gx:Carousel>
+			<gx:Image kml:id="hosted_image_QUFqUWJSNDFjTnZmMlUvV3pxN3VITjNNRTZWcUVsaVgwVlFhaHBOTUZyYVNBMHVUMHdVZWJLYXp1MHpsb0tDbXZYN09HL1lqZkhzWjNLNllFT3Raa0JVM2w4MUJaQnNIdnJRbEJmYzFPQXo5YnJpd05RbUMxQ0tWSldLUzkyM3JQWHFyODJXSkx0b016R0pYRVpDRWNXRG5SREc5WSt2TUNWc0YxUzRZVGd5YWdhdWVQZXZjRDFsdGhRWTd0WmN0WmZvcjZaYU9TV3NsWlpaWHNmaHpNM05FL0crZFRJd3ZJVDREZkxqLy84MHVOa3hwTjM5bW1sekpnQzdVeTVLa2tTVWgwTE09">
+				<gx:imageUrl>https://earth.usercontent.google.com/hostedimage/e/*/4AAjQbR74Or-Gj3939ciX7gP_4V0RSGTfUIDnCjniVT-UEUtm3MD9x61vwROoL1NCmkWzvaQtLA64gn5MsWdotRt4cLQleC_BS8QqdQ-_mhsSl5suMcWhhnkPWMlMVZbXZW4wb9VS2z8D6ciiHsgwynIcwsSLQKPsKsmu1gwgDdLPGw8PS4rjpXzmWxJO1c23C0ltnMN0BtwSL-eETVQig7Oix9300y_zyjrY4Kz-H2KZRdOByz_OKgqWyuSMc-6GRjtxuyebd4gtwwvn54Q4?fife=s{size}</gx:imageUrl>
+			</gx:Image>
+		</gx:Carousel>
+		<Point>
+			<coordinates>72.55952357172976,53.42377054370775,117.2949916962128</coordinates>
+		</Point>
+	</Placemark>
+	<Placemark id="0F96116A414110D3AEB8">
+		<name>Акбулак, трава+почва, ТС#4</name>
+		<LookAt>
+			<longitude>72.56022586378491</longitude>
+			<latitude>53.42432079924442</latitude>
+			<altitude>118.1838079776712</altitude>
+			<heading>36.15772127449257</heading>
+			<tilt>0</tilt>
+			<gx:fovy>35</gx:fovy>
+			<range>499.9999999999999</range>
+			<altitudeMode>absolute</altitudeMode>
+		</LookAt>
+		<styleUrl>#__managed_style_0C0CEFF7BA41686124F4</styleUrl>
+		<Point>
+			<coordinates>72.56022586378491,53.42432079924442,118.1838079776712</coordinates>
+		</Point>
+	</Placemark>
+	<Placemark id="0134101E4B41115CB071">
+		<name>Кешкенеколь, вода, ТС#1</name>
+		<LookAt>
+			<longitude>72.31322517416601</longitude>
+			<latitude>53.64900659553181</latitude>
+			<altitude>133.3744893655099</altitude>
+			<heading>0</heading>
+			<tilt>0</tilt>
+			<gx:fovy>35</gx:fovy>
+			<range>2989.948328673199</range>
+			<altitudeMode>absolute</altitudeMode>
+		</LookAt>
+		<styleUrl>#__managed_style_08A078F8BD41686124FA</styleUrl>
+		<gx:Carousel>
+			<gx:Image kml:id="hosted_image_QUFqUWJSNTZ5enNIdWIxTHYyTHJLV1dQbVlsSGFjZjJwcDNobmphcjA3VUdjLzluNkhGaWJxa2Y4L3Yyck1GcFNmOGtaU0o5bG54b0pBMTRIQWlsLytBSmxld1pFaitkRHlNUCs2MkNhZE1aUk80S1ZFS1p0OENUc283SWsza3dGZmRpc3ZydDNBekl5SUpWaFB6djVtSWd0MUZwK2RibVFFb3ExZDZpdngyS3RydzNuakd3aXJGUStNSmFTcWdyWUVhblVaVkhQQ2Q5NlJtZmhrU00rdXdqdm5hR1RPcUhWVmpHc2NudEkzRUkza2c0ZU92UFRNREdOd3NzWjA4VkNVcUFCVmM9">
+				<gx:imageUrl>https://earth.usercontent.google.com/hostedimage/e/*/4AAjQbR5R6VIQa6lc5fw9v9T1VzeLBNeuzJsG3tyLi8wpTcsrTB18f8Jquhy0Dtq775afVTVyiD9-ByrbLBGZHGasbd3wTYp2gFaFYF9Df_pmcvV_c2QqMgUXTrfgY2AwCa95icZxoYESvGKAA2vF0ZPkG0JOmZ5VozOtIxDQMD6SNgaVHh7Li-VftAeq-REcX1EVPMeHhfatMOZfxf6ITfD2OJ2CRJQMqu6t-YPbyqWlvN_21NxeSguIwCBKOevyb8I3gS6ew94MIwgQXqF6?fife=s{size}</gx:imageUrl>
+			</gx:Image>
+		</gx:Carousel>
+		<Point>
+			<coordinates>72.31322517416601,53.64900659553181,133.3744893655099</coordinates>
+		</Point>
+	</Placemark>
+	<Placemark id="0371DBC8EC411164B396">
+		<name>Кешкенеколь, трава + почва, ТС#1</name>
+		<LookAt>
+			<longitude>72.31311672040934</longitude>
+			<latitude>53.64944333731317</latitude>
+			<altitude>132.2769179475736</altitude>
+			<heading>91.47348180184866</heading>
+			<tilt>0</tilt>
+			<gx:fovy>35</gx:fovy>
+			<range>536.4025659126493</range>
+			<altitudeMode>absolute</altitudeMode>
+		</LookAt>
+		<styleUrl>#__managed_style_0C0CEFF7BA41686124F4</styleUrl>
+		<ExtendedData>
+			<SchemaData schemaUrl="#__managed_schema">
+				<SimpleData name="1F8E7FA0EA411164B396">4</SimpleData>
+			</SchemaData>
+		</ExtendedData>
+		<Point>
+			<extrude>1</extrude>
+			<coordinates>72.3133321,53.6495102,133.038572916734</coordinates>
+		</Point>
+	</Placemark>
+	<Placemark id="0BA766FF4B41118E29C8">
+		<name>Кешкенеколь, трава+почва, ТС#2</name>
+		<LookAt>
+			<longitude>72.3109291</longitude>
+			<latitude>53.6710325</latitude>
+			<altitude>132.9972766421521</altitude>
+			<heading>282.1237487792969</heading>
+			<tilt>0</tilt>
+			<gx:fovy>35</gx:fovy>
+			<range>500</range>
+			<altitudeMode>absolute</altitudeMode>
+		</LookAt>
+		<styleUrl>#__managed_style_0C0CEFF7BA41686124F4</styleUrl>
+		<ExtendedData>
+			<SchemaData schemaUrl="#__managed_schema">
+				<SimpleData name="1329F71A4C41118E29C8">6</SimpleData>
+			</SchemaData>
+		</ExtendedData>
+		<Point>
+			<extrude>1</extrude>
+			<coordinates>72.3109291,53.6710325,132.9972766421521</coordinates>
+		</Point>
+	</Placemark>
+	<Placemark id="0F4447AA134111A5B582">
+		<name>Кешкенеколь, вода, ТС#2</name>
+		<LookAt>
+			<longitude>72.31156929717042</longitude>
+			<latitude>53.6762845604855</latitude>
+			<altitude>130.7811200870615</altitude>
+			<heading>0</heading>
+			<tilt>0</tilt>
+			<gx:fovy>35</gx:fovy>
+			<range>498.0781272400782</range>
+			<altitudeMode>absolute</altitudeMode>
+		</LookAt>
+		<styleUrl>#__managed_style_080317712D41686124F5</styleUrl>
+		<Point>
+			<coordinates>72.31156929717042,53.6762845604855,130.7811200870615</coordinates>
+		</Point>
+	</Placemark>
+	<Placemark id="0D4F8550484111B73B9C">
+		<name>Кешкенеколь, вода, ТС#3</name>
+		<LookAt>
+			<longitude>72.364058</longitude>
+			<latitude>53.6569998</latitude>
+			<altitude>123.469553027611</altitude>
+			<heading>0</heading>
+			<tilt>0</tilt>
+			<gx:fovy>35</gx:fovy>
+			<range>500</range>
+			<altitudeMode>absolute</altitudeMode>
+		</LookAt>
+		<styleUrl>#__managed_style_080317712D41686124F5</styleUrl>
+		<Point>
+			<coordinates>72.364058,53.6569998,123.469553027611</coordinates>
+		</Point>
+	</Placemark>
+	<Placemark id="0B714D123F4111BD89B3">
+		<name>Кешкенеколь, трава+вода, ТС#3</name>
+		<LookAt>
+			<longitude>72.36261949999999</longitude>
+			<latitude>53.6576228</latitude>
+			<altitude>124.0485166160252</altitude>
+			<heading>291.6519775390625</heading>
+			<tilt>0</tilt>
+			<gx:fovy>35</gx:fovy>
+			<range>500</range>
+			<altitudeMode>absolute</altitudeMode>
+		</LookAt>
+		<styleUrl>#__managed_style_0C0CEFF7BA41686124F4</styleUrl>
+		<ExtendedData>
+			<SchemaData schemaUrl="#__managed_schema">
+				<SimpleData name="1631DA0ABF4111BD89B3">3</SimpleData>
+			</SchemaData>
+		</ExtendedData>
+		<Point>
+			<extrude>1</extrude>
+			<coordinates>72.36261949999999,53.6576228,124.0485166160252</coordinates>
+		</Point>
+	</Placemark>
+	<Placemark id="0B0C04DC2F4111EA3843">
+		<name>Кишкенеколь, вода, ТС#4</name>
+		<LookAt>
+			<longitude>72.38517833829222</longitude>
+			<latitude>53.61300228705606</latitude>
+			<altitude>118.2934629309693</altitude>
+			<heading>0</heading>
+			<tilt>0</tilt>
+			<gx:fovy>35</gx:fovy>
+			<range>501.2309760809876</range>
+			<altitudeMode>absolute</altitudeMode>
+		</LookAt>
+		<styleUrl>#__managed_style_08A078F8BD41686124FA</styleUrl>
+		<gx:Carousel>
+			<gx:Image kml:id="hosted_image_QUFqUWJSNndpL3pLYnJtWUs4TTVRbFNwdmVOeEZ6ZVlKK3dIYllNd21WNXMyRWpDdnRoRFNJSkREZHQ4eGc3SVIxa29qZGt4TjlIUE8wY08rVU9nMkM5RmpUbGFsWkZESHJXakZ6bE1FNGxDRThMV2FZVDZzMC9Rbm1oSXBXR2hPWkxZbjFkTkk5TFJyZEI3amNYaERxa2o4WHNoMmFzWFhiQ1pGaGk2Um5YRzY3cVArbUUzd3hKVkVaaloxSXloTmFKN3UzQVNjZExEZnhIMWFiajMzMElzRHpqYkdNUWMyTHdyUjVXdlZwQnBhTlB5S0dYc1JrZ3l0cTB3djVkWG9YZzFkUmc9">
+				<gx:imageUrl>https://earth.usercontent.google.com/hostedimage/e/*/4AAjQbR4Dom4gSS307AhNNyM2VyrReMiJqm3LnqZ2bThx6X2yof9c_hjvY99wonCsf2rcpQ7snK2ipj3mQpFMq3wApoKoh_rsBWqLrIjKyhM6FXZVydTCB3rfJvM5BJIai54xYpms0VO-rLLqndT4pXpWsRYcl-TOneSyZiAzSwv3TjVPxRuJdFAgQ2XuCdw6QVJIpTOz5pZt5_vUjKv7WJDANAI1rFDBByCrq3L2snNCI6pTdvh5DSJv3QBl1ympkElGqonVD1OuFU8Yg9d7?fife=s{size}</gx:imageUrl>
+			</gx:Image>
+		</gx:Carousel>
+		<Point>
+			<coordinates>72.38517833829222,53.61300228705606,118.2934629309693</coordinates>
+		</Point>
+	</Placemark>
+	<Placemark id="0E75B534694111ED3501">
+		<name>Кешкенеколь, трава+ почва, ТС#4</name>
+		<LookAt>
+			<longitude>72.386816</longitude>
+			<latitude>53.6122775</latitude>
+			<altitude>126.9681848179174</altitude>
+			<heading>137</heading>
+			<tilt>0</tilt>
+			<gx:fovy>35</gx:fovy>
+			<range>500</range>
+			<altitudeMode>absolute</altitudeMode>
+		</LookAt>
+		<styleUrl>#__managed_style_08D81EF2C741686124F7</styleUrl>
+		<gx:Carousel>
+			<gx:Image kml:id="hosted_image_QUFqUWJSN0lFck02NERZRXdKdDdXT0JtODNYTVFiWEcxbXFNdEhDbUZkekJrR2VIV1FydFRuT3RYUlQxVUxRUXlKa0JTUzhNV2V1VVJpdW1vdWYrY1RXTU9QMU1KZkk4M09vQWlrRGFlRFY0MVo1eGdybnl2eEJsZGxJWUQ1cW5McThEWjhNdU1KcjJJdUh1UVR4ZjNTTzE2OFFaYklJdFk1YU16ZU5yU3c1eTFmSi9aL1Yyc2dFL0swYlM2U0ZYaC8zbThmbWxpVWw1bUo1L3FpOHFjQ3F6RFBncHQ0MHR2Q2FIMmRlTmRHOVNYUENDcENzdVA5S0p2MjZ1Wnl1RHM0cURVdmc9">
+				<gx:imageUrl>https://earth.usercontent.google.com/hostedimage/e/*/4AAjQbR69oMcV-KlFVcrvWbGxuld2r4U0II_9rrPoQzZ_RY8qFC9YM0QBxVfI_lsYMiI-Hbojcbgk9rzieTOiRpp6MqvsdVtybQTaQGypXtijxT5l5nMGRoiEcHk1JRd7ualOZzgkCeaw1aTFaWOcNVat5lkPJMSEVEHmTEDmxcUH69vKTbGInqPopx_-UmmZ9FNUp50j53-lmS7kxmw0XL9vIztfK1Kav4wFi1e64QXOO4oC5SEmv9udFVwRCtHiJO-I1RE60QfwOXB0ZWBA?fife=s{size}</gx:imageUrl>
+			</gx:Image>
+		</gx:Carousel>
+		<Point>
+			<coordinates>72.386816,53.61227749999999,126.9681848179174</coordinates>
+		</Point>
+	</Placemark>
+	<Placemark id="0F73C147B6411593AC4F">
+		<name>Бидайык, вода, ТС#1</name>
+		<LookAt>
+			<longitude>72.7621381</longitude>
+			<latitude>54.0134714</latitude>
+			<altitude>101.4185798192746</altitude>
+			<heading>0</heading>
+			<tilt>0</tilt>
+			<gx:fovy>35</gx:fovy>
+			<range>500</range>
+			<altitudeMode>absolute</altitudeMode>
+		</LookAt>
+		<styleUrl>#__managed_style_080317712D41686124F5</styleUrl>
+		<ExtendedData>
+			<SchemaData schemaUrl="#__managed_schema">
+				<SimpleData name="1B268D3F5B411593AC4F">14</SimpleData>
+			</SchemaData>
+		</ExtendedData>
+		<Point>
+			<extrude>1</extrude>
+			<coordinates>72.7621381,54.0134714,100.9095989041061</coordinates>
+		</Point>
+	</Placemark>
+	<Placemark id="08B0FBCDF54115C67432">
+		<name>Бидайык, вода, ТС#2</name>
+		<LookAt>
+			<longitude>72.88803642165483</longitude>
+			<latitude>53.9873715329737</latitude>
+			<altitude>74.60462307468659</altitude>
+			<heading>0</heading>
+			<tilt>0</tilt>
+			<gx:fovy>35</gx:fovy>
+			<range>1899.176199955401</range>
+			<altitudeMode>absolute</altitudeMode>
+		</LookAt>
+		<styleUrl>#__managed_style_080317712D41686124F5</styleUrl>
+		<Point>
+			<coordinates>72.88803642165483,53.9873715329737,74.60462307468659</coordinates>
+		</Point>
+	</Placemark>
+	<Placemark id="05FD3852B54115C6DCC7">
+		<name>Бидайык, трава+почва, ТС#2</name>
+		<LookAt>
+			<longitude>72.8894695</longitude>
+			<latitude>53.9861595</latitude>
+			<altitude>72.27725777935369</altitude>
+			<heading>286.8462829589844</heading>
+			<tilt>0</tilt>
+			<gx:fovy>35</gx:fovy>
+			<range>500</range>
+			<altitudeMode>absolute</altitudeMode>
+		</LookAt>
+		<styleUrl>#__managed_style_0C0CEFF7BA41686124F4</styleUrl>
+		<Point>
+			<coordinates>72.8894695,53.98615950000001,72.27725777935369</coordinates>
+		</Point>
+	</Placemark>
+	<Placemark id="054BF68D704115C7A9E8">
+		<name>Бидайык, трава+ почва, ТС#1</name>
+		<LookAt>
+			<longitude>72.76032267577695</longitude>
+			<latitude>54.01308420790109</latitude>
+			<altitude>101.702734658034</altitude>
+			<heading>101.055768477382</heading>
+			<tilt>0</tilt>
+			<gx:fovy>35</gx:fovy>
+			<range>1025.083938109892</range>
+			<altitudeMode>absolute</altitudeMode>
+		</LookAt>
+		<styleUrl>#__managed_style_0C0CEFF7BA41686124F4</styleUrl>
+		<Point>
+			<coordinates>72.76032267577695,54.01308420790109,101.702734658034</coordinates>
+		</Point>
+	</Placemark>
+	<Placemark id="0877167FDA4115E0818D">
+		<name>Бидайык, трава+почва, ТС#3</name>
+		<LookAt>
+			<longitude>73.0190473</longitude>
+			<latitude>53.9593486</latitude>
+			<altitude>49.68725302544079</altitude>
+			<heading>130.1991729736328</heading>
+			<tilt>0</tilt>
+			<gx:fovy>35</gx:fovy>
+			<range>500</range>
+			<altitudeMode>absolute</altitudeMode>
+		</LookAt>
+		<styleUrl>#__managed_style_0C0CEFF7BA41686124F4</styleUrl>
+		<Point>
+			<coordinates>73.0190473,53.9593486,49.68725302544079</coordinates>
+		</Point>
+	</Placemark>
+	<Placemark id="0D7714BAB54115E0F5B6">
+		<name>Бидайык, вода, ТС#3</name>
+		<LookAt>
+			<longitude>73.01813955237199</longitude>
+			<latitude>53.95925678081129</latitude>
+			<altitude>50.81755452112102</altitude>
+			<heading>130.1987810797077</heading>
+			<tilt>0</tilt>
+			<gx:fovy>35</gx:fovy>
+			<range>1413.76449169984</range>
+			<altitudeMode>absolute</altitudeMode>
+		</LookAt>
+		<styleUrl>#__managed_style_080317712D41686124F5</styleUrl>
+		<Point>
+			<coordinates>73.01813955237199,53.95925678081129,50.81755452112102</coordinates>
+		</Point>
+	</Placemark>
+	<Placemark id="0D54934CF241160BD048">
+		<name>Бидаик, вода, ТС#4</name>
+		<LookAt>
+			<longitude>72.73958180595444</longitude>
+			<latitude>54.02550769526032</latitude>
+			<altitude>113.0247516601776</altitude>
+			<heading>0</heading>
+			<tilt>0</tilt>
+			<gx:fovy>35</gx:fovy>
+			<range>530.550453850301</range>
+			<altitudeMode>absolute</altitudeMode>
+		</LookAt>
+		<styleUrl>#__managed_style_080317712D41686124F5</styleUrl>
+		<Point>
+			<coordinates>72.73958180595444,54.02550769526032,113.0247516601776</coordinates>
+		</Point>
+	</Placemark>
+	<Placemark id="0438886722411612C6CF">
+		<name>Бидаик, трава+почва, ТС#4</name>
+		<LookAt>
+			<longitude>72.7354204</longitude>
+			<latitude>54.0228713</latitude>
+			<altitude>111.8330534705328</altitude>
+			<heading>161</heading>
+			<tilt>0</tilt>
+			<gx:fovy>35</gx:fovy>
+			<range>500</range>
+			<altitudeMode>absolute</altitudeMode>
+		</LookAt>
+		<styleUrl>#__managed_style_0C0CEFF7BA41686124F4</styleUrl>
+		<Point>
+			<coordinates>72.7354204,54.0228713,111.8330534705328</coordinates>
+		</Point>
+	</Placemark>
+	<Placemark id="0794B0C113411A895693">
+		<name>Кулыколь, трава+почва, ТС#1</name>
+		<LookAt>
+			<longitude>73.68954093842481</longitude>
+			<latitude>52.73702036163473</latitude>
+			<altitude>78.75831124347852</altitude>
+			<heading>0</heading>
+			<tilt>0</tilt>
+			<gx:fovy>35</gx:fovy>
+			<range>499.9856436673872</range>
+			<altitudeMode>absolute</altitudeMode>
+		</LookAt>
+		<styleUrl>#__managed_style_08BDA4E49C41686124F8</styleUrl>
+		<Point>
+			<coordinates>73.68954093842481,52.73702036163473,78.75831124347852</coordinates>
+		</Point>
+	</Placemark>
+	<Placemark id="0087CA70AE411A8B16FC">
+		<name>Кулыколь, вода, ТС#1</name>
+		<LookAt>
+			<longitude>73.68876134762326</longitude>
+			<latitude>52.73716208408762</latitude>
+			<altitude>79.98129164935378</altitude>
+			<heading>0</heading>
+			<tilt>0</tilt>
+			<gx:fovy>35</gx:fovy>
+			<range>498.7627008147683</range>
+			<altitudeMode>absolute</altitudeMode>
+		</LookAt>
+		<styleUrl>#__managed_style_05FD87215841686124F3</styleUrl>
+		<Point>
+			<coordinates>73.68876134762326,52.73716208408762,79.98129164935378</coordinates>
+		</Point>
+	</Placemark>
+	<Placemark id="07ADCE2346411AA5B8C3">
+		<name>Кулыколь, трава+почва, ТС#2</name>
+		<LookAt>
+			<longitude>73.718068</longitude>
+			<latitude>52.7419704</latitude>
+			<altitude>87.61601937199701</altitude>
+			<heading>0</heading>
+			<tilt>0</tilt>
+			<gx:fovy>35</gx:fovy>
+			<range>500</range>
+			<altitudeMode>absolute</altitudeMode>
+		</LookAt>
+		<styleUrl>#__managed_style_08BDA4E49C41686124F8</styleUrl>
+		<Point>
+			<coordinates>73.718068,52.7419704,87.616019371997</coordinates>
+		</Point>
+	</Placemark>
+	<Placemark id="035EF22A29411ABA756E">
+		<name>Кулыколь, вода, ТС#2</name>
+		<LookAt>
+			<longitude>73.7262456</longitude>
+			<latitude>52.7439991</latitude>
+			<altitude>77.59408867756771</altitude>
+			<heading>0</heading>
+			<tilt>0</tilt>
+			<gx:fovy>35</gx:fovy>
+			<range>500</range>
+			<altitudeMode>absolute</altitudeMode>
+		</LookAt>
+		<styleUrl>#__managed_style_05FD87215841686124F3</styleUrl>
+		<ExtendedData>
+			<SchemaData schemaUrl="#__managed_schema">
+				<SimpleData name="0E8F3EDC42411ABA7573">5</SimpleData>
+			</SchemaData>
+		</ExtendedData>
+		<Point>
+			<extrude>1</extrude>
+			<coordinates>73.7262456,52.7439991,77.51392686781951</coordinates>
+		</Point>
+	</Placemark>
+	<Placemark id="0724C812FB411AF5261C">
+		<name>Кулыколь, трава+почва, ТС#4</name>
+		<LookAt>
+			<longitude>73.7469598</longitude>
+			<latitude>52.7843697</latitude>
+			<altitude>75.36447338112902</altitude>
+			<heading>343</heading>
+			<tilt>0</tilt>
+			<gx:fovy>35</gx:fovy>
+			<range>500</range>
+			<altitudeMode>absolute</altitudeMode>
+		</LookAt>
+		<styleUrl>#__managed_style_08BDA4E49C41686124F8</styleUrl>
+		<ExtendedData>
+			<SchemaData schemaUrl="#__managed_schema">
+				<SimpleData name="06A3EBEBAB411AF5261D">5</SimpleData>
+			</SchemaData>
+		</ExtendedData>
+		<Point>
+			<extrude>1</extrude>
+			<coordinates>73.7469598,52.7843697,75.42339080050604</coordinates>
+		</Point>
+	</Placemark>
+	<Placemark id="0FD910A639411AF5BA8D">
+		<name>Кулыколь, вода, ТС#4</name>
+		<LookAt>
+			<longitude>73.74627935605716</longitude>
+			<latitude>52.78437604309735</latitude>
+			<altitude>75.18378122535364</altitude>
+			<heading>359.9999317305479</heading>
+			<tilt>0</tilt>
+			<gx:fovy>35</gx:fovy>
+			<range>500.1914143945032</range>
+			<altitudeMode>absolute</altitudeMode>
+		</LookAt>
+		<styleUrl>#__managed_style_05FD87215841686124F3</styleUrl>
+		<Point>
+			<coordinates>73.74627935605716,52.78437604309735,75.18378122535364</coordinates>
+		</Point>
+	</Placemark>
+	<Placemark id="0A08AE83C2411B757D6F">
+		<name>Кайрат, трава+почва, ТС#2</name>
+		<LookAt>
+			<longitude>73.57852220534951</longitude>
+			<latitude>52.9345844966553</latitude>
+			<altitude>85.28759510372981</altitude>
+			<heading>227.456405552868</heading>
+			<tilt>0</tilt>
+			<gx:fovy>35</gx:fovy>
+			<range>1187.31217370251</range>
+			<altitudeMode>absolute</altitudeMode>
+		</LookAt>
+		<styleUrl>#__managed_style_08BDA4E49C41686124F8</styleUrl>
+		<Point>
+			<coordinates>73.57852220534951,52.9345844966553,85.28759510372981</coordinates>
+		</Point>
+	</Placemark>
+	<Placemark id="063A10A4E8411B80BC4E">
+		<name>Кайрат, вода, ТС#2</name>
+		<LookAt>
+			<longitude>73.57910190568163</longitude>
+			<latitude>52.93809671630192</latitude>
+			<altitude>75.45506093737635</altitude>
+			<heading>359.9998508273018</heading>
+			<tilt>0</tilt>
+			<gx:fovy>35</gx:fovy>
+			<range>501.5470258258574</range>
+			<altitudeMode>absolute</altitudeMode>
+		</LookAt>
+		<styleUrl>#__managed_style_05FD87215841686124F3</styleUrl>
+		<Point>
+			<coordinates>73.57910190568163,52.93809671630192,75.45506093737635</coordinates>
+		</Point>
+	</Placemark>
+	<Placemark id="0028A0579A411B8F4976">
+		<name>Кайрат, вода, ТС#3</name>
+		<LookAt>
+			<longitude>73.55080446029892</longitude>
+			<latitude>53.07034392609304</latitude>
+			<altitude>70.27682746875065</altitude>
+			<heading>0</heading>
+			<tilt>0</tilt>
+			<gx:fovy>35</gx:fovy>
+			<range>498.8081752647122</range>
+			<altitudeMode>absolute</altitudeMode>
+		</LookAt>
+		<styleUrl>#__managed_style_05FD87215841686124F3</styleUrl>
+		<Point>
+			<coordinates>73.55080446029892,53.07034392609304,70.27682746875065</coordinates>
+		</Point>
+	</Placemark>
+	<Placemark id="02335749B3411B9529FC">
+		<name>Кайрат, трава+почва, ТС#3</name>
+		<LookAt>
+			<longitude>73.5511937</longitude>
+			<latitude>53.0702838</latitude>
+			<altitude>71.01126573444407</altitude>
+			<heading>0</heading>
+			<tilt>0</tilt>
+			<gx:fovy>35</gx:fovy>
+			<range>500</range>
+			<altitudeMode>absolute</altitudeMode>
+		</LookAt>
+		<styleUrl>#__managed_style_08BDA4E49C41686124F8</styleUrl>
+		<Point>
+			<coordinates>73.5511937,53.0702838,71.01126573444407</coordinates>
+		</Point>
+	</Placemark>
+	<Placemark id="0D66BB42DD411BACB6C3">
+		<name>Кайрат, вода, ТС#4</name>
+		<LookAt>
+			<longitude>73.52710036752653</longitude>
+			<latitude>53.06512906406554</latitude>
+			<altitude>68.08379741450509</altitude>
+			<heading>0</heading>
+			<tilt>0</tilt>
+			<gx:fovy>35</gx:fovy>
+			<range>502.3899951145722</range>
+			<altitudeMode>absolute</altitudeMode>
+		</LookAt>
+		<styleUrl>#__managed_style_05FD87215841686124F3</styleUrl>
+		<Point>
+			<coordinates>73.52710036752653,53.06512906406554,68.08379741450509</coordinates>
+		</Point>
+	</Placemark>
+	<Placemark id="0DC0BE8117411BAD689D">
+		<name>Кайрат, трава+почва, ТС#4</name>
+		<LookAt>
+			<longitude>73.52756789999999</longitude>
+			<latitude>53.0646352</latitude>
+			<altitude>70.14199581622314</altitude>
+			<heading>90.25815582275391</heading>
+			<tilt>0</tilt>
+			<gx:fovy>35</gx:fovy>
+			<range>500</range>
+			<altitudeMode>absolute</altitudeMode>
+		</LookAt>
+		<styleUrl>#__managed_style_08BDA4E49C41686124F8</styleUrl>
+		<Point>
+			<coordinates>73.52756789999999,53.0646352,70.14199581622314</coordinates>
+		</Point>
+	</Placemark>
+	<Placemark id="0B0FF1B63C4124F6E0F3">
+		<name>телжан, вода, ТС#1</name>
+		<LookAt>
+			<longitude>72.6142741</longitude>
+			<latitude>53.6631269</latitude>
+			<altitude>118.0953460203774</altitude>
+			<heading>0</heading>
+			<tilt>0</tilt>
+			<gx:fovy>35</gx:fovy>
+			<range>500</range>
+			<altitudeMode>absolute</altitudeMode>
+		</LookAt>
+		<styleUrl>#__managed_style_05FD87215841686124F3</styleUrl>
+		<ExtendedData>
+			<SchemaData schemaUrl="#__managed_schema">
+				<SimpleData name="13B11089594124F6E0F3">9</SimpleData>
+			</SchemaData>
+		</ExtendedData>
+		<Point>
+			<extrude>1</extrude>
+			<coordinates>72.6142741,53.66312690000001,118.0953460203774</coordinates>
+		</Point>
+	</Placemark>
+	<Placemark id="054E22E54A41251EEE4D">
+		<name>Телжан, трава+почва, ТС#2</name>
+		<LookAt>
+			<longitude>72.63827499999999</longitude>
+			<latitude>53.673318</latitude>
+			<altitude>115.4353226472418</altitude>
+			<heading>0</heading>
+			<tilt>0</tilt>
+			<gx:fovy>35</gx:fovy>
+			<range>500</range>
+			<altitudeMode>absolute</altitudeMode>
+		</LookAt>
+		<styleUrl>#__managed_style_08BDA4E49C41686124F8</styleUrl>
+		<ExtendedData>
+			<SchemaData schemaUrl="#__managed_schema">
+				<SimpleData name="17E57F330441251EEE4D">4</SimpleData>
+			</SchemaData>
+		</ExtendedData>
+		<Point>
+			<extrude>1</extrude>
+			<coordinates>72.63827499999999,53.67331800000001,115.3440281954338</coordinates>
+		</Point>
+	</Placemark>
+	<Placemark id="03E40B5DE241251F51E8">
+		<name>Телжан, вода, ТС#2</name>
+		<LookAt>
+			<longitude>72.63936430722046</longitude>
+			<latitude>53.67296446399135</latitude>
+			<altitude>116.231386347058</altitude>
+			<heading>359.9999999999997</heading>
+			<tilt>0</tilt>
+			<gx:fovy>35</gx:fovy>
+			<range>499.2039559513797</range>
+			<altitudeMode>absolute</altitudeMode>
+		</LookAt>
+		<styleUrl>#__managed_style_05FD87215841686124F3</styleUrl>
+		<Point>
+			<coordinates>72.63936430722046,53.67296446399135,116.231386347058</coordinates>
+		</Point>
+	</Placemark>
+	<Placemark id="022FBD97E741251FDFA0">
+		<name>Телжан, трава+почва, ТС#1</name>
+		<LookAt>
+			<longitude>72.61517417622652</longitude>
+			<latitude>53.66204655868908</latitude>
+			<altitude>117.868775147756</altitude>
+			<heading>0</heading>
+			<tilt>0</tilt>
+			<gx:fovy>35</gx:fovy>
+			<range>888.0228334543065</range>
+			<altitudeMode>absolute</altitudeMode>
+		</LookAt>
+		<styleUrl>#__managed_style_08BDA4E49C41686124F8</styleUrl>
+		<Point>
+			<coordinates>72.61517417622652,53.66204655868908,117.868775147756</coordinates>
+		</Point>
+	</Placemark>
+	<Placemark id="0F084C7DA74125512E95">
+		<name>Телжан, трава+почва, ТС#3</name>
+		<LookAt>
+			<longitude>72.7746739</longitude>
+			<latitude>53.7409333</latitude>
+			<altitude>70.18139020354667</altitude>
+			<heading>0</heading>
+			<tilt>0</tilt>
+			<gx:fovy>35</gx:fovy>
+			<range>500</range>
+			<altitudeMode>absolute</altitudeMode>
+		</LookAt>
+		<styleUrl>#__managed_style_08BDA4E49C41686124F8</styleUrl>
+		<ExtendedData>
+			<SchemaData schemaUrl="#__managed_schema">
+				<SimpleData name="08E0E5270E4125512E97">4</SimpleData>
+			</SchemaData>
+		</ExtendedData>
+		<Point>
+			<extrude>1</extrude>
+			<coordinates>72.7746739,53.74093330000001,70.08578854771089</coordinates>
+		</Point>
+	</Placemark>
+	<Placemark id="0D1375DEA34125519DA3">
+		<name>Телжан, вода, ТС#3</name>
+		<LookAt>
+			<longitude>72.77434551765791</longitude>
+			<latitude>53.74171555568063</latitude>
+			<altitude>65.82375823126382</altitude>
+			<heading>0</heading>
+			<tilt>0</tilt>
+			<gx:fovy>35</gx:fovy>
+			<range>2114.226867013494</range>
+			<altitudeMode>absolute</altitudeMode>
+		</LookAt>
+		<styleUrl>#__managed_style_05FD87215841686124F3</styleUrl>
+		<Point>
+			<coordinates>72.77434551765791,53.74171555568063,65.82375823126382</coordinates>
+		</Point>
+	</Placemark>
+	<Placemark id="006276748B4126629DED">
+		<name>Коктерек, вода, ТС#2</name>
+		<LookAt>
+			<longitude>73.1810073</longitude>
+			<latitude>53.4690457</latitude>
+			<altitude>115.9741033982916</altitude>
+			<heading>0</heading>
+			<tilt>0</tilt>
+			<gx:fovy>35</gx:fovy>
+			<range>500</range>
+			<altitudeMode>absolute</altitudeMode>
+		</LookAt>
+		<styleUrl>#__managed_style_05FD87215841686124F3</styleUrl>
+		<Point>
+			<coordinates>73.1810073,53.4690457,115.9741033982916</coordinates>
+		</Point>
+	</Placemark>
+	<Placemark id="0F3BF977154126666432">
+		<name>Коктерек, трава+почва, ТС#2</name>
+		<LookAt>
+			<longitude>73.1822722</longitude>
+			<latitude>53.4693022</latitude>
+			<altitude>118.2032416866075</altitude>
+			<heading>0</heading>
+			<tilt>0</tilt>
+			<gx:fovy>35</gx:fovy>
+			<range>500</range>
+			<altitudeMode>absolute</altitudeMode>
+		</LookAt>
+		<styleUrl>#__managed_style_08BDA4E49C41686124F8</styleUrl>
+		<ExtendedData>
+			<SchemaData schemaUrl="#__managed_schema">
+				<SimpleData name="143241CC3F4126666432">5</SimpleData>
+			</SchemaData>
+		</ExtendedData>
+		<Point>
+			<extrude>1</extrude>
+			<coordinates>73.1822722,53.4693022,117.911359176775</coordinates>
+		</Point>
+	</Placemark>
+	<Placemark id="0703E55682412679AA6B">
+		<name>Коктерек, трава+почва, ТС#3</name>
+		<LookAt>
+			<longitude>73.17845440000001</longitude>
+			<latitude>53.4779092</latitude>
+			<altitude>116.3706819508997</altitude>
+			<heading>0</heading>
+			<tilt>0</tilt>
+			<gx:fovy>35</gx:fovy>
+			<range>500</range>
+			<altitudeMode>absolute</altitudeMode>
+		</LookAt>
+		<styleUrl>#__managed_style_08BDA4E49C41686124F8</styleUrl>
+		<Point>
+			<coordinates>73.17845440000001,53.4779092,116.3706819508997</coordinates>
+		</Point>
+	</Placemark>
+	<Placemark id="007E0B30C6412679FEAB">
+		<name>Коктерек, вода, ТС#3</name>
+		<LookAt>
+			<longitude>73.18008110210101</longitude>
+			<latitude>53.47707632058409</latitude>
+			<altitude>116.3711125373353</altitude>
+			<heading>359.9999999999998</heading>
+			<tilt>0</tilt>
+			<gx:fovy>35</gx:fovy>
+			<range>1125.338551430177</range>
+			<altitudeMode>absolute</altitudeMode>
+		</LookAt>
+		<styleUrl>#__managed_style_05FD87215841686124F3</styleUrl>
+		<Point>
+			<coordinates>73.18008110210101,53.47707632058409,116.3711125373353</coordinates>
+		</Point>
+	</Placemark>
+	<Placemark id="02F4C0ED034126AD08DC">
+		<name>Коктерек, трава+почва, ТС#4</name>
+		<LookAt>
+			<longitude>72.9276084</longitude>
+			<latitude>53.5528396</latitude>
+			<altitude>117.827057333415</altitude>
+			<heading>80.52438354492188</heading>
+			<tilt>0</tilt>
+			<gx:fovy>35</gx:fovy>
+			<range>500</range>
+			<altitudeMode>absolute</altitudeMode>
+		</LookAt>
+		<styleUrl>#__managed_style_08BDA4E49C41686124F8</styleUrl>
+		<Point>
+			<coordinates>72.9276084,53.5528396,117.827057333415</coordinates>
+		</Point>
+	</Placemark>
+	<Placemark id="0830BF350D4126ADC510">
+		<name>Коктерек, вода, ТС #4</name>
+		<LookAt>
+			<longitude>72.92827800408776</longitude>
+			<latitude>53.55244428325527</latitude>
+			<altitude>119.0229158144367</altitude>
+			<heading>80.52492217591414</heading>
+			<tilt>0</tilt>
+			<gx:fovy>35</gx:fovy>
+			<range>498.7454566808447</range>
+			<altitudeMode>absolute</altitudeMode>
+		</LookAt>
+		<styleUrl>#__managed_style_05FD87215841686124F3</styleUrl>
+		<Point>
+			<coordinates>72.92827800408776,53.55244428325527,119.0229158144367</coordinates>
+		</Point>
+	</Placemark>
+	<Placemark id="07358176D6412A879409">
+		<name>Амангельды, вода, ТС#1</name>
+		<LookAt>
+			<longitude>73.28375378252524</longitude>
+			<latitude>53.72180599521987</latitude>
+			<altitude>70.35144017303261</altitude>
+			<heading>88.99945297105009</heading>
+			<tilt>0</tilt>
+			<gx:fovy>35</gx:fovy>
+			<range>2770.044828571554</range>
+			<altitudeMode>absolute</altitudeMode>
+		</LookAt>
+		<styleUrl>#__managed_style_05FD87215841686124F3</styleUrl>
+		<Point>
+			<coordinates>73.28375378252524,53.72180599521987,70.35144017303261</coordinates>
+		</Point>
+	</Placemark>
+	<Placemark id="07CDF052A0412A87F9EB">
+		<name>Амангельды, трава+почва, ТС#1</name>
+		<LookAt>
+			<longitude>73.2869413</longitude>
+			<latitude>53.7203673</latitude>
+			<altitude>76.97312885078794</altitude>
+			<heading>335</heading>
+			<tilt>0</tilt>
+			<gx:fovy>35</gx:fovy>
+			<range>500</range>
+			<altitudeMode>absolute</altitudeMode>
+		</LookAt>
+		<styleUrl>#__managed_style_08BDA4E49C41686124F8</styleUrl>
+		<Point>
+			<coordinates>73.2869413,53.7203673,76.97312885078794</coordinates>
+		</Point>
+	</Placemark>
+	<Placemark id="0558423C7E412AAEC27E">
+		<name>Амангельды, трава+почва, ТС#2</name>
+		<LookAt>
+			<longitude>73.31854439999999</longitude>
+			<latitude>53.7651668</latitude>
+			<altitude>107.6892999176822</altitude>
+			<heading>0</heading>
+			<tilt>0</tilt>
+			<gx:fovy>35</gx:fovy>
+			<range>500</range>
+			<altitudeMode>absolute</altitudeMode>
+		</LookAt>
+		<styleUrl>#__managed_style_08BDA4E49C41686124F8</styleUrl>
+		<Point>
+			<coordinates>73.31854439999999,53.7651668,107.6892999176822</coordinates>
+		</Point>
+	</Placemark>
+	<Placemark id="0BC7129316412AAF1C10">
+		<name>Амангельды, вода, ТС#2</name>
+		<LookAt>
+			<longitude>73.31828495986589</longitude>
+			<latitude>53.76536698357003</latitude>
+			<altitude>107.3132227990823</altitude>
+			<heading>0</heading>
+			<tilt>0</tilt>
+			<gx:fovy>35</gx:fovy>
+			<range>500.4092838284851</range>
+			<altitudeMode>absolute</altitudeMode>
+		</LookAt>
+		<styleUrl>#__managed_style_05FD87215841686124F3</styleUrl>
+		<Point>
+			<coordinates>73.31828495986589,53.76536698357003,107.3132227990823</coordinates>
+		</Point>
+	</Placemark>
+	<Placemark id="0075059A12412AED2307">
+		<name>Амангельды, трава+почва, ТС#3</name>
+		<LookAt>
+			<longitude>73.32476320000001</longitude>
+			<latitude>53.8174143</latitude>
+			<altitude>229.0918711953788</altitude>
+			<heading>0</heading>
+			<tilt>0</tilt>
+			<gx:fovy>35</gx:fovy>
+			<range>500</range>
+			<altitudeMode>absolute</altitudeMode>
+		</LookAt>
+		<styleUrl>#__managed_style_08BDA4E49C41686124F8</styleUrl>
+		<ExtendedData>
+			<SchemaData schemaUrl="#__managed_schema">
+				<SimpleData name="0239AA1FEB412AED2309">5</SimpleData>
+			</SchemaData>
+		</ExtendedData>
+		<Point>
+			<extrude>1</extrude>
+			<coordinates>73.32476320000001,53.8174143,74.05901641169743</coordinates>
+		</Point>
+	</Placemark>
+	<Placemark id="04F81D94F1412AEE37F8">
+		<name>Амангельды, вода, ТС#3</name>
+		<LookAt>
+			<longitude>73.32463249431227</longitude>
+			<latitude>53.81752011078437</latitude>
+			<altitude>111.790497431747</altitude>
+			<heading>0</heading>
+			<tilt>0</tilt>
+			<gx:fovy>35</gx:fovy>
+			<range>216.7536179934541</range>
+			<altitudeMode>absolute</altitudeMode>
+		</LookAt>
+		<styleUrl>#__managed_style_05FD87215841686124F3</styleUrl>
+		<Point>
+			<coordinates>73.32463249431227,53.81752011078437,111.790497431747</coordinates>
+		</Point>
+	</Placemark>
+	<Placemark id="0701AACBBD412B185E72">
+		<name>Амангельды, трава почва, ТС#4</name>
+		<LookAt>
+			<longitude>73.367161</longitude>
+			<latitude>53.8508766</latitude>
+			<altitude>130.5056796055108</altitude>
+			<heading>0</heading>
+			<tilt>0</tilt>
+			<gx:fovy>35</gx:fovy>
+			<range>500</range>
+			<altitudeMode>absolute</altitudeMode>
+		</LookAt>
+		<styleUrl>#__managed_style_08BDA4E49C41686124F8</styleUrl>
+		<Point>
+			<coordinates>73.367161,53.8508766,130.5056796055108</coordinates>
+		</Point>
+	</Placemark>
+	<Placemark id="03DD87976C412B18DE82">
+		<name>Амангельды, вода, ТС#4</name>
+		<LookAt>
+			<longitude>73.36906593626864</longitude>
+			<latitude>53.85046565441536</latitude>
+			<altitude>130.4651335232185</altitude>
+			<heading>344.963012454164</heading>
+			<tilt>0</tilt>
+			<gx:fovy>35</gx:fovy>
+			<range>3793.251473843702</range>
+			<altitudeMode>absolute</altitudeMode>
+		</LookAt>
+		<styleUrl>#__managed_style_05FD87215841686124F3</styleUrl>
+		<Point>
+			<coordinates>73.36906593626864,53.85046565441536,130.4651335232185</coordinates>
+		</Point>
+	</Placemark>
+	<Placemark id="0FF1D9F7DC412B3ECB62">
+		<name>Каратерек, вода, ТС#1</name>
+		<LookAt>
+			<longitude>73.46378406060991</longitude>
+			<latitude>53.90238778617871</latitude>
+			<altitude>115.7723993000966</altitude>
+			<heading>0</heading>
+			<tilt>0</tilt>
+			<gx:fovy>35</gx:fovy>
+			<range>1749.100687838509</range>
+			<altitudeMode>absolute</altitudeMode>
+		</LookAt>
+		<styleUrl>#__managed_style_05FD87215841686124F3</styleUrl>
+		<Point>
+			<coordinates>73.46378406060991,53.90238778617871,115.7723993000966</coordinates>
+		</Point>
+	</Placemark>
+	<Placemark id="082E67F4F3412B3F1104">
+		<name>Каратерек, трава почва, ТС#2</name>
+		<LookAt>
+			<longitude>73.46425875124591</longitude>
+			<latitude>53.90188656809353</latitude>
+			<altitude>116.3006485200694</altitude>
+			<heading>0</heading>
+			<tilt>0</tilt>
+			<gx:fovy>35</gx:fovy>
+			<range>1748.572609414696</range>
+			<altitudeMode>absolute</altitudeMode>
+		</LookAt>
+		<styleUrl>#__managed_style_08BDA4E49C41686124F8</styleUrl>
+		<Point>
+			<coordinates>73.46425875124591,53.90188656809353,116.3006485200694</coordinates>
+		</Point>
+	</Placemark>
+	<Placemark id="0917018D6F412B76007D">
+		<name>Каратерек, вода, ТС#2</name>
+		<LookAt>
+			<longitude>73.51270627018633</longitude>
+			<latitude>53.92341629949892</latitude>
+			<altitude>122.3170535030252</altitude>
+			<heading>3.188570595421962e-12</heading>
+			<tilt>0</tilt>
+			<gx:fovy>35</gx:fovy>
+			<range>490.9396120580642</range>
+			<altitudeMode>absolute</altitudeMode>
+		</LookAt>
+		<styleUrl>#__managed_style_05FD87215841686124F3</styleUrl>
+		<Point>
+			<coordinates>73.51270627018633,53.92341629949892,122.3170535030252</coordinates>
+		</Point>
+	</Placemark>
+	<Placemark id="0BE305B83B412B9DD5EB">
+		<name>Каратерек, трава почва, ТС#3</name>
+		<LookAt>
+			<longitude>73.46564278836961</longitude>
+			<latitude>53.94009282760754</latitude>
+			<altitude>117.0004737996833</altitude>
+			<heading>340.899978345584</heading>
+			<tilt>0</tilt>
+			<gx:fovy>35</gx:fovy>
+			<range>460.2522850849347</range>
+			<altitudeMode>absolute</altitudeMode>
+		</LookAt>
+		<styleUrl>#__managed_style_08BDA4E49C41686124F8</styleUrl>
+		<Point>
+			<coordinates>73.46564278836961,53.94009282760754,117.0004737996833</coordinates>
+		</Point>
+	</Placemark>
+	<Placemark id="0FD97ED3AE412BA2E2C5">
+		<name>Каратерек, вода, ТС#3</name>
+		<LookAt>
+			<longitude>73.46516964856217</longitude>
+			<latitude>53.94018658075432</latitude>
+			<altitude>117.6293813970219</altitude>
+			<heading>158.9997556904262</heading>
+			<tilt>0</tilt>
+			<gx:fovy>35</gx:fovy>
+			<range>257.3931511780756</range>
+			<altitudeMode>absolute</altitudeMode>
+		</LookAt>
+		<styleUrl>#__managed_style_05FD87215841686124F3</styleUrl>
+		<Point>
+			<coordinates>73.46516964856217,53.94018658075432,117.6293813970219</coordinates>
+		</Point>
+	</Placemark>
+	<Placemark id="0B02A1E023412BB750BE">
+		<name>Каратерек, трава почва, ТС#4</name>
+		<LookAt>
+			<longitude>73.52622909999998</longitude>
+			<latitude>53.9174768</latitude>
+			<altitude>122.1728170473355</altitude>
+			<heading>0</heading>
+			<tilt>0</tilt>
+			<gx:fovy>34.99999999992043</gx:fovy>
+			<range>500.0004066042161</range>
+			<altitudeMode>absolute</altitudeMode>
+		</LookAt>
+		<styleUrl>#__managed_style_08BDA4E49C41686124F8</styleUrl>
+		<ExtendedData>
+			<SchemaData schemaUrl="#__managed_schema">
+				<SimpleData name="177F799DE5412BB750BE">4</SimpleData>
+			</SchemaData>
+		</ExtendedData>
+		<Point>
+			<extrude>1</extrude>
+			<coordinates>73.52622909999999,53.9174768,121.8793572214388</coordinates>
+		</Point>
+	</Placemark>
+	<Placemark id="09D40C49C2412BB81BF9">
+		<name>Каратерек, вода, ТС#4</name>
+		<LookAt>
+			<longitude>73.52521756221289</longitude>
+			<latitude>53.91828636808589</latitude>
+			<altitude>122.7697986657359</altitude>
+			<heading>0</heading>
+			<tilt>0</tilt>
+			<gx:fovy>34.99999995268731</gx:fovy>
+			<range>499.6119280553103</range>
+			<altitudeMode>absolute</altitudeMode>
+		</LookAt>
+		<styleUrl>#__managed_style_05FD87215841686124F3</styleUrl>
+		<Point>
+			<coordinates>73.52521756221289,53.91828636808589,122.7697986657359</coordinates>
+		</Point>
+	</Placemark>
+	<Placemark id="0C4EAFE936413190B40F">
+		<name>Коктерек, вода (скважина) , ТС#1</name>
+		<LookAt>
+			<longitude>73.09356227344325</longitude>
+			<latitude>53.4219206311372</latitude>
+			<altitude>89.10780309128759</altitude>
+			<heading>0</heading>
+			<tilt>0</tilt>
+			<gx:fovy>35</gx:fovy>
+			<range>228.0729085479834</range>
+			<altitudeMode>absolute</altitudeMode>
+		</LookAt>
+		<styleUrl>#__managed_style_05FD87215841686124F3</styleUrl>
+		<Point>
+			<coordinates>73.09369910488672,53.42167460302755,89.10778168058407</coordinates>
+		</Point>
+	</Placemark>
+	<Placemark id="095655E610413192134C">
+		<name>Телжан, вода, ТС#4</name>
+		<LookAt>
+			<longitude>72.76228914531815</longitude>
+			<latitude>53.74279254536652</latitude>
+			<altitude>72.31513940533912</altitude>
+			<heading>0</heading>
+			<tilt>0</tilt>
+			<gx:fovy>35</gx:fovy>
+			<range>405.3754711191868</range>
+			<altitudeMode>absolute</altitudeMode>
+		</LookAt>
+		<styleUrl>#__managed_style_05FD87215841686124F3</styleUrl>
+		<Point>
+			<coordinates>72.76266822488182,53.74232652274024,69.03234436336527</coordinates>
+		</Point>
+	</Placemark>
+	<Placemark id="0EB3D9E28B413193E29B">
+		<name>Кайрат, вода, ТС#1</name>
+		<LookAt>
+			<longitude>73.54535434146463</longitude>
+			<latitude>52.91717350117192</latitude>
+			<altitude>64.98965106968546</altitude>
+			<heading>0</heading>
+			<tilt>0</tilt>
+			<gx:fovy>35</gx:fovy>
+			<range>844.0432459587466</range>
+			<altitudeMode>absolute</altitudeMode>
+		</LookAt>
+		<styleUrl>#__managed_style_05FD87215841686124F3</styleUrl>
+		<Point>
+			<coordinates>73.54414066165847,52.91712122293202,61.03146212486926</coordinates>
+		</Point>
+	</Placemark>
+	<Placemark id="0201607B6E4131956014">
+		<name>Кулыколь, вода, ТС#3</name>
+		<LookAt>
+			<longitude>73.76578992974393</longitude>
+			<latitude>52.76227987075874</latitude>
+			<altitude>75.3982156270702</altitude>
+			<heading>0</heading>
+			<tilt>0</tilt>
+			<gx:fovy>35</gx:fovy>
+			<range>2193.25877241441</range>
+			<altitudeMode>absolute</altitudeMode>
+		</LookAt>
+		<styleUrl>#__managed_style_05FD87215841686124F3</styleUrl>
+		<Point>
+			<coordinates>73.76996767354643,52.76006257185927,75.39707066724246</coordinates>
+		</Point>
+	</Placemark>
+	<Placemark id="004821F0C14131965AC0">
+		<name>Актуесай, вода, ТС#1</name>
+		<LookAt>
+			<longitude>72.68797026245431</longitude>
+			<latitude>53.92562273175923</latitude>
+			<altitude>44.101144258689</altitude>
+			<heading>0</heading>
+			<tilt>0</tilt>
+			<gx:fovy>35</gx:fovy>
+			<range>475.1804205701774</range>
+			<altitudeMode>absolute</altitudeMode>
+		</LookAt>
+		<styleUrl>#__managed_style_05FD87215841686124F3</styleUrl>
+		<Point>
+			<coordinates>72.68727596406409,53.92542123526287,45.54384807873647</coordinates>
+		</Point>
+	</Placemark>
+	<Placemark id="04ECC264744131971888">
+		<name>Актуесай, вода, ТС#2</name>
+		<LookAt>
+			<longitude>72.76501938352891</longitude>
+			<latitude>53.88645640840601</latitude>
+			<altitude>34.0412474116178</altitude>
+			<heading>0</heading>
+			<tilt>0</tilt>
+			<gx:fovy>35</gx:fovy>
+			<range>473.8967060520373</range>
+			<altitudeMode>absolute</altitudeMode>
+		</LookAt>
+		<styleUrl>#__managed_style_05FD87215841686124F3</styleUrl>
+		<Point>
+			<coordinates>72.76354292431353,53.88579714170478,32.60809368061336</coordinates>
+		</Point>
+	</Placemark>
+	<Placemark id="0142784C58413198CF7F">
+		<name>Актуесай, вода, ТС#3</name>
+		<LookAt>
+			<longitude>72.70768009779513</longitude>
+			<latitude>53.84876179628219</latitude>
+			<altitude>45.69456861646085</altitude>
+			<heading>0</heading>
+			<tilt>0</tilt>
+			<gx:fovy>35</gx:fovy>
+			<range>237.3744500126486</range>
+			<altitudeMode>absolute</altitudeMode>
+		</LookAt>
+		<styleUrl>#__managed_style_05FD87215841686124F3</styleUrl>
+		<Point>
+			<coordinates>72.70777207429522,53.84845677270217,45.16928024285419</coordinates>
+		</Point>
+	</Placemark>
+	<Placemark id="006754F153413199C45E">
+		<name>Актуесай, вода, ТС#4</name>
+		<LookAt>
+			<longitude>72.49825809990108</longitude>
+			<latitude>53.74971610010999</latitude>
+			<altitude>117.7436589877916</altitude>
+			<heading>0</heading>
+			<tilt>0</tilt>
+			<gx:fovy>35</gx:fovy>
+			<range>475.5522356191069</range>
+			<altitudeMode>absolute</altitudeMode>
+		</LookAt>
+		<styleUrl>#__managed_style_05FD87215841686124F3</styleUrl>
+		<Point>
+			<coordinates>72.49849138008284,53.74934629565556,117.1607488387391</coordinates>
+		</Point>
+	</Placemark>
+</Document>
+</kml>

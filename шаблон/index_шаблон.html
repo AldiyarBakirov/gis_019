@@ -1,0 +1,447 @@
+<title>Кормовые ресурсы Уалихановского района</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Golos+Text:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&family=Unbounded:wght@500;600&display=swap">
+<style>/*LEAFLET_CSS*/</style>
+<style>
+/* Layout: full-height app — thematic map on the left, a working panel on the right (stacks under the map on phones). Steppe neutrals, lake-teal accent. */
+:root{
+  --bg:#f3f4ef; --panel:#fbfcf8; --ink:#1c2420; --muted:#5b6760; --line:#dde2d8; --soft:#eceee6;
+  --accent:#1c6b73; --accent-ink:#ffffff; --map:#e8ebe2; --nb:#dde1d6; --nb-line:#c3c9bc;
+  --okr-line:#6e786f; --dist-line:#1c2420; --label:#3d4741;
+  --soil:#3a8a3d; --water:#1f6fc2;
+  --ok:#2f8a4c; --mid:#4d7f86; --warn:#c98a14; --bad:#c2412c; --crit:#8f1d1d;
+  --f-display:"Unbounded","Golos Text",system-ui,sans-serif;
+  --f-body:"Golos Text",system-ui,-apple-system,"Segoe UI",sans-serif;
+  --f-mono:"IBM Plex Mono",ui-monospace,Menlo,monospace;
+}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){
+  --bg:#111513; --panel:#171c19; --ink:#e4e9e5; --muted:#9aa59e; --line:#2a322e; --soft:#1f2522;
+  --accent:#5fb1b8; --accent-ink:#0d1413; --map:#161d1a; --nb:#1d2521; --nb-line:#2f3934;
+  --okr-line:#8c978f; --dist-line:#e4e9e5; --label:#c5cec8;
+  --soil:#5cb35f; --water:#4d9be6; --ok:#4fb46c; --mid:#7fb3b9; --warn:#e0a83a; --bad:#e2634c; --crit:#f08a7a; color-scheme:dark}}
+:root[data-theme="dark"]{
+  --bg:#111513; --panel:#171c19; --ink:#e4e9e5; --muted:#9aa59e; --line:#2a322e; --soft:#1f2522;
+  --accent:#5fb1b8; --accent-ink:#0d1413; --map:#161d1a; --nb:#1d2521; --nb-line:#2f3934;
+  --okr-line:#8c978f; --dist-line:#e4e9e5; --label:#c5cec8;
+  --soil:#5cb35f; --water:#4d9be6; --ok:#4fb46c; --mid:#7fb3b9; --warn:#e0a83a; --bad:#e2634c; --crit:#f08a7a; color-scheme:dark}
+[hidden]{display:none!important}
+html,body{height:100%;margin:0}
+body{background:var(--bg);color:var(--ink);font-family:var(--f-body);font-size:14px;line-height:1.45}
+.app{height:100%;display:grid;grid-template-rows:auto 1fr;}
+header.top{display:flex;align-items:baseline;gap:14px;flex-wrap:wrap;padding:12px 18px;border-bottom:1px solid var(--line);background:var(--panel)}
+header.top h1{font-family:var(--f-display);font-weight:600;font-size:17px;letter-spacing:.01em;margin:0;text-wrap:balance}
+header.top .sub{color:var(--muted);font-size:13px}
+.main{display:grid;grid-template-columns:minmax(0,1fr) 400px;min-height:0}
+#map{background:var(--map);min-height:0;height:100%}
+aside{border-left:1px solid var(--line);background:var(--panel);overflow-y:auto;min-width:0;display:flex;flex-direction:column}
+.sec{padding:14px 18px;border-bottom:1px solid var(--line);display:flex;flex-direction:column;gap:10px}
+.sec h2{font-size:11px;letter-spacing:.09em;text-transform:uppercase;color:var(--muted);margin:0;font-weight:600}
+.row{display:flex;gap:8px;align-items:center;flex-wrap:wrap}
+label.chk{display:flex;align-items:center;gap:8px;cursor:pointer}
+label.chk input{accent-color:var(--accent);width:16px;height:16px}
+.sw{width:11px;height:11px;border-radius:50%;display:inline-block;border:1.5px solid var(--panel);box-shadow:0 0 0 1px var(--line)}
+.cnt{color:var(--muted);font-family:var(--f-mono);font-size:12px;margin-left:auto}
+select,input[type=range]{font:inherit;color:var(--ink)}
+select{width:100%;padding:7px 9px;border:1px solid var(--line);border-radius:6px;background:var(--bg)}
+select:focus-visible,button:focus-visible,input:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+.hint{color:var(--muted);font-size:12px;margin:0}
+.legend{display:flex;flex-direction:column;gap:5px}
+.legend .it{display:flex;gap:8px;align-items:center;font-size:13px}
+.ramp{height:10px;border-radius:3px;border:1px solid var(--line)}
+.rampl{display:flex;justify-content:space-between;font-family:var(--f-mono);font-size:11px;color:var(--muted)}
+#card{padding:16px 18px 28px;display:flex;flex-direction:column;gap:14px}
+.card-h{display:flex;flex-direction:column;gap:3px}
+.eyebrow{font-size:11px;letter-spacing:.09em;text-transform:uppercase;color:var(--muted);font-weight:600}
+.card-h h3{font-family:var(--f-display);font-weight:500;font-size:18px;margin:0;text-wrap:balance}
+.meta{color:var(--muted);font-size:12.5px;font-family:var(--f-mono)}
+button.link{all:unset;cursor:pointer;color:var(--accent);font-weight:500;font-size:13px}
+button.link:hover{text-decoration:underline}
+.chip{display:inline-flex;align-items:center;gap:6px;padding:3px 9px;border-radius:999px;font-size:12.5px;font-weight:600;width:fit-content;border:1px solid currentColor}
+.c-ok{color:var(--ok)} .c-warn{color:var(--warn)} .c-bad{color:var(--bad)} .c-crit{color:var(--crit)} .c-mute{color:var(--muted)}
+table.kv{width:100%;border-collapse:collapse;font-size:13px}
+table.kv td,table.kv th{padding:6px 0;border-bottom:1px solid var(--line);vertical-align:top;text-align:left}
+table.kv th{font-weight:500;color:var(--muted);font-size:11.5px;letter-spacing:.04em;text-transform:uppercase}
+table.kv td.v{text-align:right;font-family:var(--f-mono);font-variant-numeric:tabular-nums;white-space:nowrap;padding-left:10px}
+table.kv td.n{color:var(--muted);font-size:12px;text-align:right;padding-left:10px;white-space:nowrap}
+table.kv .dot{display:inline-block;width:8px;height:8px;border-radius:50%;margin-left:6px;background:currentColor;vertical-align:1px}
+.blk{display:flex;flex-direction:column;gap:6px}
+.blk h4{margin:0;font-size:13px;font-weight:600}
+.species{font-size:13px}
+.species b{font-weight:600}
+.bars{display:flex;flex-direction:column;gap:6px}
+.bar{display:grid;grid-template-columns:1fr auto;gap:4px 10px;font-size:13px;align-items:center}
+.bar .track{grid-column:1/-1;height:6px;background:var(--soft);border-radius:3px;overflow:hidden}
+.bar .fill{height:100%}
+.bar .num{font-family:var(--f-mono);font-size:12px;color:var(--muted)}
+.tslist{display:flex;flex-wrap:wrap;gap:6px}
+.tslist button{all:unset;cursor:pointer;font-family:var(--f-mono);font-size:12px;padding:4px 8px;border:1px solid var(--line);border-radius:6px}
+.tslist button:hover{border-color:var(--accent);color:var(--accent)}
+.note{font-size:12px;color:var(--muted);border-top:1px solid var(--line);padding-top:10px}
+.okr-lbl{background:transparent;border:0;box-shadow:none;color:var(--label);font-family:var(--f-body);font-size:11.5px;font-style:italic;font-weight:500;text-shadow:0 0 3px var(--map),0 0 3px var(--map),0 0 2px var(--map);padding:0}
+.okr-lbl::before{display:none}
+.leaflet-container{font-family:var(--f-body);background:var(--map)}
+.leaflet-control-zoom a{background:var(--panel);color:var(--ink);border-color:var(--line)}
+.leaflet-control-attribution{background:color-mix(in srgb,var(--panel) 80%,transparent)!important;color:var(--muted)}
+.leaflet-control-attribution a{color:var(--accent)}
+path.nb{fill:var(--nb);stroke:var(--nb-line);stroke-width:1}
+path.okr{fill:var(--accent);fill-opacity:0;stroke:var(--okr-line);stroke-width:1.1;stroke-dasharray:5 4;cursor:pointer;transition:fill-opacity .15s}
+path.okr:hover{fill-opacity:.08}
+path.okr.sel{fill-opacity:.13;stroke:var(--accent);stroke-width:2;stroke-dasharray:none}
+.nbl{display:flex;flex-direction:column;align-items:center;text-align:center;color:var(--muted);font-size:10.5px;line-height:1.2;pointer-events:none;text-shadow:0 0 3px var(--map),0 0 3px var(--map)}
+.nbl b{font-weight:600;font-size:11px}
+.bigl{display:flex!important;align-items:center;justify-content:center;color:var(--muted);font-size:11.5px;line-height:1.35;letter-spacing:.16em;font-weight:600;text-align:center;pointer-events:none;text-shadow:0 0 3px var(--map),0 0 3px var(--map)}
+path.state{fill:none;stroke:var(--dist-line);stroke-opacity:.7;stroke-width:2.2;stroke-dasharray:12 4 2 4}
+path.obl{fill:none;stroke:var(--dist-line);stroke-opacity:.45;stroke-width:1.6;stroke-dasharray:8 5}
+path.dist{fill:none;stroke:var(--dist-line);stroke-width:2.2}
+path.pt{stroke:var(--panel);stroke-width:1.6;cursor:pointer}
+path.pt.soil-def{fill:var(--soil)}
+path.pt.water-def{fill:var(--water)}
+path.pt.sel{stroke:var(--ink);stroke-width:3}
+.leaflet-tooltip.tip{background:var(--panel);color:var(--ink);border:1px solid var(--line);font-size:12px;box-shadow:0 2px 8px rgba(0,0,0,.12)}
+.leaflet-tooltip.tip::before{display:none}
+
+.c-mid{color:var(--mid)}
+.tag{display:inline-block;padding:2px 8px;border-radius:999px;font-size:11.5px;font-weight:600;white-space:nowrap;background:color-mix(in srgb,currentColor 14%,transparent)}
+table.kv td.t{text-align:right;padding-left:8px;width:1%;white-space:nowrap}
+.concl p{margin:0;font-size:13.5px}
+.concl ul,.rec ul{margin:0;padding-left:18px;display:flex;flex-direction:column;gap:6px;font-size:13.5px}
+.rech{display:flex;align-items:center;gap:8px;flex-wrap:wrap;text-transform:uppercase;letter-spacing:.07em;font-size:11.5px!important;color:var(--muted)}
+.rec{padding:12px 14px;border:1px solid var(--line);border-radius:10px;background:var(--soft)}
+.gal{display:grid;grid-template-columns:repeat(auto-fill,minmax(110px,1fr));gap:6px}
+.gal .ph{all:unset;cursor:pointer;display:flex;flex-direction:column;gap:3px;min-width:0}
+.gal .ph img{width:100%;aspect-ratio:4/3;object-fit:cover;border-radius:6px;display:block;background:var(--soft)}
+.gal .ph span{font-size:11px;color:var(--muted);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.gal .ph:focus-visible img{outline:2px solid var(--accent);outline-offset:2px}
+.phempty{aspect-ratio:16/7;border:1.5px dashed var(--line);border-radius:8px;display:grid;place-items:center;color:var(--muted);font-size:12.5px;background:var(--soft);text-align:center;padding:8px}
+details.blk summary{cursor:pointer;font-weight:600;font-size:13px}
+#lb{position:fixed;inset:0;background:rgba(10,14,12,.86);z-index:2000;display:grid;place-items:center;padding:16px}
+#lb .lbw{max-width:min(1100px,100%);max-height:100%;display:flex;flex-direction:column;gap:8px}
+#lb img{max-width:100%;max-height:calc(100vh - 110px);object-fit:contain;border-radius:6px}
+.lbbar{display:flex;gap:10px;align-items:center;color:#e8ece9;font-size:13px}
+.lbbar span{flex:1;text-align:center}
+.lbbar button{all:unset;cursor:pointer;color:#e8ece9;border:1px solid rgba(255,255,255,.35);border-radius:6px;padding:4px 10px}
+.lbbar button:focus-visible{outline:2px solid #9fd3d8}
+@media (max-width:820px){
+  .app{height:auto}
+  .main{grid-template-columns:1fr}
+  #map{height:58vh}
+  aside{border-left:0;border-top:1px solid var(--line);overflow:visible}
+  header.top{padding:10px 16px}
+  .sec,#card{padding-left:16px;padding-right:16px}
+}
+@media (prefers-reduced-motion:reduce){*{transition:none!important}}
+</style>
+
+<div class="app">
+  <header class="top">
+    <h1>Кормовые ресурсы Уалихановского района</h1>
+    <span class="sub">Северо-Казахстанская область · полевое обследование 2026 · проект 019</span>
+  </header>
+  <div class="main">
+    <div id="map" role="region" aria-label="Карта"></div>
+    <aside>
+      <div class="sec">
+        <h2>Слои</h2>
+        <label class="chk"><input type="checkbox" id="l-soil" checked><span class="sw" style="background:var(--soil)"></span>Почва и травостой<span class="cnt">44</span></label>
+        <label class="chk"><input type="checkbox" id="l-water" checked><span class="sw" style="background:var(--water)"></span>Вода (поение скота)<span class="cnt">44</span></label>
+        <label class="chk"><input type="checkbox" id="l-okr" checked><span class="sw" style="background:transparent;border:1.5px dashed var(--okr-line);box-shadow:none;border-radius:2px"></span>Сельские округа<span class="cnt">11</span></label>
+        <label class="chk" id="osm-row"><input type="checkbox" id="l-osm" checked>Подложка OpenStreetMap</label>
+        <p class="hint" id="osm-note" hidden>Подложка не загружается в этом просмотре. На хостинге сайта она появится автоматически.</p>
+      </div>
+      <div class="sec">
+        <h2>Тематическая раскраска точек</h2>
+        <select id="theme" aria-label="Показатель для раскраски точек">
+          <option value="">По типу пробы</option>
+          <optgroup label="Почва">
+            <option value="орг_вещество_%">Органическое вещество, %</option>
+            <option value="pH_почвы">pH почвы</option>
+            <option value="N_легкогидр_мг100г">N лёгкогидролизуемый</option>
+            <option value="P_подв_мг100г">P подвижный</option>
+            <option value="K_подв_мг100г">K подвижный</option>
+          </optgroup>
+          <optgroup label="Пастбище">
+            <option value="урож_сух_цга">Урожайность сухой массы</option>
+            <option value="покрытие_%">Проективное покрытие</option>
+            <option value="деградация">Степень деградации</option>
+          </optgroup>
+          <optgroup label="Вода">
+            <option value="оценка_воды">Пригодность для поения</option>
+            <option value="TDS_мг_л">Минерализация (TDS)</option>
+            <option value="мутность_NTU">Мутность</option>
+          </optgroup>
+        </select>
+        <div class="legend" id="legend"></div>
+      </div>
+      <div class="sec">
+        <h2>Интерполяция (IDW)</h2>
+        <select id="idw" aria-label="Слой интерполяции">
+          <option value="">Не показывать</option>
+        </select>
+        <div id="idw-box" hidden class="blk">
+          <div class="ramp" id="idw-ramp"></div>
+          <div class="rampl"><span id="idw-min"></span><span id="idw-max"></span></div>
+          <label class="row" for="idw-op" style="font-size:12.5px;color:var(--muted)">Прозрачность <input type="range" id="idw-op" min="0.2" max="1" step="0.05" value="0.75" style="flex:1"></label>
+        </div>
+        <p class="hint">Поверхность рассчитана методом обратных взвешенных расстояний по 44 точкам (≈1 точка на 290 км²). Между точками значения прогнозные.</p>
+      </div>
+      <div id="card" aria-live="polite"></div>
+    </aside>
+  </div>
+</div>
+
+<div id="lb" hidden role="dialog" aria-modal="true" aria-label="Просмотр фото"><div class="lbw"><img id="lb-img" alt=""><div class="lbbar"><button id="lb-prev" aria-label="Предыдущее фото">←</button><span id="lb-cap"></span><button id="lb-next" aria-label="Следующее фото">→</button><button id="lb-close" aria-label="Закрыть">✕</button></div></div></div>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.js"></script>
+<script>/*ДАННЫЕ*/</script>
+<script>
+(function(){
+const G=window.GIS;
+const $=s=>document.querySelector(s);
+const fmt=(v,d=1)=>v==null?'—':Number(v).toLocaleString('ru-RU',{maximumFractionDigits:d,minimumFractionDigits:0});
+const esc=s=>String(s??'').replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+
+const map=L.map('map',{zoomSnap:0.25,attributionControl:true,preferCanvas:false});
+map.attributionControl.setPrefix('');
+const panes=[['nbP',300],['idwP',350],['okrP',410],['distP',420],['soilP',450],['waterP',460]];
+panes.forEach(([n,z])=>{map.createPane(n);map.getPane(n).style.zIndex=z});
+
+// OSM basemap (works when the site is hosted normally)
+let osmFailed=false;
+const osm=L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png',{maxZoom:17,opacity:.55,attribution:'© участники OpenStreetMap'});
+osm.on('tileerror',()=>{ if(osmFailed) return; osmFailed=true; map.removeLayer(osm); $('#l-osm').checked=false; $('#l-osm').disabled=true; $('#osm-note').hidden=false; });
+osm.addTo(map);
+$('#l-osm').onchange=e=>e.target.checked?osm.addTo(map):map.removeLayer(osm);
+
+const ctxLbl=L.layerGroup(G.ctx.labels.map(l=>L.marker([l.lat,l.lon],{interactive:false,keyboard:false,icon:L.divIcon({className:'bigl',html:esc(l.name),iconSize:[170,40],iconAnchor:[85,20]})}))).addTo(map);
+const dist=L.geoJSON(G.district,{pane:'distP',interactive:false,style:()=>({className:'dist'})}).addTo(map);
+map.fitBounds(dist.getBounds().extend(L.latLngBounds(G.ctx.labels.map(l=>[l.lat,l.lon]))),{padding:[16,16]});
+map.attributionControl.addAttribution('Границы: OpenStreetMap · Данные: проект 019, СКУ им. М. Козыбаева');
+
+// Okrugs
+const okrLayers={};
+const okr=L.geoJSON(G.okr,{pane:'okrP',style:()=>({className:'okr'}),
+  onEachFeature:(f,l)=>{okrLayers[f.properties.округ]=l;
+    l.bindTooltip(f.properties.округ,{permanent:true,direction:'center',className:'okr-lbl',interactive:false});
+    l.on('click',()=>showOkr(f.properties.округ));}}).addTo(map);
+$('#l-okr').onchange=e=>e.target.checked?okr.addTo(map):map.removeLayer(okr);
+
+// Scales
+const RAMPS={
+ 'орг_вещество_%':['#f3ead2','#d9b77e','#a8743e','#6b4423','#3b2413'],
+ 'pH_почвы':['#d9582b','#f2b35e','#f4eed7','#86b7d6','#3d5fa8'],
+ 'N_легкогидр_мг100г':['#f1eef6','#bdc9e1','#74a9cf','#2b8cbe','#045a8d'],
+ 'P_подв_мг100г':['#fef0d9','#fdcc8a','#fc8d59','#e34a33','#b30000'],
+ 'K_подв_мг100г':['#f2f0f7','#cbc9e2','#9e9ac8','#756bb1','#54278f'],
+ 'урож_сух_цга':['#f7fcb9','#d9f0a3','#addd8e','#41ab5d','#005a32'],
+ 'покрытие_%':['#ffffcc','#c2e699','#78c679','#31a354','#006837'],
+ 'TDS_мг_л':['#eef7fb','#9fd0e6','#f2c14e','#e0703a','#9c1d1d'],
+ 'мутность_NTU':['#f5f1e8','#dcc9a3','#b8935a','#80592b','#4a2f12']};
+const UNITS={'орг_вещество_%':'%','pH_почвы':'','N_легкогидр_мг100г':'мг/100 г','P_подв_мг100г':'мг/100 г','K_подв_мг100г':'мг/100 г','урож_сух_цга':'ц/га','покрытие_%':'%','TDS_мг_л':'мг/л','мутность_NTU':'NTU'};
+const LABELS={'орг_вещество_%':'Органическое вещество','pH_почвы':'pH почвы','N_легкогидр_мг100г':'N лёгкогидролизуемый','P_подв_мг100г':'P подвижный','K_подв_мг100г':'K подвижный','урож_сух_цга':'Урожайность сухой массы','покрытие_%':'Проективное покрытие','TDS_мг_л':'Минерализация (TDS)','мутность_NTU':'Мутность'};
+const WATER_CAT=[['Требует санитарного контроля','#3f9b8f'],['Ограниченно пригодная','#e2b93b'],['Высокий риск','#e07a2e'],['Критическая','#b3261e']];
+const DEGR=[['I ступень','#2f8a4c'],['промежуточное I–II','#a4c24a'],['II ступень','#e0962e'],['II–III ступень','#c2412c']];
+const catColor=(list,v)=>(list.find(x=>x[0]===v)||[,'#999'])[1];
+function hex(h){return [1,3,5].map(i=>parseInt(h.slice(i,i+2),16))}
+function rampColor(r,t){t=Math.max(0,Math.min(1,t))*(r.length-1);const i=Math.min(Math.floor(t),r.length-2),f=t-i,a=hex(r[i]),b=hex(r[i+1]);return 'rgb('+a.map((x,k)=>Math.round(x+(b[k]-x)*f)).join(',')+')'}
+function range(feats,k){const v=feats.map(f=>f.properties[k]).filter(x=>x!=null).sort((a,b)=>a-b);const q=p=>v[Math.round((v.length-1)*p)];return [q(.02),q(.98)]}
+
+// Points
+const soilById={},waterById={};
+function mk(f,kind){
+  const ll=[f.geometry.coordinates[1],f.geometry.coordinates[0]];
+  const m=L.circleMarker(ll,{pane:kind==='soil'?'soilP':'waterP',radius:kind==='soil'?7.5:5.2,className:'pt '+kind+'-def',fillOpacity:1});
+  m.feature=f; m.kind=kind;
+  const p=f.properties;
+  m.bindTooltip((kind==='soil'?'Почва и травостой':'Вода')+' · '+esc(p.нп)+', '+esc(p.тс_код),{className:'tip',direction:'top',offset:[0,-6]});
+  m.on('click',()=>show(kind,p.ключ));
+  (kind==='soil'?soilById:waterById)[p.ключ]=m;
+  return m;
+}
+const soil=L.layerGroup(G.soil.features.map(f=>mk(f,'soil'))).addTo(map);
+const water=L.layerGroup(G.water.features.map(f=>mk(f,'water'))).addTo(map);
+$('#l-soil').onchange=e=>e.target.checked?soil.addTo(map):map.removeLayer(soil);
+$('#l-water').onchange=e=>e.target.checked?water.addTo(map):map.removeLayer(water);
+
+function setClass(m,cls){const el=m.getElement&&m.getElement();if(el){el.classList.remove('soil-def','water-def');if(cls)el.classList.add(cls)}}
+let paint=function(){const k=$('#theme').value;
+  window.__rs=RAMPS[k]&&['TDS_мг_л','мутность_NTU'].indexOf(k)<0?range(G.soil.features,k):[0,1];
+  window.__rw=RAMPS[k]&&['TDS_мг_л','мутность_NTU'].indexOf(k)>=0?range(G.water.features,k):[0,1];
+  applyPaint(k);};
+function applyPaint(k){
+  const rs=window.__rs,rw=window.__rw,lg=$('#legend');
+  const soilK=['орг_вещество_%','pH_почвы','N_легкогидр_мг100г','P_подв_мг100г','K_подв_мг100г','урож_сух_цга','покрытие_%','деградация'].includes(k);
+  const waterK=['оценка_воды','TDS_мг_л','мутность_NTU'].includes(k);
+  Object.values(soilById).forEach(m=>{const v=m.feature.properties[k];
+    if(soilK){setClass(m,null);m.setStyle({fillColor:k==='деградация'?catColor(DEGR,v):rampColor(RAMPS[k],(v-rs[0])/(rs[1]-rs[0])),fillOpacity:1});}
+    else if(waterK){setClass(m,null);m.setStyle({fillColor:'#9aa39d',fillOpacity:.3});}
+    else {m.setStyle({fillColor:'',fillOpacity:1});setClass(m,'soil-def');}});
+  Object.values(waterById).forEach(m=>{const v=m.feature.properties[k];
+    if(waterK){setClass(m,null);m.setStyle({fillColor:k==='оценка_воды'?catColor(WATER_CAT,v):rampColor(RAMPS[k],(v-rw[0])/(rw[1]-rw[0])),fillOpacity:1});}
+    else if(soilK){setClass(m,null);m.setStyle({fillColor:'#9aa39d',fillOpacity:.3});}
+    else {m.setStyle({fillColor:'',fillOpacity:1});setClass(m,'water-def');}});
+  if(!k){lg.innerHTML=`<div class="it"><span class="sw" style="background:var(--soil)"></span>Почва и травостой</div><div class="it"><span class="sw" style="background:var(--water)"></span>Вода: водоём или скважина</div><p class="hint">Точки воды стоят в нескольких метрах от точек почвы той же площадки и нарисованы поверх них.</p>`;return}
+  if(k==='деградация'){lg.innerHTML=DEGR.map(([n,c])=>`<div class="it"><span class="sw" style="background:${c}"></span>${n}<span class="cnt">${G.soil.features.filter(f=>f.properties.деградация===n).length}</span></div>`).join('');return}
+  if(k==='оценка_воды'){lg.innerHTML=WATER_CAT.map(([n,c])=>`<div class="it"><span class="sw" style="background:${c}"></span>${n}<span class="cnt">${G.water.features.filter(f=>f.properties.оценка_воды===n).length}</span></div>`).join('');return}
+  const r=soilK?rs:rw;
+  lg.innerHTML=`<div class="ramp" style="background:linear-gradient(90deg,${RAMPS[k].join(',')})"></div><div class="rampl"><span>${fmt(r[0])}</span><span>${LABELS[k]}${UNITS[k]?', '+UNITS[k]:''}</span><span>${fmt(r[1])}</span></div>`;
+}
+$('#theme').onchange=paint;
+
+// IDW
+let idwLayer=null;
+Object.entries(G.idw.layers).forEach(([k,v])=>{const o=document.createElement('option');o.value=k;o.textContent=v.label;$('#idw').appendChild(o)});
+function idw(){
+  const k=$('#idw').value; if(idwLayer){map.removeLayer(idwLayer);idwLayer=null}
+  $('#idw-box').hidden=!k; if(!k) return;
+  const v=G.idw.layers[k];
+  idwLayer=L.imageOverlay(v.png,G.idw.bounds,{pane:'idwP',opacity:+$('#idw-op').value,interactive:false}).addTo(map);
+  $('#idw-ramp').style.background=`linear-gradient(90deg,${v.ramp.join(',')})`;
+  $('#idw-min').textContent=fmt(v.min,2); $('#idw-max').textContent=fmt(v.max,2)+(UNITS[k]?' '+UNITS[k]:'');
+}
+$('#idw').onchange=idw; $('#idw-op').oninput=e=>idwLayer&&idwLayer.setOpacity(+e.target.value);
+
+// Cards
+let selected=null;
+function select(m){ if(selected){const e=selected.getElement&&selected.getElement(); e&&e.classList.remove('sel'); if(selected.options&&selected.options.className==='okr'){}}
+  document.querySelectorAll('path.okr.sel').forEach(e=>e.classList.remove('sel'));
+  selected=m; if(m){const e=m.getElement&&m.getElement(); e&&e.classList.add('sel'); m.bringToFront&&m.bringToFront();} }
+const back=`<button class="link" data-act="home">← Обзор района</button>`;
+function waterStatus(k,v){
+  if(v==null) return ['c-mute',''];
+  if(k==='pH_воды') return v>=6&&v<=9?['c-ok','в норме']:['c-bad','вне 6–9'];
+  if(k==='TDS_мг_л') return v<=1000?['c-ok','≤1000']:v<=3000?['c-warn','ограничение']:['c-bad','>3000'];
+  if(k==='E_coli') return v===0?['c-ok','не обнаружено']:['c-bad','обнаружено'];
+  if(k==='колиформы') return v===0?['c-ok','не обнаружено']:['c-warn','обнаружено'];
+  if(k==='мутность_NTU') return v<=1.5?['c-ok','≤1,5']:v<=5?['c-warn','контроль']:['c-bad','повышенная'];
+  return ['c-mute',''];
+}
+const wChip={'Требует санитарного контроля':'c-ok','Ограниченно пригодная':'c-warn','Высокий риск':'c-bad','Критическая':'c-crit'};
+const dChip={'I ступень':'c-ok','промежуточное I–II':'c-warn','II ступень':'c-bad','II–III ступень':'c-crit'};
+const I=G.interp, PH=G.photos;
+const SEVC=['c-ok','c-mid','c-warn','c-bad'];
+const tag=(txt,sev)=>txt?`<span class="tag ${sev==null?'c-mute':SEVC[sev]}">${esc(txt)}</span>`:'';
+const PRIC={'низкий':'c-ok','средний':'c-warn','высокий':'c-bad','первоочередной':'c-crit'};
+let LB=[],LBi=0;
+function gallery(list,label){
+  if(!list||!list.length) return '';
+  const id=Math.random().toString(36).slice(2);
+  window['__g'+id]=list;
+  return `<div class="gal">${list.map((p,i)=>`<button class="ph" data-g="${id}" data-i="${i}" aria-label="Открыть фото: ${esc(p.cap||label||'')}"><img src="${p.src}" alt="${esc(p.cap||label||'')}" loading="lazy"><span>${esc(p.cap||'')}</span></button>`).join('')}</div>`;
+}
+function placeholder(txt){return `<div class="phempty"><span>${txt}</span></div>`}
+function lbOpen(list,i){LB=list;LBi=i;lbShow();$('#lb').hidden=false;$('#lb-close').focus()}
+function lbShow(){const p=LB[LBi];$('#lb-img').src=p.src;$('#lb-img').alt=p.cap||'';$('#lb-cap').textContent=(p.cap?p.cap+' · ':'')+(LBi+1)+' из '+LB.length}
+function lbClose(){$('#lb').hidden=true}
+function row(n,val,t,sev){return `<tr><td>${n}</td><td class="v">${val}</td><td class="t">${tag(t,sev)}</td></tr>`}
+function show(kind,key){
+  const m=(kind==='soil'?soilById:waterById)[key]; if(!m) return; select(m);
+  const p=m.feature.properties, c=$('#card');
+  const head=`${back}<div class="card-h"><span class="eyebrow">${kind==='soil'?'Почва и травостой':'Вода · '+esc(p.источник)}</span><h3>${esc(p.округ)} с.о. · ${esc(p.тс_код)}</h3><span class="meta">${esc(p.нп)} · ${p.широта.toFixed(5)}° с.ш., ${p.долгота.toFixed(5)}° в.д.</span></div>`;
+  if(kind==='soil'){
+    const X=I.points[key], C=X.cls, S=X.sev, V=X.vals, d=['0_10','10_20','20_30'];
+    c.innerHTML=head+gallery(PH.points[key])+`
+    <div class="blk concl"><h4>Заключение</h4><p>${esc(X.soil_txt)}</p><p>${esc(X.past_txt)}</p></div>
+    <div class="blk"><h4>Агрохимия почвы <span class="meta">протокол № 212</span></h4>
+      <table class="kv"><tbody>
+      ${row('Гумус (орг. вещество)',fmt(V.humus)+' %',C.humus,S.humus)}
+      ${row('pH',fmt(V.pH),C.pH,S.pH)}
+      ${row('N лёгкогидролизуемый',fmt(V.N,1)+' мг/кг',C.N,S.N)}
+      ${row('P₂O₅ подвижный',fmt(V.P,1)+' мг/кг',C.P,S.P)}
+      ${row('K₂O подвижный',fmt(V.K,0)+' мг/кг',C.K,S.K)}</tbody></table></div>
+    <div class="blk"><h4>Физика почвы по горизонтам</h4>
+      <table class="kv"><thead><tr><th>Глубина, см</th><th style="text-align:right">Влажность, %</th><th style="text-align:right">Плотность, г/см³</th></tr></thead><tbody>
+      ${d.map(x=>`<tr><td>${x.replace('_','–')}</td><td class="v">${fmt(p['влажность_%_'+x])}</td><td class="v">${fmt(p['плотность_г_см3_'+x],2)}</td></tr>`).join('')}</tbody></table>
+      <div class="row">Верхний слой: ${tag(C.dens,S.dens)}</div></div>
+    <div class="blk"><h4>Пастбище</h4>
+      <span class="chip ${dChip[p.деградация]||'c-mute'}">Деградация: ${esc(p.деградация)}</span>
+      <table class="kv"><tbody>
+      ${row('Урожайность сухой массы',fmt(p.урож_сух_цга)+' ц/га',C.yield,S.yield)}
+      ${row('Урожайность зелёной массы',(p.урож_зел_примеч?'< 5,0':fmt(p.урож_зел_цга))+' ц/га','','')}
+      ${row('Проективное покрытие',fmt(p['покрытие_%'],0)+' %',C.cover,S.cover)}
+      ${row('Высота травостоя, ср.',fmt(p.высота_ср_см)+' см','','')}</tbody></table>
+      <div class="species"><b>Доминанты:</b> ${esc(p.доминанты)}<br><b>Субдоминанты:</b> ${esc(p.субдоминанты)}</div>
+      <div class="row">${tag(X.species.text,X.species.sev)}</div></div>
+    ${waterById[key]?`<button class="link" data-w="${esc(key)}">Проба воды на этой площадке →</button>`:''}`;
+  } else {
+    const X=I.water[key];
+    const rows=[['pH_воды','pH','',1],['TDS_мг_л','Минерализация (TDS)','мг/л',0],['E_coli','E. coli','',0],['колиформы','Общие колиформы','',0],['мутность_NTU','Мутность','NTU',2],['EC_mS','Электропроводность (EC)','mS',1]];
+    const wsev={'c-ok':0,'c-warn':2,'c-bad':3,'c-mute':null};
+    c.innerHTML=head+(PH.points[key+'_вода']?gallery(PH.points[key+'_вода']):placeholder('Фото источника будет добавлено'))+`
+    <span class="chip ${wChip[p.оценка_воды]||'c-mute'}">${esc(p.оценка_воды)}</span>
+    <div class="blk concl"><h4>Что делать</h4><p>${esc(X.action)}</p>${X.factors.length?`<ul>${X.factors.map(f=>`<li>${esc(f)}</li>`).join('')}</ul>`:''}</div>
+    <div class="blk"><h4>Показатели воды</h4><table class="kv"><tbody>
+    ${rows.map(([k,n,u,dg])=>{const [cl,t]=waterStatus(k,p[k]);return row(n,fmt(p[k],dg)+(u?' '+u:''),t,wsev[cl])}).join('')}
+    </tbody></table>
+    <p class="hint">Ориентиры по таблице 16 отчёта: pH 6–9; TDS ≤1000 мг/л; E. coli и колиформы не допускаются; мутность ≤1,5 NTU.</p></div>
+    ${p.примечание?`<div class="blk"><h4>Примечание полевой группы</h4><p class="hint" style="color:var(--ink)">${esc(p.примечание)}</p></div>`:''}
+    ${soilById[key]?`<button class="link" data-s="${esc(key)}">Почва и травостой на этой площадке →</button>`:''}`;
+  }
+  focusCard();
+}
+function focusCard(){const c=$('#card');if(window.innerWidth<=820)c.scrollIntoView({behavior:'smooth',block:'start'});else{const a=document.querySelector('aside');a.scrollTo({top:c.offsetTop-a.offsetTop,behavior:'smooth'})}}
+function showOkr(name){
+  const f=G.okr.features.find(x=>x.properties.округ===name); if(!f) return; select(null);
+  okrLayers[name].getElement()&&okrLayers[name].getElement().classList.add('sel');
+  const p=f.properties, X=I.okr[name], M=X.means;
+  const keys=G.soil.features.filter(x=>x.properties.округ===name).map(x=>x.properties);
+  const wk=G.water.features.filter(x=>x.properties.округ===name).map(x=>x.properties);
+  const thumbs=keys.map(k=>Object.assign({},PH.points[k.ключ][0],{cap:k.тс_код+' · общий вид'}));
+  $('#card').innerHTML=`${back}<div class="card-h"><span class="eyebrow">Сельский округ</span><h3>${esc(p.сельский_округ)}</h3><span class="meta">${esc(p.название_kk)} · ${fmt(p.площадь_км2,0)} км²</span></div>
+  <div class="blk"><h4>Средние по 4 точкам</h4><table class="kv"><tbody>
+  ${row('Гумус',fmt(M.humus.v,2)+' %',M.humus.cls,M.humus.sev)}
+  ${row('pH почвы',fmt(M.pH.v,1),M.pH.cls,M.pH.sev)}
+  ${row('N лёгкогидролизуемый',fmt(M.N.v,0)+' мг/кг',M.N.cls,M.N.sev)}
+  ${row('P₂O₅ подвижный',fmt(M.P.v,1)+' мг/кг',M.P.cls,M.P.sev)}
+  ${row('K₂O подвижный',fmt(M.K.v,0)+' мг/кг',M.K.cls,M.K.sev)}
+  ${row('Урожайность сухой массы',fmt(M.yield.v,1)+' ц/га',M.yield.cls,M.yield.sev)}
+  ${row('Проективное покрытие',fmt(M.cover.v,0)+' %',M.cover.cls,M.cover.sev)}
+  ${row('Вода: пробы с E. coli',X.w_ecoli+' из 4',X.w_ecoli?'обнаружена':'нет',X.w_ecoli>=2?3:X.w_ecoli?2:0)}
+  ${row('Вода: TDS выше 1000 мг/л',X.w_salty+' из 4',X.w_salty?'есть':'нет',X.w_salty>=2?3:X.w_salty?2:0)}
+  </tbody></table></div>
+  <div class="blk rec"><h4 class="rech">Рекомендации · приоритет <span class="chip ${PRIC[X.priority]}">${esc(X.priority)}</span></h4>
+  <span class="chip c-mute" style="font-weight:500">Пастбища: ${esc(X.group)}</span>
+  <ul>${X.rec.map(r=>`<li>${esc(r)}</li>`).join('')}</ul></div>
+  <div class="blk concl"><h4>Почва</h4><p>${esc(X.soil)}</p></div>
+  <div class="blk concl"><h4>Пастбища</h4><p>${esc(X.pasture)}</p></div>
+  <div class="blk concl"><h4>Вода</h4><p>${esc(X.water)}</p></div>
+  <div class="blk"><h4>Площадки округа</h4>${gallery(thumbs)}<div class="tslist">${keys.map(k=>`<button data-s="${esc(k.ключ)}">${esc(k.тс_код)} почва</button>`).join('')}${wk.map(k=>`<button data-w="${esc(k.ключ)}">${esc(k.тс_код)} вода</button>`).join('')}</div></div>
+  <p class="note">Заключение — рабочая версия, собранная по протоколу № 212 и отчёту по проекту 019. Окончательная редакция за специалистами проекта.</p>`;
+
+  focusCard();}
+function home(){
+  select(null);
+  const wc=WATER_CAT.map(([n,c])=>[n,c,G.water.features.filter(f=>f.properties.оценка_воды===n).length]);
+  const dg=DEGR.map(([n,c])=>[n,c,G.soil.features.filter(f=>f.properties.деградация===n).length]);
+  const order=['первоочередной','высокий','средний','низкий'];
+  const byP={};Object.entries(I.okr).forEach(([k,v])=>{(byP[v.priority]=byP[v.priority]||[]).push(k)});
+  const bar=(n,c,v,t)=>`<div class="bar"><span>${n}</span><span class="num">${v}</span><div class="track"><div class="fill" style="width:${v/t*100}%;background:${c}"></div></div></div>`;
+  const sc=I.scales;
+  $('#card').innerHTML=`<div class="card-h"><span class="eyebrow">Обзор района</span><h3>Уалихановский район</h3><span class="meta">11 сельских округов · 12 880 км² · 4 площадки (ТС) в каждом округе</span></div>
+  <p class="hint" style="color:var(--ink)">Нажмите на точку, чтобы открыть результаты анализов и фото, или на сельский округ, чтобы увидеть оценку и рекомендации.</p>
+  <div class="blk"><h4>Приоритет мероприятий по округам</h4><table class="kv"><tbody>${order.filter(g=>byP[g]).map(g=>`<tr><td style="width:40%"><span class="chip ${PRIC[g]}">${g}</span></td><td class="n" style="white-space:normal;text-align:right;color:var(--ink)">${byP[g].sort().map(o=>`<button class="link" data-o="${esc(o)}">${esc(o)}</button>`).join(', ')}</td></tr>`).join('')}</tbody></table></div>
+  <div class="blk"><h4>Вода: пригодность для поения, 44 пробы</h4><div class="bars">${wc.map(x=>bar(x[0],x[1],x[2],44)).join('')}</div>
+  <p class="hint">Главный ограничивающий фактор — микробиологическое загрязнение: колиформы во всех 44 пробах, E. coli в 16. Второй фактор — минерализация выше 1000 мг/л в 13 пробах.</p></div>
+  <div class="blk"><h4>Пастбища: степень деградации, 44 площадки</h4><div class="bars">${dg.map(x=>bar(x[0],x[1],x[2],44)).join('')}</div></div>
+  <div class="blk"><h4>Молоко <span class="meta">сводная проба по району, 17.08.2026</span></h4><table class="kv"><thead><tr><th>Показатель</th><th style="text-align:right">Результат</th><th style="text-align:right">Норматив</th></tr></thead><tbody>${G.milk.map(r=>`<tr><td>${r[0]}</td><td class="v">${r[1]}</td><td class="n">${r[2]}</td></tr>`).join('')}</tbody></table>
+  <p class="hint">Белок, жир и кислотность в норме; СОМО 8,11 % — ниже нормы 8,2 %; точка замерзания у нормативной границы.</p></div>
+  ${Object.entries(PH.general).map(([g,l])=>`<div class="blk"><h4>${esc(g)}</h4>${gallery(l.map(x=>Object.assign({},x,{cap:''})),g)}</div>`).join('')}
+  <details class="blk"><summary>Шкалы оценки показателей</summary><table class="kv"><thead><tr><th>Показатель</th><th>Градации</th></tr></thead><tbody>
+  ${Object.values(sc).map(s=>`<tr><td>${esc(s.name)}, ${esc(s.unit)}<br><span class="meta">${esc(s.src)}</span></td><td class="n" style="white-space:normal;text-align:left">${s.names.map((n,i)=>`${esc(n)}${i<s.edges.length?' ≤ '+String(s.edges[i]).replace('.',','):' > '+String(s.edges[s.edges.length-1]).replace('.',',')}`).join('<br>')}</td></tr>`).join('')}
+  </tbody></table><p class="hint">P и K по Мачигину пересчитаны из мг/100 г протокола в мг/кг (×10) и отнесены к P₂O₅ и K₂O. Шкалы урожайности и плотности рабочие, их стоит сверить с агрохимиком проекта.</p></details>
+  <p class="note">Источники: протокол испытаний № 212 (почва, 44 пробы), отчёт по проекту 019 (плотность и влажность почвы, травостой, вода, молоко, фото), GPS-координаты полевой группы. Границы района и округов: OpenStreetMap.</p>`;
+}
+
+$('#card').addEventListener('click',e=>{const b=e.target.closest('button');if(!b)return;
+  if(b.dataset.g){lbOpen(window['__g'+b.dataset.g],+b.dataset.i);return}
+  if(b.dataset.act==='home'){home();return}
+  if(b.dataset.s){show('soil',b.dataset.s);panTo(soilById[b.dataset.s])}
+  if(b.dataset.w){show('water',b.dataset.w);panTo(waterById[b.dataset.w])}
+  if(b.dataset.o){showOkr(b.dataset.o);map.fitBounds(okrLayers[b.dataset.o].getBounds(),{padding:[20,20]})}});
+function panTo(m){if(m&&!map.getBounds().contains(m.getLatLng()))map.panTo(m.getLatLng())}
+map.on('click',e=>{if(e.originalEvent.target===map.getContainer())home()});
+$('#lb-close').onclick=lbClose;$('#lb-prev').onclick=()=>{LBi=(LBi-1+LB.length)%LB.length;lbShow()};$('#lb-next').onclick=()=>{LBi=(LBi+1)%LB.length;lbShow()};
+$('#lb').addEventListener('click',e=>{if(e.target.id==='lb')lbClose()});
+document.addEventListener('keydown',e=>{if($('#lb').hidden)return;if(e.key==='Escape')lbClose();if(e.key==='ArrowLeft')$('#lb-prev').click();if(e.key==='ArrowRight')$('#lb-next').click()});
+paint(); home();
+})();
+</script>
