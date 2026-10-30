@@ -1,0 +1,95 @@
+# Публикация сайта: ветка main -> основной адрес, любая другая ветка -> адрес/<имя ветки>/
+# Список всех вариантов: адрес/variants.html
+# Файл служебный, менять не нужно.
+name: Публикация сайта
+
+on:
+  push:
+    branches: ['**']
+  delete:
+  workflow_dispatch:
+
+concurrency:
+  group: pages
+  cancel-in-progress: false
+
+jobs:
+  # Пуш в любую ветку, кроме main: просим пересобрать сайт из main
+  # (публиковать GitHub Pages разрешает только из основной ветки).
+  trigger:
+    if: github.event_name == 'push' && github.ref != 'refs/heads/main'
+    runs-on: ubuntu-latest
+    permissions:
+      actions: write
+    steps:
+      - name: Запустить публикацию из main
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: gh workflow run pages.yml --ref main --repo "${{ github.repository }}"
+
+  build:
+    if: github.ref == 'refs/heads/main'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - name: Собрать все варианты в одну папку
+        run: |
+          git fetch --no-tags origin '+refs/heads/*:refs/remotes/origin/*'
+          python3 - <<'PY'
+          import subprocess, html, io, tarfile, pathlib, urllib.parse
+          def git(*a):
+              return subprocess.run(['git', *a], check=True, capture_output=True).stdout
+          site = pathlib.Path('_site'); site.mkdir()
+          refs = git('for-each-ref', '--format=%(refname:strip=3)', 'refs/remotes/origin').decode().split()
+          rows = []
+          for ref in refs:
+              if ref == 'HEAD':
+                  continue
+              rev = 'origin/' + ref
+              if subprocess.run(['git', 'cat-file', '-e', rev + ':docs/index.html'], capture_output=True).returncode:
+                  print('пропуск (нет docs/index.html):', ref); continue
+              if ref.split('/')[0] in ('foto', 'variants.html', 'index.html'):
+                  print('пропуск (занятое имя):', ref); continue
+              dest = site if ref == 'main' else site / ref
+              dest.mkdir(parents=True, exist_ok=True)
+              with tarfile.open(fileobj=io.BytesIO(git('archive', rev, 'docs'))) as t:
+                  for m in t.getmembers():
+                      m.name = m.name[len('docs/'):] if m.name.startswith('docs/') else ''
+                      if m.name:
+                          t.extract(m, dest, filter='data')
+              ts, date, msg = git('log', '-1', '--format=%ct%x00%cd%x00%s', '--date=format:%d.%m.%Y %H:%M', rev).decode().strip().split('\x00')
+              url = './' if ref == 'main' else './' + urllib.parse.quote(ref) + '/'
+              rows.append((ref != 'main', -int(ts), ref, url, date, msg))
+              print('опубликовано:', ref, '->', url)
+          rows.sort()
+          items = '\n'.join(
+              f'<tr><td><a href="{u}">{"основной (main)" if r == "main" else html.escape(r)}</a></td>'
+              f'<td>{html.escape(d)}</td><td>{html.escape(m)}</td></tr>'
+              for _, _, r, u, d, m in rows)
+          (site / 'variants.html').write_text(f'''<!doctype html><html lang="ru"><head><meta charset="utf-8">
+          <meta name="viewport" content="width=device-width, initial-scale=1"><title>Варианты сайта</title>
+          <style>body{{font-family:system-ui,sans-serif;margin:24px auto;max-width:900px;padding:0 16px;color:#222;background:#fff}}
+          table{{border-collapse:collapse;width:100%}}td,th{{padding:8px;border-bottom:1px solid #ddd;text-align:left;vertical-align:top}}
+          a{{color:#0b6e4f;font-weight:600}}</style></head><body>
+          <h1>Варианты сайта</h1><table><tr><th>Вариант</th><th>Обновлён</th><th>Последнее изменение</th></tr>
+          {items}</table></body></html>''', encoding='utf-8')
+          PY
+      - uses: actions/configure-pages@v5
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: _site
+
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    permissions:
+      pages: write
+      id-token: write
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - id: deployment
+        uses: actions/deploy-pages@v4
