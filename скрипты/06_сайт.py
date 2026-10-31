@@ -3,24 +3,18 @@
 Что делает:
   1) Переводит слои базы в формат для веб-карты (GeoJSON, координаты WGS 84).
      У каждой точки – общие сведения (округ, ТС, координаты) и результаты по каждому выезду.
-  2) Считает интерполяцию IDW для каждого выезда по показателям почвы и пастбищ, которые
-     в этом выезде определялись: сетка ~420 px по ширине района, вес = 1/расстояние²,
-     значения обрезаются по контуру района. Каждая поверхность – картинка PNG внутри страницы.
-  3) Молоко: все пробы из листа «молоко» с проверкой по нормам (НОРМЫ_МОЛОКА ниже).
-  4) Берёт шаблон  шаблон/index_шаблон.html  и вставляет в него все данные:
+  2) Молоко: все пробы из листа «молоко» с проверкой по нормам (НОРМЫ_МОЛОКА ниже).
+  3) Берёт шаблон  шаблон/index_шаблон.html  и вставляет в него все данные:
      точки, округа, оценки (build/оценка.json), фото (build/фото.json), подписи соседей,
      данные о районе и металлы (build/район.json, шаг 5).
-  5) Пишет docs/index.html – это и есть сайт. GitHub Pages публикует папку docs.
+  4) Пишет docs/index.html – это и есть сайт. GitHub Pages публикует папку docs.
 
 Внешний вид сайта (цвета, тексты кнопок, раскладка) правится в шаблоне, а не здесь.
 """
-import base64, io, json, re
+import json, re
 import numpy as np
 import pandas as pd
 import geopandas as gpd
-import shapely
-from PIL import Image
-from pyproj import Transformer
 from общее import *
 
 ВЫЕЗДЫ = выезды()
@@ -74,53 +68,6 @@ def по_точкам(g, общие, вода=False):
 ОБЩИЕ = ['округ', 'нп', 'тс', 'тс_код', 'ключ', 'долгота', 'широта', 'коорд_источник']
 данные = dict(trips=ВЫЕЗДЫ, district=geojson(d, 40), okr=geojson(o, 40),
               soil=по_точкам(p, ОБЩИЕ), water=по_точкам(w, ОБЩИЕ + ['источник', 'примечание'], вода=True))
-
-# ---------- IDW (для каждого выезда – по тем показателям, что в нём определялись) ----------
-ПОКАЗАТЕЛИ = {
-    'орг_вещество_%': ('Органическое вещество, %', ['#f3ead2', '#d9b77e', '#a8743e', '#6b4423', '#3b2413']),
-    'pH_почвы': ('pH почвы', ['#d9582b', '#f2b35e', '#f4eed7', '#86b7d6', '#3d5fa8']),
-    'N_легкогидр_мг100г': ('N лёгкогидролизуемый, мг/100 г', ['#f1eef6', '#bdc9e1', '#74a9cf', '#2b8cbe', '#045a8d']),
-    'P_подв_мг100г': ('P подвижный, мг/100 г', ['#fef0d9', '#fdcc8a', '#fc8d59', '#e34a33', '#b30000']),
-    'K_подв_мг100г': ('K подвижный, мг/100 г', ['#f2f0f7', '#cbc9e2', '#9e9ac8', '#756bb1', '#54278f']),
-    'урож_сух_цга': ('Урожайность сухой массы, ц/га', ['#f7fcb9', '#d9f0a3', '#addd8e', '#41ab5d', '#005a32']),
-    'покрытие_%': ('Проективное покрытие, %', ['#ffffcc', '#c2e699', '#78c679', '#31a354', '#006837']),
-    'протеин_%': ('Протеин в фитомассе, %', ['#fff5eb', '#fdd0a2', '#fd8d3c', '#d94801', '#7f2704'])}
-в_utm = Transformer.from_crs(3857, CRS, always_xy=True)
-d3 = d.to_crs(3857).geometry.iloc[0]
-minx, miny, maxx, maxy = d3.bounds; pad = 3000
-minx -= pad; miny -= pad; maxx += pad; maxy += pad
-Wpx = 420; Hpx = int(Wpx * (maxy - miny) / (maxx - minx))
-xs = minx + (np.arange(Wpx) + .5) * (maxx - minx) / Wpx
-ys = maxy - (np.arange(Hpx) + .5) * (maxy - miny) / Hpx
-X, Y = np.meshgrid(xs, ys)
-маска = shapely.contains_xy(d3, X, Y)
-UX, UY = в_utm.transform(X, Y)
-hex2rgb = lambda h: np.array([int(h[i:i + 2], 16) for i in (1, 3, 5)])
-idw = {}
-for в in ИДЫ:
-    pv = p[p.выезд == в]
-    px, py = pv.geometry.x.values, pv.geometry.y.values
-    вес = 1 / np.maximum(np.sqrt((UX[..., None] - px) ** 2 + (UY[..., None] - py) ** 2), 50) ** 2
-    слои = {}
-    for k, (подпись, шкала) in ПОКАЗАТЕЛИ.items():
-        v = pv[k].values.astype(float); ok = ~np.isnan(v)
-        if ok.sum() < 5:
-            continue
-        Z = (вес[..., ok] * v[ok]).sum(-1) / вес[..., ok].sum(-1)
-        lo, hi = np.nanpercentile(v, 2), np.nanpercentile(v, 98)
-        s = np.clip((Z - lo) / (hi - lo), 0, 1) * (len(шкала) - 1)
-        cols = np.array([hex2rgb(c) for c in шкала])
-        i0 = np.floor(s).astype(int).clip(0, len(cols) - 2); f = (s - i0)[..., None]
-        img = np.zeros((Hpx, Wpx, 4), np.uint8)
-        img[..., :3] = (cols[i0] * (1 - f) + cols[i0 + 1] * f).astype(np.uint8)
-        img[..., 3] = np.where(маска, 255, 0)
-        b = io.BytesIO(); Image.fromarray(img, 'RGBA').save(b, 'PNG', optimize=True)
-        слои[k] = dict(label=подпись, ramp=шкала, min=round(float(lo), 2), max=round(float(hi), 2), n=int(ok.sum()),
-                       png='data:image/png;base64,' + base64.b64encode(b.getvalue()).decode())
-    idw[в] = слои
-в_4326 = Transformer.from_crs(3857, 4326, always_xy=True)
-lo1, la1 = в_4326.transform(minx, miny); lo2, la2 = в_4326.transform(maxx, maxy)
-данные['idw'] = dict(bounds=[[la1, lo1], [la2, lo2]], trips=idw)
 
 # ---------- молоко ----------
 # Нормы – ТР ТС 033/2013 и СТ РК 1760-2019 (это не данные, поэтому заданы здесь).
