@@ -28,7 +28,7 @@
 [hidden]{display:none!important}
 html,body{height:100%;margin:0}
 body{background:var(--bg);color:var(--ink);font-family:var(--f-body);font-size:14px;line-height:1.45}
-.app{height:100%;display:grid;grid-template-rows:auto 1fr;}
+.app{height:100%;display:grid;grid-template-rows:auto 1fr;grid-template-columns:minmax(0,1fr)}
 header.top{display:flex;align-items:baseline;gap:14px;flex-wrap:wrap;padding:12px 18px;border-bottom:1px solid var(--line);background:var(--panel)}
 header.top h1{font-family:var(--f-display);font-weight:600;font-size:17px;letter-spacing:.01em;margin:0;text-wrap:balance}
 header.top .sub{color:var(--muted);font-size:13px}
@@ -149,14 +149,143 @@ details.blk summary{cursor:pointer;font-weight:600;font-size:13px}
   .sec,#card{padding-left:16px;padding-right:16px}
 }
 @media (prefers-reduced-motion:reduce){*{transition:none!important}}
+
+/* ---------- Вкладки и страницы района ---------- */
+:root{--s1:#2a78d6;--s1l:#9ec5f4;--s2:#eb6834;--s3:#1baf7a;--def:#c2562c;--defl:#e8a17a;--mid0:#d9d7cf;--surl:#86b9b0;--sur:#1f6b6e;--grid:#e2e5dd}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){--s1:#3987e5;--s1l:#1c5cab;--s2:#d95926;--s3:#199e70;--def:#e2734a;--defl:#9a5a3e;--mid0:#4a4f4b;--surl:#3f7f7a;--sur:#7fc4c0;--grid:#2a322e}}
+:root[data-theme="dark"]{--s1:#3987e5;--s1l:#1c5cab;--s2:#d95926;--s3:#199e70;--def:#e2734a;--defl:#9a5a3e;--mid0:#4a4f4b;--surl:#3f7f7a;--sur:#7fc4c0;--grid:#2a322e}
+header.top{flex-direction:column;align-items:stretch;gap:8px;padding-bottom:0}
+header.top .ttl{display:flex;align-items:baseline;gap:4px 14px;flex-wrap:wrap}
+header.top .ttl h1{min-width:0}
+nav.tabs{display:flex;gap:2px;overflow-x:auto;scrollbar-width:none;margin:0 -6px}
+nav.tabs::-webkit-scrollbar{display:none}
+nav.tabs a{flex:none;padding:8px 10px 9px;color:var(--muted);text-decoration:none;font-weight:500;font-size:13.5px;border-bottom:2px solid transparent;white-space:nowrap}
+nav.tabs a:hover{color:var(--ink)}
+nav.tabs a[aria-current="page"]{color:var(--accent);border-bottom-color:var(--accent);font-weight:600}
+nav.tabs a:focus-visible{outline:2px solid var(--accent);outline-offset:-2px}
+.page{overflow-y:auto;min-height:0}
+.wrap{max-width:1180px;margin:0 auto;padding:22px 20px 60px;display:flex;flex-direction:column;gap:18px}
+.wrap>*{min-width:0}
+.wrap>h2{font-family:var(--f-display);font-weight:500;font-size:22px;margin:0;text-wrap:balance}
+.lead{margin:0;color:var(--muted);max-width:760px;font-size:14.5px}
+.lead b{color:var(--ink);font-weight:600}
+.grid2{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:18px}
+.cardp{background:var(--panel);border:1px solid var(--line);border-radius:12px;padding:16px 18px;display:flex;flex-direction:column;gap:12px;min-width:0}
+.cardp h3{margin:0;font-size:15px;font-weight:600}
+.cardp h3 .meta{font-weight:400;margin-left:6px}
+.cardp .take{margin:0;font-size:13.5px}
+.kpis{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:10px}
+.kpi{background:var(--panel);border:1px solid var(--line);border-radius:10px;padding:12px 14px;display:flex;flex-direction:column;gap:2px}
+.kpi b{font-family:var(--f-display);font-weight:500;font-size:22px;font-variant-numeric:tabular-nums;letter-spacing:-.01em}
+.kpi span{color:var(--muted);font-size:12.5px}
+.kpi small{color:var(--muted);font-size:11.5px;font-family:var(--f-mono)}
+.src{font-size:12px;color:var(--muted);margin:0}
+.lg{display:flex;flex-wrap:wrap;gap:4px 14px;font-size:12.5px;color:var(--muted)}
+.lg i{display:inline-block;width:10px;height:10px;border-radius:3px;margin-right:6px;vertical-align:-1px}
+/* горизонтальные полосы */
+.hb{display:flex;flex-direction:column;gap:7px}
+.hb-r{display:grid;grid-template-columns:minmax(90px,150px) minmax(0,1fr) auto;gap:10px;align-items:center;font-size:13px}
+.hb-r .l{line-height:1.25;overflow-wrap:break-word;min-width:0}
+.hb-r button.l{all:unset;cursor:pointer;line-height:1.25}
+.hb-r button.l:hover{color:var(--accent);text-decoration:underline}
+.hb-t{position:relative;display:flex;flex-direction:column;gap:2px}
+.hb-t i{display:block;height:10px;border-radius:0 4px 4px 0;min-width:2px}
+.hb-t i.thin{height:7px}
+.hb-r .v{font-family:var(--f-mono);font-size:12px;color:var(--muted);min-width:56px;text-align:right;font-variant-numeric:tabular-nums}
+.hb-ref{position:absolute;top:-3px;bottom:-3px;width:0;border-left:1.5px dashed var(--ink);opacity:.55;pointer-events:none}
+.stk{display:flex;height:16px;gap:2px}
+.stk i{display:block;height:100%}
+.stk i:first-child{border-radius:4px 0 0 4px}.stk i:last-child{border-radius:0 4px 4px 0}
+/* svg-графики */
+svg.ch{width:100%;height:auto;display:block;overflow:visible}
+svg.ch text{fill:var(--muted);font-family:var(--f-body);font-size:11px}
+svg.ch .gl{stroke:var(--grid);stroke-width:1}
+svg.ch .base{stroke:var(--okr-line);stroke-width:1}
+svg.ch .hx rect{fill:transparent}
+svg.ch .hx line{stroke:var(--muted);stroke-width:1;opacity:0}
+svg.ch .hx:hover line{opacity:.6}
+svg.ch .hx:hover rect{fill:color-mix(in srgb,var(--ink) 4%,transparent)}
+svg.ch .bar:hover{opacity:.82}
+#tt{position:fixed;z-index:3000;pointer-events:none;background:var(--panel);color:var(--ink);border:1px solid var(--line);border-radius:8px;padding:7px 9px;font-size:12.5px;box-shadow:0 4px 14px rgba(0,0,0,.14);max-width:280px;line-height:1.4}
+#tt b{font-weight:600}
+#tt .r{display:flex;gap:8px;justify-content:space-between}
+#tt .r span:last-child{font-family:var(--f-mono)}
+details.tv summary{cursor:pointer;color:var(--accent);font-size:12.5px;font-weight:500;width:fit-content}
+details.tv[open] summary{margin-bottom:8px}
+.tw{overflow-x:auto;max-width:100%}
+table.dt{border-collapse:collapse;font-size:12.5px;width:100%}
+table.dt th,table.dt td{padding:5px 8px;border-bottom:1px solid var(--line);text-align:right;white-space:nowrap}
+table.dt th:first-child,table.dt td:first-child{text-align:left}
+table.dt th{color:var(--muted);font-weight:500;font-size:11.5px;position:sticky;top:0;background:var(--panel)}
+table.dt th.sort{cursor:pointer;user-select:none}
+table.dt th.sort:hover{color:var(--ink)}
+table.dt th[aria-sort]::after{content:" ↓";color:var(--accent)}
+table.dt th[aria-sort="ascending"]::after{content:" ↑"}
+table.dt td{font-variant-numeric:tabular-nums}
+table.dt td.txt{text-align:left;white-space:normal}
+table.dt tr.click{cursor:pointer}
+table.dt tr.click:hover td{background:var(--soft)}
+table.dt td button.link{font-size:12.5px}
+.heat{display:grid;gap:2px;font-size:11px;align-items:center}
+.heat .c{height:24px;border-radius:3px;display:grid;place-items:center;font-family:var(--f-mono);font-size:10.5px}
+.heat .h{color:var(--muted);text-align:center}
+.heat .y{color:var(--muted);font-family:var(--f-mono);padding-right:6px;text-align:right}
+.facts{display:grid;grid-template-columns:1fr auto;gap:0 14px;font-size:13px;margin:0}
+.facts dt{padding:6px 0;border-bottom:1px solid var(--line);color:var(--ink)}
+.facts dd{margin:0;padding:6px 0;border-bottom:1px solid var(--line);text-align:right;font-family:var(--f-mono);font-size:12.5px;white-space:nowrap}
+.facts dd.zero{color:var(--bad);font-family:var(--f-body);font-weight:600}
+.mods{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px}
+.mod{border:1px solid var(--line);border-radius:10px;padding:12px 14px;background:var(--bg);display:flex;flex-direction:column;gap:6px}
+.mod h4{margin:0;font-size:13.5px;font-weight:600;color:var(--accent)}
+.mod ul{margin:0;padding-left:18px;font-size:13px;display:flex;flex-direction:column;gap:3px}
+.flowarr{display:flex;align-items:center;justify-content:center;color:var(--muted);font-size:12px;gap:8px}
+.breeds{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px}
+.breed{border:1px solid var(--line);border-radius:10px;padding:12px 14px;display:flex;flex-direction:column;gap:6px;font-size:13px}
+.breed h4{margin:0;font-size:14px}
+.breed .role{font-size:11.5px;letter-spacing:.06em;text-transform:uppercase;color:var(--muted);font-weight:600}
+.doclist{display:flex;flex-direction:column;gap:2px}
+.doc{display:grid;grid-template-columns:auto 1fr auto;gap:12px;align-items:center;padding:8px 0;border-bottom:1px solid var(--line);font-size:13.5px;color:var(--ink);text-decoration:none}
+.doc:hover .t{color:var(--accent);text-decoration:underline}
+.doc .x{font-family:var(--f-mono);font-size:10.5px;padding:2px 6px;border-radius:4px;background:var(--soft);color:var(--accent);font-weight:500;min-width:34px;text-align:center}
+.doc .s{font-family:var(--f-mono);font-size:11.5px;color:var(--muted)}
+.fsel{display:flex;gap:10px;align-items:center;flex-wrap:wrap;font-size:13px}
+.fsel select{width:auto;min-width:200px}
+/* карта: сёла и объекты */
+path.vil{fill:var(--panel);stroke:var(--ink);stroke-width:1.4;cursor:pointer}
+path.vil.sel{stroke:var(--accent);stroke-width:3}
+path.ch{stroke:none}
+.obj{display:flex!important;align-items:center;justify-content:center;width:18px!important;height:18px!important;border-radius:5px;color:#fff;font:600 10.5px/1 var(--f-body);border:1.5px solid var(--panel);box-shadow:0 1px 3px rgba(0,0,0,.3);cursor:pointer}
+.obj.plan{opacity:.6;border-style:dashed}
+.mini{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:6px}
+.mini div{background:var(--soft);border-radius:8px;padding:7px 9px;display:flex;flex-direction:column;gap:1px}
+.mini b{font-family:var(--f-mono);font-size:13.5px;font-weight:500}
+.mini span{font-size:11px;color:var(--muted)}
+.hd2{font-family:var(--f-display);font-weight:500;font-size:14px;margin:6px 0 0;padding-top:12px;border-top:2px solid var(--line)}
+@media (max-width:980px){.grid2{grid-template-columns:minmax(0,1fr)}.mods,.breeds{grid-template-columns:1fr}}
+@media (max-width:820px){.app{height:auto}.page{overflow:visible}.wrap{padding:16px 16px 48px}.hb-r{grid-template-columns:minmax(80px,110px) minmax(0,1fr) auto}.mini{grid-template-columns:repeat(2,minmax(0,1fr))}}
 </style>
 
 <div class="app">
   <header class="top">
-    <h1>Кормовые ресурсы Уалихановского района</h1>
-    <span class="sub">Северо-Казахстанская область · полевое обследование 2026 · проект 019</span>
+    <div class="ttl"><h1>Кормовые ресурсы Уалихановского района</h1>
+    <span class="sub">Северо-Казахстанская область · полевое обследование 2026 · проект 019</span></div>
+    <nav class="tabs" aria-label="Разделы сайта">
+      <a href="#map">Карта</a>
+      <a href="#raion">Район в цифрах</a>
+      <a href="#zhivotnovodstvo">Животноводство и корма</a>
+      <a href="#klimat">Климат и пастбища</a>
+      <a href="#naselenie">Население</a>
+      <a href="#plan">План развития</a>
+      <a href="#istochniki">Документы и источники</a>
+    </nav>
   </header>
-  <div class="main">
+  <section class="page" id="pg-raion" hidden></section>
+  <section class="page" id="pg-zhivotnovodstvo" hidden></section>
+  <section class="page" id="pg-klimat" hidden></section>
+  <section class="page" id="pg-naselenie" hidden></section>
+  <section class="page" id="pg-plan" hidden></section>
+  <section class="page" id="pg-istochniki" hidden></section>
+  <div class="main" id="pg-map">
     <div id="map" role="region" aria-label="Карта"></div>
     <aside>
       <div class="sec">
@@ -168,9 +297,39 @@ details.blk summary{cursor:pointer;font-weight:600;font-size:13px}
         <label class="chk"><input type="checkbox" id="l-soil" checked><span class="sw" style="background:var(--soil)"></span>Почва и травостой<span class="cnt">44</span></label>
         <label class="chk"><input type="checkbox" id="l-water" checked><span class="sw" style="background:var(--water)"></span>Вода (поение скота)<span class="cnt">44</span></label>
         <label class="chk" id="milk-row"><input type="checkbox" id="l-milk" checked><span class="sw" style="background:var(--milk)"></span>Молоко<span class="cnt" id="cnt-milk">0</span></label>
+        <label class="chk"><input type="checkbox" id="l-vil" checked><span class="sw" style="background:var(--panel);box-shadow:0 0 0 1.5px var(--ink)"></span>Сёла (размер – население)<span class="cnt" id="cnt-vil">0</span></label>
+        <label class="chk"><input type="checkbox" id="l-obj" checked><span class="sw" style="background:#a4462a;border-radius:3px"></span>Объекты АПК (В, У, Э, Ж)<span class="cnt" id="cnt-obj">0</span></label>
         <label class="chk"><input type="checkbox" id="l-okr" checked><span class="sw" style="background:transparent;border:1.5px dashed var(--okr-line);box-shadow:none;border-radius:2px"></span>Сельские округа<span class="cnt">11</span></label>
         <label class="chk" id="osm-row"><input type="checkbox" id="l-osm" checked>Подложка OpenStreetMap</label>
+        <p class="hint">Объекты АПК: В – ветеринария, У – убой скота, Э – элеватор и зернохранилища, Ж – ж/д станция; бледные – строятся.</p>
         <p class="hint" id="osm-note" hidden>Подложка не загружается в этом просмотре. На хостинге сайта она появится автоматически.</p>
+      </div>
+      <div class="sec">
+        <h2>Раскраска округов</h2>
+        <select id="okrfill" aria-label="Показатель для раскраски округов">
+          <option value="">Без раскраски</option>
+          <optgroup label="Земля и пастбища">
+            <option value="past_prov">Обеспеченность пастбищами по нормам, %</option>
+            <option value="pasture">Площадь пастбищ, тыс. га</option>
+            <option value="arable">Площадь пашни, тыс. га</option>
+            <option value="wells">Скважины для водопоя, шт.</option>
+          </optgroup>
+          <optgroup label="Поголовье на 01.01.2026">
+            <option value="КРС">КРС, гол.</option>
+            <option value="МРС">МРС, гол.</option>
+            <option value="Лошади">Лошади, гол.</option>
+          </optgroup>
+          <optgroup label="Корма и посевы, 2026">
+            <option value="hay">Заготовка сена, т</option>
+            <option value="fph">Сено, сенаж и силос на 1 голову КРС и лошадей, т</option>
+            <option value="grain_y">Урожайность зерновых, ц/га</option>
+          </optgroup>
+          <optgroup label="Население">
+            <option value="pop">Население на 01.10.2026, чел.</option>
+            <option value="d_rc">Расстояние до райцентра, км</option>
+          </optgroup>
+        </select>
+        <div class="legend" id="okrlegend"></div>
       </div>
       <div class="sec">
         <h2>Тематическая раскраска точек</h2>
@@ -193,6 +352,7 @@ details.blk summary{cursor:pointer;font-weight:600;font-size:13px}
             <option value="оценка_воды">Пригодность для поения</option>
             <option value="TDS_мг_л">Минерализация (TDS)</option>
             <option value="мутность_NTU">Мутность</option>
+            <option value="металлы">Металлы: превышение ПДК</option>
           </optgroup>
         </select>
         <div class="legend" id="legend"></div>
@@ -214,6 +374,7 @@ details.blk summary{cursor:pointer;font-weight:600;font-size:13px}
   </div>
 </div>
 
+<div id="tt" hidden role="tooltip"></div>
 <div id="lb" hidden role="dialog" aria-modal="true" aria-label="Просмотр фото"><div class="lbw"><img id="lb-img" alt=""><div class="lbbar"><button id="lb-prev" aria-label="Предыдущее фото">←</button><span id="lb-cap"></span><button id="lb-next" aria-label="Следующее фото">→</button><button id="lb-close" aria-label="Закрыть">✕</button></div></div></div>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.js"></script>
 <script>/*ДАННЫЕ*/</script>
@@ -226,7 +387,9 @@ const esc=s=>String(s??'').replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&g
 
 const map=L.map('map',{zoomSnap:0.25,attributionControl:true,preferCanvas:false});
 map.attributionControl.setPrefix('');
-const panes=[['nbP',300],['idwP',350],['okrP',410],['distP',420],['soilP',450],['waterP',460],['milkP',470]];
+const panes=[['nbP',300],['idwP',350],['chP',400],['okrP',410],['distP',420],['villP',440],['objP',445],['soilP',450],['waterP',460],['milkP',470]];
+const RA=G.raion, MET=RA.metals.trips, OK=RA.okr;
+const fmt0=v=>fmt(v,0);
 panes.forEach(([n,z])=>{map.createPane(n);map.getPane(n).style.zIndex=z});
 
 // OSM basemap (works when the site is hosted normally)
@@ -274,7 +437,11 @@ const LABELS={'орг_вещество_%':'Органическое вещест
 const WATER_CAT=[['Благоприятная','#2f8a4c'],['Требует санитарного контроля','#3f9b8f'],['Ограниченно пригодная','#e2b93b'],['Высокий риск','#e07a2e'],['Критическая','#b3261e']];
 const DEGR=[['I ступень','#2f8a4c'],['промежуточное I–II','#a4c24a'],['II ступень','#e0962e'],['II–III ступень','#c2412c']];
 const SOIL_K=['орг_вещество_%','pH_почвы','N_легкогидр_мг100г','P_подв_мг100г','K_подв_мг100г','урож_сух_цга','покрытие_%','протеин_%','деградация'];
-const WATER_K=['оценка_воды','TDS_мг_л','мутность_NTU'];
+const WATER_K=['оценка_воды','TDS_мг_л','мутность_NTU','металлы'];
+const METCAT=[['в пределах ПДК','#2f8a4c'],['1 элемент выше ПДК','#e0962e'],['2 элемента выше ПДК','#c2412c']];
+const metOf=(key,tr)=>(MET[tr||TR]||{})[key];
+function metCat(key){const m=metOf(key);if(!m)return null;return METCAT[Math.min(m.over.length,2)][0]}
+const valOf=(f,k)=>k==='металлы'?metCat(f.properties.ключ):P(f)[k];
 const catColor=(list,v)=>(list.find(x=>x[0]===v)||[,'#999'])[1];
 function hex(h){return [1,3,5].map(i=>parseInt(h.slice(i,i+2),16))}
 function rampColor(r,t){t=Math.max(0,Math.min(1,t))*(r.length-1);const i=Math.min(Math.floor(t),r.length-2),f=t-i,a=hex(r[i]),b=hex(r[i+1]);return 'rgb('+a.map((x,k)=>Math.round(x+(b[k]-x)*f)).join(',')+')'}
@@ -315,7 +482,7 @@ function setClass(m,cls){const el=m.getElement&&m.getElement();if(el){el.classLi
 function themeOptions(){
   const sel=$('#theme');
   [...sel.querySelectorAll('option')].forEach(o=>{if(!o.value)return;
-    const ok=tripHas(SOIL_K.includes(o.value)?G.soil.features:G.water.features,o.value);
+    const ok=o.value==='металлы'?!!MET[TR]:tripHas(SOIL_K.includes(o.value)?G.soil.features:G.water.features,o.value);
     o.disabled=!ok; o.textContent=o.dataset.l+(ok?'':' – нет в этом выезде');});
   if(sel.selectedOptions[0]&&sel.selectedOptions[0].disabled) sel.value='';
 }
@@ -328,12 +495,15 @@ function paint(){const k=$('#theme').value;
     if(soilK){setClass(m,null);m.setStyle(v==null?{fillColor:'#9aa39d',fillOpacity:.3}:{fillColor:k==='деградация'?catColor(DEGR,v):rampColor(RAMPS[k],(v-rs[0])/(rs[1]-rs[0])),fillOpacity:1});}
     else if(waterK){setClass(m,null);m.setStyle({fillColor:'#9aa39d',fillOpacity:.3});}
     else {m.setStyle({fillColor:'',fillOpacity:1});setClass(m,'soil-def');}});
-  Object.values(waterById).forEach(m=>{const v=P(m.feature)[k];
-    if(waterK){setClass(m,null);m.setStyle(v==null?{fillColor:'#9aa39d',fillOpacity:.3}:{fillColor:k==='оценка_воды'?catColor(WATER_CAT,v):rampColor(RAMPS[k],(v-rw[0])/(rw[1]-rw[0])),fillOpacity:1});}
+  Object.values(waterById).forEach(m=>{const v=valOf(m.feature,k);
+    if(waterK){setClass(m,null);m.setStyle(v==null?{fillColor:'#9aa39d',fillOpacity:.3}:{fillColor:k==='оценка_воды'?catColor(WATER_CAT,v):k==='металлы'?catColor(METCAT,v):rampColor(RAMPS[k],(v-rw[0])/(rw[1]-rw[0])),fillOpacity:1});}
     else if(soilK){setClass(m,null);m.setStyle({fillColor:'#9aa39d',fillOpacity:.3});}
     else {m.setStyle({fillColor:'',fillOpacity:1});setClass(m,'water-def');}});
   if(!k){lg.innerHTML=`<div class="it"><span class="sw" style="background:var(--soil)"></span>Почва и травостой</div><div class="it"><span class="sw" style="background:var(--water)"></span>Вода: водоём или скважина</div><div class="it"><span class="sw" style="background:var(--milk)"></span>Молоко: проба (точка в селе)</div><p class="hint">Точки воды стоят в нескольких метрах от точек почвы той же площадки и нарисованы поверх них.</p>`;return}
   if(k==='деградация'){lg.innerHTML=DEGR.map(([n,c])=>`<div class="it"><span class="sw" style="background:${c}"></span>${n}<span class="cnt">${G.soil.features.filter(f=>P(f).деградация===n).length}</span></div>`).join('');return}
+  if(k==='металлы'){const n=G.water.features.filter(f=>metCat(f.properties.ключ)).length;
+    lg.innerHTML=METCAT.map(([nm,c])=>[nm,c,G.water.features.filter(f=>metCat(f.properties.ключ)===nm).length]).map(([nm,c,v])=>`<div class="it"><span class="sw" style="background:${c}"></span>${nm}<span class="cnt">${v}</span></div>`).join('')
+    +`<div class="it"><span class="sw" style="background:#9aa39d;opacity:.4"></span>не определялись<span class="cnt">${G.water.features.length-n}</span></div><p class="hint">ПДК для питьевой воды (приказ МЗ РК № ҚР ДСМ-138). Металлы определены в ${n} пробах из 6 округов.</p>`;return}
   if(k==='оценка_воды'){const calc=G.water.features.some(f=>P(f).оценка_расчётная);
     lg.innerHTML=WATER_CAT.map(([n,c])=>[n,c,G.water.features.filter(f=>P(f).оценка_воды===n).length]).filter(x=>x[2]).map(([n,c,v])=>`<div class="it"><span class="sw" style="background:${c}"></span>${n}<span class="cnt">${v}</span></div>`).join('')
     +(calc?`<p class="hint">Оценка рассчитана по критериям табл. 16 отчёта (E. coli, колиформы, TDS). Мутность в этом выезде не измерялась.</p>`:'');return}
@@ -456,10 +626,35 @@ function show(kind,key){
     <div class="blk concl"><h4>Что делать ${tripNote()}</h4><p>${esc(X.action)}</p>${X.factors.length?`<ul>${X.factors.map(f=>`<li>${esc(f)}</li>`).join('')}</ul>`:''}</div>
     <div class="blk"><h4>Показатели воды</h4>${cmpTable(rows.map(([k,n,u,dg])=>({name:n,unit:u,d:dg,get:t=>pv(k,t),tag:t=>{const [cl,tx]=waterStatus(k,pv(k,t));return tag(tx,wsev[cl])}})))}
     <p class="hint">Ориентиры по таблице 16 отчёта: pH 6–9; TDS ≤1000 мг/л; E. coli и колиформы не допускаются; мутность ≤1,5 NTU.</p></div>
+    ${metalsBlock(key)}
     ${p.примечание?`<div class="blk"><h4>Примечание полевой группы</h4><p class="hint" style="color:var(--ink)">${esc(p.примечание)}</p></div>`:''}
     ${soilById[key]?`<button class="link" data-s="${esc(key)}">Почва и травостой на этой площадке →</button>`:''}`;
   }
   focusCard();
+}
+const fmtM=v=>v==null?'–':v>=10?fmt(v,1):v>=1?fmt(v,2):v>=0.01?fmt(v,3):fmt(v,4);
+function metalsBlock(key){
+  const m=metOf(key);
+  if(!m){const other=Object.keys(MET).find(t=>MET[t][key]);
+    return other?`<div class="blk"><h4>Тяжёлые металлы</h4><p class="hint">Определялись в выезде «${esc(other)}». <button class="link" data-trip="${esc(other)}">Показать →</button></p></div>`:'';}
+  const det=m.els.filter(e=>e.st==='val'), lod=m.els.filter(e=>e.st==='lod'), over=m.els.filter(e=>e.st==='over'), na=m.els.filter(e=>e.st==='na');
+  const sum=m.over.length?[`выше ПДК: ${m.over.map(e=>m.els.find(x=>x.e===e).name.toLowerCase()).join(', ')}`,m.over.length>1?3:2]:['все определённые элементы в пределах ПДК',0];
+  det.sort((a,b)=>(b.ratio||0)-(a.ratio||0));
+  return `<div class="blk"><h4>Тяжёлые металлы и микроэлементы ${tripNote()}</h4>
+  <div class="row">${tag(sum[0],sum[1])}</div>
+  ${m.mismatch?`<p class="hint" style="color:var(--warn)">Минерализация в лаборатории (${fmt(m.tds*1000,0)} мг/л) сильно отличается от полевого замера (${fmt(m.tds_field,0)} мг/л). Возможна путаница номеров проб – результаты уточняются.</p>`:''}
+  <table class="kv"><thead><tr><th>Элемент</th><th style="text-align:right">мг/л</th><th style="text-align:right">ПДК</th><th></th></tr></thead><tbody>
+  ${det.map(e=>`<tr><td>${esc(e.name)} <span class="meta">${esc(e.e)}</span></td><td class="v">${fmtM(e.v)}</td><td class="n">${e.pdk!=null?fmtM(e.pdk):'–'}</td><td class="t">${e.ok==null?'':tag(e.ok?'норма':'×'+fmt(e.ratio,1),e.ok?0:3)}</td></tr>`).join('')}
+  ${over.map(e=>`<tr><td>${esc(e.name)} <span class="meta">${esc(e.e)}</span></td><td class="v">&gt;5</td><td class="n">${e.pdk!=null?fmtM(e.pdk):'–'}</td><td class="t"></td></tr>`).join('')}
+  <tr><td>pH (лаборатория)</td><td class="v">${fmt(m.ph,2)}</td><td class="n">6–9</td><td class="t">${m.ph_ok==null?'':tag(m.ph_ok?'норма':'вне 6–9',m.ph_ok?0:3)}</td></tr>
+  <tr><td>Минерализация (лаб.), мг/л</td><td class="v">${fmt(m.tds*1000,0)}</td><td class="n">1000</td><td class="t">${tag(m.tds*1000<=1000?'норма':'выше',m.tds*1000<=1000?0:2)}</td></tr>
+  <tr><td>Солёность, ‰</td><td class="v">${fmt(m.salt,2)}</td><td class="n">–</td><td></td></tr>
+  <tr><td>ОВП, мВ</td><td class="v">${fmt(m.orp,0)}</td><td class="n">–</td><td></td></tr>
+  </tbody></table>
+  ${lod.length?`<p class="hint"><b>Ниже предела обнаружения</b> (&lt;0,0001 мг/л): ${lod.map(e=>esc(e.e)).join(', ')}.</p>`:''}
+  ${over.length?`<p class="hint"><b>Выше диапазона прибора</b> (&gt;5 мг/л): ${over.map(e=>esc(e.name.toLowerCase())).join(', ')} – это основные солевые катионы, ПДК установлена только для натрия (200 мг/л).</p>`:''}
+  ${na.length?`<p class="hint"><b>Нет данных:</b> ${na.map(e=>esc(e.name.toLowerCase())).join(', ')}.</p>`:''}
+  <p class="hint">Проба № ${esc(m.reg)}, отбор ${esc(m.date)}, анализ ${esc(m.adate)}. ПДК – для питьевой воды: ${esc(RA.metals.src)}.</p></div>`;
 }
 function milkTable(s){
   return `<table class="kv"><thead><tr><th>Показатель</th><th style="text-align:right">Результат</th><th style="text-align:right">Норматив</th><th></th></tr></thead><tbody>${s.vals.map(v=>`<tr><td>${esc(v.label)}</td><td class="v">${esc(v.txt)}</td><td class="n">${esc(v.norm)}</td><td class="t">${v.ok==null?'':tag(v.ok?'норма':'вне нормы',v.ok?0:3)}</td></tr>`).join('')}</tbody></table>`;
@@ -478,6 +673,54 @@ function showMilk(id){
   ${s.coord_src?`<p class="note">Координаты: ${esc(s.coord_src)}.</p>`:''}`;
   focusCard();
 }
+const SPECIES=[['КРС','КРС'],['Коровы','в т.ч. коровы'],['МРС','МРС (овцы, козы)'],['Лошади','Лошади']];
+function provTag(p){return p==null?'':tag(`обеспеченность ${p}%`,p<80?3:p<100?2:0)}
+function okrPassport(name){
+  const o=OK[name]; if(!o) return '';
+  const L=o.livestock, F=o.feed||{}, f25=F['2025']||{}, f26=F['2026']||{};
+  const cr=(o.crops||[]).filter(c=>c['Год']===2026&&c['Посевная площадь, тыс. га']);
+  const N=RA.norms.pasture;
+  const prov=o.past_prov;
+  return `<div class="blk"><h4>Паспорт округа <span class="meta">данные акимата, 2026</span></h4>
+  <div class="mini"><div><b>${fmt0(o.pop)}</b><span>жителей, ${o.villages.length} ${o.villages.length===1?'село':o.villages.length<5?'села':'сёл'}</span></div>
+  <div><b>${fmt(o.area/1000,1)}</b><span>тыс. га всего</span></div><div><b>${fmt(o.pasture/1000,1)}</b><span>тыс. га пастбищ</span></div>
+  <div><b>${fmt(o.arable/1000,1)}</b><span>тыс. га пашни</span></div><div><b>${fmt0(o.wells)}</b><span>скважин для водопоя</span></div>
+  <div><b>${o.d_rc==null?'райцентр':fmt0(o.d_rc)+' км'}</b><span>${o.d_rc==null?'Кишкенеколь':'до райцентра'}</span></div></div></div>
+  <div class="blk"><h4>Пастбища и поголовье</h4><div class="row">${provTag(prov)}</div>
+  <p class="hint" style="color:var(--ink)">Пастбищ ${fmt0(o.pasture)} га. Для поголовья округа по нормам нужно ${fmt0(o.past_need)} га${prov<100?`, то есть пастбищ не хватает на ${fmt0(o.past_need-o.pasture)} га`:''}. Если пастбища деградированы, норма выше и нужно ${fmt0(o.past_need_degr)} га.</p>
+  <table class="kv"><thead><tr><th>Вид</th><th style="text-align:right">ЛПХ</th><th style="text-align:right">КФХ</th><th style="text-align:right">ТОО</th><th style="text-align:right">Всего</th></tr></thead><tbody>
+  ${SPECIES.map(([k,n])=>`<tr><td>${n}</td><td class="v">${fmt0(L[k]['население'])}</td><td class="v">${fmt0(L[k]['КФХ, ИП'])}</td><td class="v">${fmt0(L[k]['юрлица'])}</td><td class="v"><b>${fmt0(L[k]['всего'])}</b></td></tr>`).join('')}
+  </tbody></table>
+  <p class="hint">ЛПХ – личные хозяйства населения, КФХ – крестьянские хозяйства и ИП, ТОО – юридические лица. Ещё свиней ${fmt0(L['Свиньи'])}, птицы ${fmt0(L['Птица'])}. Поголовье на 01.01.2026. Нормы, га на голову: КРС ${fmt(N['КРС'][0])}, МРС ${fmt(N['МРС'][0])}, лошадь ${fmt(N['Лошади'][0])} (${esc(RA.norms.pasture_src)}).</p></div>
+  <div class="blk"><h4>Заготовка кормов, т</h4><table class="kv cmp"><thead><tr><th>Корм</th><th class="tc">2025</th><th class="tc cur">2026</th></tr></thead><tbody>
+  ${['Сено, т','Сенаж, т','Силос, т','Зернофураж, т'].map(k=>`<tr><td>${k.replace(', т','')}</td><td class="v">${fmt0(f25[k])}</td><td class="v cur">${fmt0(f26[k])}${arrow(f25[k],f26[k])}</td></tr>`).join('')}
+  ${f26['Площадь кормовых культур, тыс. га']!=null?`<tr><td>Кормовые культуры<span class="u">, тыс. га</span></td><td class="v">${fmt(f25['Площадь кормовых культур, тыс. га'])}</td><td class="v cur">${fmt(f26['Площадь кормовых культур, тыс. га'])}</td></tr>`:''}
+  <tr><td>Сено, сенаж, силос на 1 голову КРС и лошадей<span class="u">, т</span></td><td class="v">${fmt(o.feed_per_head['2025'],1)}</td><td class="v cur">${fmt(o.feed_per_head['2026'],1)}</td></tr></tbody></table></div>
+  ${cr.length?`<div class="blk"><h4>Посевы 2026</h4><table class="kv"><thead><tr><th>Культуры</th><th style="text-align:right">тыс. га</th><th style="text-align:right">ц/га</th><th style="text-align:right">тыс. т</th></tr></thead><tbody>
+  ${cr.map(c=>`<tr><td>${esc(c['Группа культур'])}</td><td class="v">${fmt(c['Посевная площадь, тыс. га'])}</td><td class="v">${fmt(c['Урожайность, ц/га'])}</td><td class="v">${fmt(c['Валовой сбор, тыс. т'],2)}</td></tr>`).join('')}</tbody></table></div>`:''}
+  ${o.objects.length?`<div class="blk"><h4>Объекты АПК</h4><ul style="margin:0;padding-left:18px;font-size:13px">${o.objects.map(x=>`<li>${esc(x['Объект'])} – ${esc(x['Село'])}${x['Состояние']==='строится'?' <span class="meta">(строится)</span>':''}</li>`).join('')}</ul></div>`:''}
+  ${o.farms.length?`<details class="blk"><summary>Основные хозяйства (${o.farms.length})</summary><table class="kv"><thead><tr><th>Хозяйство</th><th style="text-align:right">Зерновые, га</th><th style="text-align:right">Масличные, га</th><th style="text-align:right">Скот, гол.</th></tr></thead><tbody>
+  ${o.farms.map(x=>`<tr><td>${esc(x['Хозяйство'])}</td><td class="v">${fmt0(x['Зерновые и зернобобовые всего, га'])}</td><td class="v">${fmt0(x['Масличные всего, га'])}</td><td class="v">${fmt0(x['Поголовье всего, гол.'])}</td></tr>`).join('')}</tbody></table></details>`:''}
+  <div class="blk"><h4>Сёла</h4><div class="tslist">${o.villages.map(v=>`<button data-v="${esc(v.name)}">${esc(v.name)} · ${fmt0(v.pop)} чел.</button>`).join('')}</div></div>`;
+}
+function showVil(name){
+  VIEW=['vil',name];
+  let okr=null,v=null; Object.entries(OK).forEach(([k,o])=>{const x=o.villages.find(y=>y.name===name);if(x){okr=k;v=x}}); if(!v) return;
+  select(vilById[name]||null);
+  const L=v.livestock, objs=RA.objects.filter(x=>x.village===name);
+  const mm=RA.pop_months.cols;
+  $('#card').innerHTML=`${back}<div class="card-h"><span class="eyebrow">Село${v.center?' · центр округа':''}</span><h3>${esc(name)}</h3><span class="meta">${esc(okr)} с.о.${v.lat!=null?' · '+v.lat.toFixed(4)+'° с.ш., '+v.lon.toFixed(4)+'° в.д.':''}</span></div>
+  <div class="mini"><div><b>${fmt0(v.pop)}</b><span>жителей на 01.10.2026</span></div><div><b>${fmt0(v.hh)}</b><span>дворов</span></div>
+  <div><b>${v.d_rc==null?'–':fmt0(v.d_rc)+' км'}</b><span>${v.d_rc==null?'это райцентр':'до райцентра'}</span></div>
+  <div><b>${fmt0(v.d_obl)} км</b><span>до Петропавловска</span></div>${v.d_okr!=null?`<div><b>${fmt0(v.d_okr)} км</b><span>до центра округа</span></div>`:''}</div>
+  ${v.months&&v.months.length?`<div class="blk"><h4>Население в 2026 году</h4>${lineChart(mm.map(c=>c.replace('на ','').replace('.2026','')),[{name:'Население',color:'var(--s1)',values:v.months}],{h:140,inCard:true,unit:'чел.',d:0,noZero:true,maxLabels:5})}</div>`:''}
+  ${L?`<div class="blk"><h4>Поголовье на 01.01.2026</h4><table class="kv"><tbody>
+  ${[['КРС','КРС'],['Коровы','в т.ч. коровы'],['МРС','МРС'],['Лошади','Лошади'],['Свиньи','Свиньи'],['Птица','Птица']].map(([k,n])=>`<tr><td>${n}</td><td class="v">${fmt0(L[k])}</td></tr>`).join('')}</tbody></table></div>`:`<p class="hint">Поголовье по этому селу акимат отдельно не указал.</p>`}
+  ${objs.length?`<div class="blk"><h4>Объекты АПК</h4><ul style="margin:0;padding-left:18px;font-size:13px">${objs.map(x=>`<li>${esc(x.name)}${x.state==='строится'?' <span class="meta">(строится)</span>':''}${x.note?' <span class="meta">'+esc(x.note)+'</span>':''}</li>`).join('')}</ul></div>`:''}
+  <button class="link" data-o="${esc(okr)}">${esc(okr)} сельский округ →</button>
+  <p class="note">Источник: ответ акимата Уалихановского района (АТУ на 01.10.2026, поголовье на 01.01.2026). Координаты села: OpenStreetMap.</p>`;
+  focusCard();
+}
 function focusCard(){const c=$('#card');if(window.innerWidth<=820)c.scrollIntoView({behavior:'smooth',block:'start'});else{const a=document.querySelector('aside');a.scrollTo({top:c.offsetTop-a.offsetTop,behavior:'smooth'})}}
 function showOkr(name){
   VIEW=['okr',name];
@@ -492,6 +735,8 @@ function showOkr(name){
   const thumbs=keys.map(k=>photosOf(k.ключ)[0]&&Object.assign({},photosOf(k.ключ)[0],{cap:k.тс_код+' · общий вид'})).filter(Boolean);
   const milk=G.milk.filter(s=>s.okr===name);
   $('#card').innerHTML=`${back}<div class="card-h"><span class="eyebrow">Сельский округ · ${tripNote()}</span><h3>${esc(p.сельский_округ)}</h3><span class="meta">${esc(p.название_kk)} · ${fmt(p.площадь_км2,0)} км²</span></div>
+  ${okrPassport(name)}
+  <h4 class="hd2">Результаты обследования 2026</h4>
   <div class="blk"><h4>Средние по 4 точкам</h4>${cmpTable([
     {name:'Гумус',unit:'%',d:2,get:t=>mv('humus',t),tag:mt('humus')},
     {name:'pH почвы',get:t=>mv('pH',t),tag:mt('pH')},
@@ -539,6 +784,12 @@ function home(){
   $('#card').innerHTML=`<div class="card-h"><span class="eyebrow">Обзор района · ${tripNote()}</span><h3>Уалихановский район</h3><span class="meta">11 сельских округов · 12 880 км² · 4 площадки (ТС) в каждом округе${trip&&trip.период?' · выезд '+esc(trip.период):''}</span></div>
   <p class="hint" style="color:var(--ink)">Нажмите на точку, чтобы открыть результаты анализов и фото, или на сельский округ, чтобы увидеть оценку и рекомендации. Выезд переключается вверху панели, в карточках видно оба выезда рядом.</p>
   ${trip&&trip.примечание?`<p class="hint">${esc(trip.примечание)}</p>`:''}
+  <div class="mini"><div><b>${fmt0(Object.values(OK).reduce((a,o)=>a+o.pop,0))}</b><span>жителей</span></div>
+  <div><b>${fmt(fact('Пастбища')/1000,0)}</b><span>тыс. га пастбищ</span></div>
+  <div><b>${fmt(Object.values(OK).reduce((a,o)=>a+o.livestock['КРС'].всего+o.livestock['МРС'].всего+o.livestock['Лошади'].всего,0)/1000,1)}</b><span>тыс. голов скота</span></div></div>
+  <p class="hint">Подробно о районе – во вкладках: <a href="#raion">район в цифрах</a>, <a href="#zhivotnovodstvo">животноводство</a>, <a href="#klimat">климат</a>, <a href="#naselenie">население</a>, <a href="#plan">план развития</a>.</p>
+  ${MET[TR]?(()=>{const ms=Object.values(MET[TR]);const cnt={};ms.forEach(m=>m.over.forEach(e=>cnt[e]=(cnt[e]||0)+1));const nm=e=>((ms[0].els.find(x=>x.e===e)||{}).name||e).toLowerCase();
+    return `<div class="blk"><h4>Тяжёлые металлы в воде: ${ms.length} проб</h4><p class="hint" style="color:var(--ink)">Выше ПДК для питьевой воды: ${Object.entries(cnt).sort((a,b)=>b[1]-a[1]).map(([e,n])=>`${nm(e)} – ${n}`).join(', ')} ${Object.keys(cnt).length?'пробы':''}. Свинец, кадмий, мышьяк, хром и никель во всех пробах ниже предела обнаружения.</p><p class="hint">Раскраска «Металлы: превышение ПДК» – в списке тематической раскраски точек.</p></div>`})():''}
   <div class="blk"><h4>Приоритет мероприятий по округам</h4><table class="kv"><tbody>${order.filter(g=>byP[g]).map(g=>`<tr><td style="width:40%"><span class="chip ${PRIC[g]}">${g}</span></td><td class="n" style="white-space:normal;text-align:right;color:var(--ink)">${byP[g].sort().map(o=>`<button class="link" data-o="${esc(o)}">${esc(o)}</button>`).join(', ')}</td></tr>`).join('')}</tbody></table>
   <p class="hint">Приоритеты составлены по данным выезда «${esc(I.base)}».</p></div>
   ${nW?`<div class="blk"><h4>Вода: пригодность для поения, ${nW} проб</h4><div class="bars">${wc.map(x=>bar(x[0],x[1],x[2],nW)).join('')}</div>
@@ -551,7 +802,7 @@ function home(){
   </tbody></table><p class="hint">P и K по Мачигину пересчитаны из мг/100 г протокола в мг/кг (×10) и отнесены к P₂O₅ и K₂O. Шкалы урожайности, плотности и протеина рабочие, их стоит сверить со специалистами проекта.</p></details>
   <p class="note">Источники: протокол испытаний № 212 (агрохимия почвы, 44 пробы), отчёты по проекту 019 за август и сентябрь 2026 (плотность и влажность почвы, травостой, питательность, вода, молоко, фото), GPS-координаты полевой группы. Границы района и округов, координаты сёл: OpenStreetMap.</p>`;
 }
-function rerender(){const [k,a]=VIEW; if(k==='soil'||k==='water')show(k,a); else if(k==='okr')showOkr(a); else if(k==='milk'){const s=G.milk.find(x=>x.id===a); s&&s.trip===TR?showMilk(a):home()} else home();}
+function rerender(){const [k,a]=VIEW; if(k==='soil'||k==='water')show(k,a); else if(k==='okr')showOkr(a); else if(k==='vil')showVil(a); else if(k==='milk'){const s=G.milk.find(x=>x.id===a); s&&s.trip===TR?showMilk(a):home()} else home();}
 function setTrip(t){
   TR=t;
   tripsBox.querySelectorAll('button').forEach(b=>{const on=b.dataset.trip===t;b.classList.toggle('on',on);b.setAttribute('aria-pressed',on)});
@@ -565,12 +816,404 @@ $('#card').addEventListener('click',e=>{const b=e.target.closest('button');if(!b
   if(b.dataset.s){show('soil',b.dataset.s);panTo(soilById[b.dataset.s])}
   if(b.dataset.w){show('water',b.dataset.w);panTo(waterById[b.dataset.w])}
   if(b.dataset.m){const s=G.milk.find(x=>x.id===b.dataset.m); if(s&&s.trip!==TR) setTrip(s.trip); showMilk(b.dataset.m); panTo(milkById[b.dataset.m])}
+  if(b.dataset.v){showVil(b.dataset.v);panTo(vilById[b.dataset.v])}
   if(b.dataset.o){showOkr(b.dataset.o);map.fitBounds(okrLayers[b.dataset.o].getBounds(),{padding:[20,20]})}});
 function panTo(m){if(m&&!map.getBounds().contains(m.getLatLng()))map.panTo(m.getLatLng())}
 map.on('click',e=>{if(e.originalEvent.target===map.getContainer())home()});
 $('#lb-close').onclick=lbClose;$('#lb-prev').onclick=()=>{LBi=(LBi-1+LB.length)%LB.length;lbShow()};$('#lb-next').onclick=()=>{LBi=(LBi+1)%LB.length;lbShow()};
 $('#lb').addEventListener('click',e=>{if(e.target.id==='lb')lbClose()});
 document.addEventListener('keydown',e=>{if($('#lb').hidden)return;if(e.key==='Escape')lbClose();if(e.key==='ArrowLeft')$('#lb-prev').click();if(e.key==='ArrowRight')$('#lb-next').click()});
+// =====================================================================
+//  Район: сёла, объекты, раскраска округов, графики и вкладки
+// =====================================================================
+const cssv=n=>getComputedStyle(document.documentElement).getPropertyValue(n).trim();
+const escA=s=>String(s).replace(/&/g,'&amp;').replace(/"/g,'&quot;');
+const sum=a=>a.reduce((x,y)=>x+(y||0),0);
+const OKN=Object.keys(OK);
+const okrSum=f=>sum(OKN.map(k=>f(OK[k])));
+
+// ---- сёла ----
+const vilById={};
+const vil=L.layerGroup().addTo(map);
+OKN.forEach(okr=>OK[okr].villages.forEach(v=>{ if(v.lat==null) return;
+  const m=L.circleMarker([v.lat,v.lon],{pane:'villP',radius:3+Math.sqrt(v.pop||0)/7,className:'vil',fillOpacity:1});
+  m.bindTooltip(`${esc(v.name)} · ${fmt0(v.pop)} чел.`,{className:'tip',direction:'top',offset:[0,-4]});
+  m.on('click',()=>showVil(v.name)); vilById[v.name]=m; vil.addLayer(m);}));
+$('#cnt-vil').textContent=Object.keys(vilById).length;
+$('#l-vil').onchange=e=>e.target.checked?vil.addTo(map):map.removeLayer(vil);
+
+// ---- объекты АПК ----
+const OBJC={'ветеринария':['В','#2f7d4a'],'убой скота':['У','#a4462a'],'хранение зерна':['Э','#8a6a12'],'транспорт':['Ж','#4b5ea8']};
+const objL=L.layerGroup().addTo(map);
+const byVil={}; RA.objects.forEach(o=>{(byVil[o.village]=byVil[o.village]||[]).push(o)});
+Object.values(byVil).forEach(list=>list.forEach((o,i)=>{ if(o.lat==null) return;
+  const [ch,col]=OBJC[o.type]||['•','#666']; const dx=(i-(list.length-1)/2)*21;
+  const mk=L.marker([o.lat,o.lon],{pane:'objP',keyboard:false,icon:L.divIcon({className:'obj'+(o.state==='строится'?' plan':''),html:ch,iconSize:[18,18],iconAnchor:[9-dx,30]})});
+  mk.on('add',()=>{const el=mk.getElement();if(el)el.style.background=col});
+  mk.bindTooltip(`${esc(o.name)} · ${esc(o.village)}${o.state==='строится'?' (строится)':''}`,{className:'tip',direction:'top',offset:[dx,-30]});
+  mk.on('click',()=>showVil(o.village)); objL.addLayer(mk);}));
+$('#cnt-obj').textContent=RA.objects.length;
+$('#l-obj').onchange=e=>e.target.checked?objL.addTo(map):map.removeLayer(objL);
+
+// ---- раскраска округов ----
+const chL=L.geoJSON(G.okr,{pane:'chP',interactive:false,style:()=>({className:'ch',stroke:false,fillOpacity:0,fillColor:'#000'})}).addTo(map);
+const SEQ=['#e9f1ec','#bfdbd1','#8cbdb2','#579a93','#2a716f','#0f4a4b'];
+const OKF={
+  past_prov:{l:'Обеспеченность пастбищами',u:'%',d:0,v:o=>o.past_prov,div:true},
+  pasture:{l:'Пастбища',u:'тыс. га',d:1,v:o=>o.pasture/1000},
+  arable:{l:'Пашня',u:'тыс. га',d:1,v:o=>o.arable/1000},
+  wells:{l:'Скважины',u:'шт.',d:0,v:o=>o.wells},
+  'КРС':{l:'КРС',u:'гол.',d:0,v:o=>o.livestock['КРС'].всего},
+  'МРС':{l:'МРС',u:'гол.',d:0,v:o=>o.livestock['МРС'].всего},
+  'Лошади':{l:'Лошади',u:'гол.',d:0,v:o=>o.livestock['Лошади'].всего},
+  hay:{l:'Заготовка сена, 2026',u:'т',d:0,v:o=>(o.feed['2026']||{})['Сено, т']},
+  fph:{l:'Сено, сенаж, силос на голову',u:'т',d:1,v:o=>o.feed_per_head['2026']},
+  grain_y:{l:'Урожайность зерновых, 2026',u:'ц/га',d:1,v:o=>{const c=o.crops.find(x=>x['Год']===2026&&x['Группа культур']==='Зерновые');return c?c['Урожайность, ц/га']:null}},
+  pop:{l:'Население',u:'чел.',d:0,v:o=>o.pop},
+  d_rc:{l:'До райцентра',u:'км',d:0,v:o=>o.d_rc==null?0:o.d_rc}};
+const PROV=[[0,50,'менее 50% – острый дефицит','--def'],[50,80,'50–80% – дефицит','--defl'],[80,120,'80–120% – на пределе нормы','--mid0'],[120,200,'120–200% – есть запас','--surl'],[200,1e9,'более 200% – большой запас','--sur']];
+function quint(vals){const v=vals.filter(x=>x!=null).sort((a,b)=>a-b);const q=[];for(let i=1;i<6;i++)q.push(v[Math.min(v.length-1,Math.round(i*(v.length-1)/6))]);return [...new Set(q)]}
+function okrFill(){
+  const k=$('#okrfill').value, lg=$('#okrlegend'); const F=OKF[k];
+  if(!F){chL.eachLayer(l=>l.setStyle({fillOpacity:0}));lg.innerHTML='';return}
+  const vals=OKN.map(n=>F.v(OK[n]));
+  let col, legend;
+  if(F.div){col=v=>{const c=PROV.find(p=>v>=p[0]&&v<p[1]);return cssv(c[3])};
+    legend=PROV.map(p=>`<div class="it"><span class="sw" style="background:${cssv(p[3])};border-radius:3px"></span>${p[2]}<span class="cnt">${vals.filter(v=>v>=p[0]&&v<p[1]).length}</span></div>`).join('')
+      +`<p class="hint">Площадь пастбищ округа к площади, нужной его поголовью по нормам (приказ МСХ РК № 3-3/332). Ниже 100% – пастбищ не хватает.</p>`;}
+  else{const br=quint(vals);const cls=v=>{let i=0;while(i<br.length&&v>br[i])i++;return i};
+    const pal=SEQ.slice(SEQ.length-br.length-1);
+    col=v=>pal[cls(v)];
+    const edges=[Math.min(...vals.filter(x=>x!=null)),...br];
+    legend=pal.map((c,i)=>{const a=i===0?edges[0]:br[i-1],b=i<br.length?br[i]:Math.max(...vals.filter(x=>x!=null));return `<div class="it"><span class="sw" style="background:${c};border-radius:3px"></span>${i===0?fmt(a,F.d):'>'+fmt(a,F.d)} – ${fmt(b,F.d)} ${F.u}<span class="cnt">${vals.filter(v=>v!=null&&cls(v)===i).length}</span></div>`}).join('')
+      +(vals.some(v=>v==null)?`<div class="it"><span class="sw" style="background:#9aa39d;opacity:.35;border-radius:3px"></span>нет данных<span class="cnt">${vals.filter(v=>v==null).length}</span></div>`:'');}
+  chL.eachLayer(l=>{const v=F.v(OK[l.feature.properties.округ]);l.setStyle(v==null?{fillColor:'#9aa39d',fillOpacity:.25}:{fillColor:col(v),fillOpacity:.62})});
+  lg.innerHTML=legend+`<p class="hint">Источник: ответ акимата Уалихановского района. Нажмите на округ – откроется его паспорт.</p>`;
+}
+$('#okrfill').onchange=okrFill;
+// подпись округа: значение раскраски во всплывающей подсказке
+OKN.forEach(n=>{const l=okrLayers[n]; if(!l) return; l.on('mouseover',()=>{const F=OKF[$('#okrfill').value]; if(F){const v=F.v(OK[n]); TT.innerHTML=`<b>${esc(n)}</b><div class="r"><span>${esc(F.l)}</span><span>${v==null?'нет данных':fmt(v,F.d)+' '+F.u}</span></div>`; TT.hidden=false}}); l.on('mouseout',()=>TT.hidden=true)});
+
+// ---- всплывающая подсказка графиков ----
+const TT=$('#tt');
+document.addEventListener('pointerover',e=>{const t=e.target.closest&&e.target.closest('[data-tt]');if(t){TT.innerHTML=t.getAttribute('data-tt');TT.hidden=false}});
+document.addEventListener('pointerout',e=>{const t=e.target.closest&&e.target.closest('[data-tt]');if(t&&!(e.relatedTarget&&t.contains(e.relatedTarget)))TT.hidden=true});
+document.addEventListener('pointermove',e=>{if(TT.hidden)return;const w=TT.offsetWidth,h=TT.offsetHeight;let x=e.clientX+14,y=e.clientY+14;if(x+w>innerWidth-8)x=e.clientX-w-14;if(y+h>innerHeight-8)y=e.clientY-h-14;TT.style.left=Math.max(4,x)+'px';TT.style.top=Math.max(4,y)+'px'});
+const fmtU=(v,o)=>v==null?'–':fmt(v,o.d??0)+(o.unit?' '+o.unit:'');
+const ttHtml=(title,rows)=>`<b>${esc(title)}</b>`+rows.map(([n,v,c])=>`<div class="r"><span>${c?`<i style="display:inline-block;width:8px;height:8px;border-radius:2px;background:${c};margin-right:5px"></i>`:''}${esc(n)}</span><span>${esc(v)}</span></div>`).join('');
+const legendH=series=>series.length>1?`<div class="lg">${series.map(s=>`<span><i style="background:${s.color}"></i>${esc(s.name)}</span>`).join('')}</div>`:'';
+function tableView(head,rows,open){return `<details class="tv"${open?' open':''}><summary>Показать таблицей</summary><div class="tw"><table class="dt"><thead><tr>${head.map(h=>`<th>${esc(h)}</th>`).join('')}</tr></thead><tbody>${rows.map(r=>`<tr>${r.map(c=>`<td>${c}</td>`).join('')}</tr>`).join('')}</tbody></table></div></details>`}
+function hbars(rows,series,o={}){
+  const all=rows.flatMap(r=>r.vals).filter(v=>v!=null);
+  const mx=o.max||Math.max(...all,o.ref||0)||1, one=series.length===1;
+  return legendH(series)+`<div class="hb">${rows.map(r=>{
+    const tt=ttHtml(r.label,series.map((s,i)=>[s.name,fmtU(r.vals[i],o),s.color]));
+    const lab=r.go?`<button class="l" data-go="${esc(r.go)}" title="Открыть на карте">${esc(r.label)}</button>`:`<span class="l" title="${esc(r.label)}">${esc(r.label)}</span>`;
+    return `<div class="hb-r">${lab}<div class="hb-t" data-tt="${escA(tt)}">${series.map((s,i)=>{const v=r.vals[i];return `<i class="${one?'':'thin'}" style="width:${v==null?0:Math.max(.5,v/mx*100)}%;background:${o.colorOf?o.colorOf(v,r):s.color}"></i>`}).join('')}${o.ref!=null?`<span class="hb-ref" style="left:${o.ref/mx*100}%"></span>`:''}</div><span class="v">${o.valText?o.valText(r):one?fmtU(r.vals[0],o):''}</span></div>`}).join('')}</div>`
+  +(o.table===false?'':tableView(['',...series.map(s=>s.name+(o.unit?', '+o.unit:''))],rows.map(r=>[esc(r.label),...r.vals.map(v=>v==null?'–':fmt(v,o.d??0))])));
+}
+function niceTicks(lo,hi,n=4){if(hi===lo){hi=lo+1}const span=hi-lo,step0=span/n,mag=Math.pow(10,Math.floor(Math.log10(step0))),f=step0/mag,step=(f<1.5?1:f<3?2:f<7?5:10)*mag;const a=Math.floor(lo/step)*step,b=Math.ceil(hi/step)*step;const t=[];for(let v=a;v<=b+step/2;v+=step)t.push(+v.toFixed(10));return t}
+function axes(t,y,W,pl,pr,d){return t.map(v=>`<line class="gl" x1="${pl}" x2="${W-pr}" y1="${y(v)}" y2="${y(v)}"/><text x="${pl-6}" y="${y(v)+3.5}" text-anchor="end">${fmt(v,d)}</text>`).join('')}
+const cw=w=>innerWidth<700?Math.max(300,Math.min(innerWidth-56,w||640)):(w||640);
+function colChart(cats,series,o={}){
+  const W=cw(o.w),H=o.h||220,pl=46,pr=8,pt=12,pb=26;
+  const vals=series.flatMap(s=>s.values).filter(v=>v!=null);
+  const t=niceTicks(Math.min(0,...vals),Math.max(...vals,o.ref||0)); const lo=t[0],hi=t[t.length-1];
+  const y=v=>pt+(H-pt-pb)*(1-(v-lo)/(hi-lo)); const y0=y(0);
+  const bw=(W-pl-pr)/cats.length, inner=Math.min(bw*.74,series.length*34), g=series.length>1?2:0, sw=(inner-g*(series.length-1))/series.length;
+  const every=Math.ceil(cats.length/(o.maxLabels||(W<500?6:14)));
+  let s=`<svg class="ch" viewBox="0 0 ${W} ${H}" role="img" aria-label="${escA(o.title||'')}">${axes(t,y,W,pl,pr,o.ad??0)}`;
+  cats.forEach((c,i)=>{const x0=pl+i*bw+(bw-inner)/2;
+    series.forEach((se,j)=>{const v=se.values[i]; if(v==null) return; const x=x0+j*(sw+g), yv=y(v), r=Math.min(4,sw/2,Math.abs(y0-yv));
+      const top=Math.min(yv,y0), bot=Math.max(yv,y0), up=v>=0;
+      const d=up?`M${x},${bot}V${top+r}Q${x},${top} ${x+r},${top}H${x+sw-r}Q${x+sw},${top} ${x+sw},${top+r}V${bot}Z`:`M${x},${top}V${bot-r}Q${x},${bot} ${x+r},${bot}H${x+sw-r}Q${x+sw},${bot} ${x+sw},${bot-r}V${top}Z`;
+      s+=`<path class="bar" d="${d}" fill="${(se.colorAt&&se.colorAt(i))||se.color}"/>`;});
+    if(i%every===0||o.allLabels) s+=`<text x="${pl+i*bw+bw/2}" y="${H-8}" text-anchor="middle">${esc(c)}</text>`;
+    const tt=ttHtml((o.catTitle?o.catTitle(c):c),series.map(se=>[se.name,fmtU(se.values[i],o),se.color]));
+    s+=`<g class="hx" data-tt="${escA(tt)}"><rect x="${pl+i*bw}" y="${pt}" width="${bw}" height="${H-pt-pb}"/></g>`;});
+  s+=`<line class="base" x1="${pl}" x2="${W-pr}" y1="${y0}" y2="${y0}"/>`;
+  if(o.ref!=null) s+=`<line x1="${pl}" x2="${W-pr}" y1="${y(o.ref)}" y2="${y(o.ref)}" stroke="currentColor" stroke-dasharray="5 4" opacity=".55" style="color:var(--ink)"/><text x="${W-pr}" y="${y(o.ref)-5}" text-anchor="end" style="fill:var(--ink)">${esc(o.refLabel||'')}</text>`;
+  s+='</svg>';
+  return legendH(series)+s+(o.table===false?'':tableView(['',...series.map(se=>se.name+(o.unit?', '+o.unit:''))],cats.map((c,i)=>[esc(c),...series.map(se=>se.values[i]==null?'–':fmt(se.values[i],o.d??0))])));
+}
+function lineChart(xs,series,o={}){
+  const W=o.inCard?360:cw(o.w),H=o.h||220,pl=46,pr=10,pt=12,pb=26;
+  const vals=series.flatMap(s=>s.values).filter(v=>v!=null);
+  let mn=Math.min(...vals),mx=Math.max(...vals); if(!o.noZero) mn=Math.min(0,mn); else {const p=(mx-mn)*.15||1;mn-=p;mx+=p}
+  const t=niceTicks(mn,mx); const lo=t[0],hi=t[t.length-1];
+  const y=v=>pt+(H-pt-pb)*(1-(v-lo)/(hi-lo)); const step=(W-pl-pr)/Math.max(1,xs.length-1), x=i=>pl+i*step;
+  const every=Math.ceil(xs.length/(o.maxLabels||(W<500?5:12)));
+  let s=`<svg class="ch" viewBox="0 0 ${W} ${H}" role="img">${axes(t,y,W,pl,pr,o.ad??0)}`;
+  if(lo<0&&hi>0) s+=`<line class="base" x1="${pl}" x2="${W-pr}" y1="${y(0)}" y2="${y(0)}"/>`;
+  series.forEach(se=>{let d='',pen=false; se.values.forEach((v,i)=>{if(v==null){pen=false;return} d+=(pen?'L':'M')+x(i).toFixed(1)+','+y(v).toFixed(1); pen=true});
+    s+=`<path d="${d}" fill="none" stroke="${se.color}" stroke-width="2" stroke-linejoin="round" stroke-linecap="round"${se.dash?' stroke-dasharray="5 4"':''}/>`;
+    const li=se.values.map((v,i)=>v==null?-1:i).filter(i=>i>=0).pop(); if(li!=null&&li>=0) s+=`<circle cx="${x(li)}" cy="${y(se.values[li])}" r="3.5" fill="${se.color}" stroke="var(--panel)" stroke-width="1.5"/>`;});
+  xs.forEach((c,i)=>{ if(o.xLabel){const l=o.xLabel(c,i); if(l) s+=`<text x="${x(i)}" y="${H-8}" text-anchor="middle">${esc(l)}</text>`} else if(i%every===0) s+=`<text x="${x(i)}" y="${H-8}" text-anchor="middle">${esc(c)}</text>`;
+    const tt=ttHtml(o.catTitle?o.catTitle(c,i):c,series.map(se=>[se.name,fmtU(se.values[i],o),se.color]));
+    s+=`<g class="hx" data-tt="${escA(tt)}"><rect x="${x(i)-step/2}" y="${pt}" width="${Math.max(step,6)}" height="${H-pt-pb}"/><line x1="${x(i)}" x2="${x(i)}" y1="${pt}" y2="${H-pb}"/></g>`;});
+  s+='</svg>';
+  return legendH(series)+s+(o.table===false?'':tableView(['',...series.map(se=>se.name+(o.unit?', '+o.unit:''))],xs.map((c,i)=>[esc(o.catTitle?o.catTitle(c,i):c),...series.map(se=>se.values[i]==null?'–':fmt(se.values[i],o.d??0))])));
+}
+function stack100(rows,series){
+  return legendH(series)+`<div class="hb">${rows.map(r=>{const tot=sum(r.vals)||1;
+    const tt=ttHtml(r.label,series.map((s,i)=>[s.name,fmt0(r.vals[i])+' гол. · '+fmt(r.vals[i]/tot*100,0)+'%',s.color]));
+    return `<div class="hb-r"><span class="l">${esc(r.label)}</span><div class="stk" data-tt="${escA(tt)}">${r.vals.map((v,i)=>v?`<i style="width:${v/tot*100}%;background:${series[i].color}"></i>`:'').join('')}</div><span class="v">${fmt0(tot)}</span></div>`}).join('')}</div>`
+  +tableView(['',...series.map(s=>s.name),'Всего'],rows.map(r=>[esc(r.label),...r.vals.map(v=>fmt0(v)),fmt0(sum(r.vals))]));
+}
+function heat(rowL,colL,M,o){
+  return `<div class="tw"><div class="heat" style="grid-template-columns:auto repeat(${colL.length},minmax(34px,1fr))"><span></span>${colL.map(c=>`<span class="h">${esc(c)}</span>`).join('')}
+  ${rowL.map((r,i)=>`<span class="y">${esc(r)}</span>`+colL.map((c,j)=>{const v=M[i][j];return v==null?`<span class="c" style="background:var(--soft)"></span>`:`<span class="c" style="background:${o.color(v)};color:${o.ink(v)}" data-tt="${escA(ttHtml(r+', '+c,[[o.label,o.txt(v)]]))}">${o.txt(v)}</span>`}).join('')).join('')}</div></div>`;
+}
+const card=(title,body,meta)=>`<div class="cardp"><h3>${title}${meta?`<span class="meta">${meta}</span>`:''}</h3>${body}</div>`;
+const kpi=(b,s,sm)=>`<div class="kpi"><b>${b}</b><span>${s}</span>${sm?`<small>${sm}</small>`:''}</div>`;
+const fact=n=>(RA.facts.find(f=>f['Показатель']===n)||{})['Значение'];
+const S1=cssv('--s1'),S1L=cssv('--s1l'),S2=cssv('--s2'),S3=cssv('--s3'),MUT=cssv('--muted');
+const SRC_AK='Источник: ответ акимата Уалихановского района на запрос проекта, 2026.';
+function sortTable(head,rows,opt={}){ // rows: [{cells:[[html,sortVal]], go?}]
+  return `<div class="tw"><table class="dt sortable"><thead><tr>${head.map((h,i)=>`<th class="sort" data-i="${i}"${rows[0]&&typeof rows[0].cells[i][1]==='string'?' style="text-align:left"':''}>${esc(h)}</th>`).join('')}</tr></thead><tbody>${rows.map(r=>`<tr${r.go?` class="click" data-go="${esc(r.go)}"`:''}${r.attr||''}>${r.cells.map(([h,v],i)=>`<td${i===0||typeof v==='string'?' class="txt"':''} data-s="${escA(v??'')}">${h}</td>`).join('')}</tr>`).join('')}</tbody></table></div>`;
+}
+
+// ---------------- страницы ----------------
+const PAGE={};
+PAGE.raion=()=>{
+  const rows=OKN.map(n=>{const o=OK[n];return {go:'okr:'+n,cells:[[esc(n),n],[fmt0(o.pop),o.pop],[fmt(o.area/1000,1),o.area],[fmt(o.arable/1000,1),o.arable],[fmt(o.pasture/1000,1),o.pasture],
+    [fmt0(o.livestock['КРС'].всего),o.livestock['КРС'].всего],[fmt0(o.livestock['МРС'].всего),o.livestock['МРС'].всего],[fmt0(o.livestock['Лошади'].всего),o.livestock['Лошади'].всего],
+    [`<span class="${o.past_prov<80?'c-bad':o.past_prov<100?'c-warn':''}">${fmt0(o.past_prov)}</span>`,o.past_prov],[fmt0(o.wells),o.wells],[o.d_rc==null?'райцентр':fmt0(o.d_rc),o.d_rc||0]]}});
+  const land=OKN.slice().sort((a,b)=>OK[b].area-OK[a].area).map(n=>({label:n,go:'okr:'+n,vals:[OK[n].arable/1000,OK[n].pasture/1000]}));
+  const infra=RA.facts.filter(f=>f['Раздел']==='Инфраструктура');
+  const T=RA.tech, TY=[2024,2025], types=['Комбайны (в т.ч. кормоуборочные)','Тракторы','Посевная и почвообрабатывающая техника','Косилки','Пресс-подборщики','Техника для заготовки и транспортировки кормов','Итого'];
+  const tv=(lab,y,k)=>{const r=T.find(x=>x['Показатель']===lab&&x['Год']===y);return r?r[k]:null};
+  const dist=OKN.filter(n=>OK[n].d_rc!=null).sort((a,b)=>OK[b].d_rc-OK[a].d_rc).map(n=>({label:n,go:'okr:'+n,vals:[OK[n].d_rc]}));
+  return `<h2>Район в цифрах</h2><p class="lead">Уалихановский район – 11 сельских округов и 24 села на северо-востоке Северо-Казахстанской области. Ниже – земля, инфраструктура и техника по данным акимата. <b>Нажмите на округ</b> в таблице или на графике, чтобы открыть его паспорт на карте.</p>
+  <div class="kpis">${kpi('1,29 млн га','площадь района')}${kpi(fmt(fact('Сельскохозяйственные угодья')/1000,0)+' тыс. га','сельхозугодья',fmt(fact('Сельскохозяйственные угодья')/fact('Общая площадь земель района')*100,0)+'% площади')}
+  ${kpi(fmt(fact('Пастбища')/1000,0)+' тыс. га','пастбища','улучшенных '+fmt(fact('в т.ч. пастбища улучшенные')/1000,1)+' тыс. га')}${kpi(fmt(fact('Пашня')/1000,0)+' тыс. га','пашня')}
+  ${kpi(fmt(fact('Свободные земли с/х назначения')/1000,0)+' тыс. га','свободные земли с/х назначения','пастбищ '+fmt(fact('Свободные земли: пастбища')/1000,1)+' · пашни '+fmt(fact('Свободные земли: пашня')/1000,1)+' тыс. га')}
+  ${kpi(fmt0(okrSum(o=>o.pop)),'жителей в 24 сёлах','на 01.10.2026')}${kpi(fmt0(fact('Действующие скважины для водопоя')),'скважин для водопоя','только в 5 округах из 11')}</div>
+  ${card('Сводная таблица по округам',sortTable(['Округ','Жителей','Площадь, тыс. га','Пашня, тыс. га','Пастбища, тыс. га','КРС','МРС','Лошади','Пастбища по нормам, %','Скважины','До райцентра, км'],rows)
+    +`<p class="src">Нажмите на заголовок столбца, чтобы отсортировать, на строку – чтобы открыть округ на карте. «Пастбища по нормам» – площадь пастбищ к площади, нужной поголовью округа (приказ МСХ РК № 3-3/332); ниже 100% – пастбищ не хватает.</p>`)}
+  <div class="grid2">
+  ${card('Земля по округам',hbars(land,[{name:'Пашня',color:S1},{name:'Пастбища',color:S3}],{unit:'тыс. га',d:1})+`<p class="src">${SRC_AK}</p>`,'тыс. га')}
+  ${card('Правовой статус земель',hbars([{label:'Аренда и временное пользование',vals:[fact('Аренда и временное землепользование')]},{label:'Государственный земельный запас',vals:[fact('Государственный земельный запас')]},{label:'Частная собственность',vals:[fact('Частная собственность')]}],[{name:'Площадь',color:S1}],{unit:'га'})
+    +`<dl class="facts"><dt>Свободные земельные участки</dt><dd>${fmt0(fact('Свободные земельные участки'))} шт. · ${fmt0(fact('Площадь свободных земельных участков'))} га</dd><dt>Земли под животноводство и кормопроизводство</dt><dd>${esc(fact('Возможность выделения земель под животноводство и кормопроизводство'))}</dd></dl>
+    <p class="take"><b>Крупные землепользователи:</b> ${esc(fact('Крупные землепользователи'))}.</p><p class="src">${SRC_AK}</p>`)}
+  ${card('Инфраструктура АПК',`<dl class="facts">${infra.map(f=>`<dt>${esc(f['Показатель'])}${f['Примечание']?`<br><span class="meta">${esc(f['Примечание'])}</span>`:''}</dt><dd class="${f['Значение']===0?'zero':''}">${f['Значение']===0?'нет':fmt0(f['Значение'])+' '+esc(f['Единица']||'')}</dd>`).join('')}</dl>
+    <p class="take">В районе нет молокоприёмных пунктов, мясо- и молокоперерабатывающих и комбикормовых предприятий. Продукция в основном реализуется в райцентре – селе Кишкенеколь, там же элеватор, зернохранилища и железнодорожная станция.</p><p class="src">${SRC_AK} Объекты показаны на карте (слой «Объекты АПК»).</p>`)}
+  ${card('Удалённость центров округов от райцентра',hbars(dist,[{name:'До Кишкенеколя',color:S1}],{unit:'км'})+`<p class="take">Кишкенеколь – в ${fmt0(OK['Кишкенекольский'].villages[0].d_obl)} км от Петропавловска. Дальше всех от райцентра – Кулыкольский (190 км) и Кайратский (150 км) округа.</p><p class="src">${SRC_AK}</p>`,'км')}
+  </div>
+  ${card('Сельхозтехника в хозяйствах района',`<div class="tw"><table class="dt"><thead><tr><th>Вид техники</th><th>2024, ед.</th><th>2025, ед.</th><th>Износ, 2025</th><th>Средний возраст, лет</th><th>Нужно обновить, 2025</th></tr></thead><tbody>
+    ${types.map(k=>`<tr><td class="txt">${esc(k)}</td><td>${fmt0(tv('Всего в СХТП',2024,k))}</td><td>${fmt0(tv('Всего в СХТП',2025,k))}</td><td>${fmt(tv('Степень износа',2025,k)*100,0)}%</td><td>${fmt(tv('Средний возраст машинно-тракторного парка',2025,k),1)}</td><td>${fmt(tv('Потребность хозяйств в его обновлении',2025,k)*100,0)}%</td></tr>`).join('')}</tbody></table></div>
+    <p class="take">Средний возраст машинно-тракторного парка – ${fmt(tv('Средний возраст машинно-тракторного парка',2025,'Итого'),0)} лет, посевной и почвообрабатывающей техники – около ${fmt(tv('Средний возраст машинно-тракторного парка',2025,'Посевная и почвообрабатывающая техника'),0)} лет.</p><p class="src">${SRC_AK}</p>`)}`;
+};
+
+PAGE.zhivotnovodstvo=()=>{
+  const tot=k=>okrSum(o=>o.livestock[k].всего), cat=(k,c)=>okrSum(o=>o.livestock[k][c]);
+  const ls=OKN.slice().sort((a,b)=>{const t=o=>o.livestock['КРС'].всего+o.livestock['МРС'].всего+o.livestock['Лошади'].всего;return t(OK[b])-t(OK[a])}).map(n=>({label:n,go:'okr:'+n,vals:['КРС','МРС','Лошади'].map(k=>OK[n].livestock[k].всего)}));
+  const prov=OKN.slice().sort((a,b)=>OK[a].past_prov-OK[b].past_prov).map(n=>({label:n,go:'okr:'+n,vals:[OK[n].past_prov]}));
+  const short=prov.filter(r=>r.vals[0]<100);
+  const provCol=v=>cssv(PROV.find(p=>v>=p[0]&&v<p[1])[3]);
+  const FK=['Сено, т','Сенаж, т','Силос, т','Зернофураж, т'];
+  const ft=(y,k)=>sum(RA.feed.filter(r=>r['Год']===y).map(r=>r[k]));
+  const fph=OKN.slice().sort((a,b)=>(OK[b].feed_per_head['2026']||0)-(OK[a].feed_per_head['2026']||0)).map(n=>({label:n,go:'okr:'+n,vals:[OK[n].feed_per_head['2025'],OK[n].feed_per_head['2026']]}));
+  const GR=['Зерновые','Зернобобовые','Масличные','Кормовые'];
+  const ca=(y,g)=>sum(RA.crops.filter(c=>c['Год']===y&&c['Группа культур']===g).map(c=>c['Посевная площадь, тыс. га']));
+  const cv=(y,g)=>sum(RA.crops.filter(c=>c['Год']===y&&c['Группа культур']===g).map(c=>c['Валовой сбор, тыс. т']));
+  const cy=(y,g)=>ca(y,g)?cv(y,g)/ca(y,g)*10:null;
+  const prod=RA.facts.filter(f=>f['Раздел']==='Продуктивность');
+  const farms=RA.farms;
+  const okrs=[...new Set(farms.map(f=>f['Сельский округ']))].sort();
+  const need=okrSum(o=>o.past_need), have=okrSum(o=>o.pasture);
+  return `<h2>Животноводство и корма</h2><p class="lead">Поголовье на 1 января 2026 года, заготовка кормов и посевы за 2025–2026 годы по данным акимата. Обеспеченность пастбищами <b>рассчитана проектом</b> по государственным нормам нагрузки.</p>
+  <div class="kpis">${kpi(fmt0(tot('КРС')),'голов КРС','в т.ч. коров '+fmt0(tot('Коровы')))}${kpi(fmt0(tot('МРС')),'голов МРС','овцы и козы')}${kpi(fmt0(tot('Лошади')),'лошадей')}
+  ${kpi(fmt0(okrSum(o=>o.livestock['Свиньи'])),'свиней')}${kpi(fmt0(okrSum(o=>o.livestock['Птица'])),'птицы','куры, утки, гуси')}${kpi('25–30 тыс. т','молока в год','удой '+fmt0(fact('Средний удой на корову (ЛПХ и КХ)'))+' кг на корову')}</div>
+  <div class="grid2">
+  ${card('Поголовье по округам',hbars(ls,[{name:'КРС',color:S1},{name:'МРС',color:S2},{name:'Лошади',color:S3}],{unit:'гол.'})+`<p class="src">${SRC_AK} Поголовье на 01.01.2026.</p>`,'гол.')}
+  ${card('Кому принадлежит скот',stack100([['КРС','КРС'],['Коровы','Коровы'],['МРС','МРС'],['Лошади','Лошади']].map(([k,l])=>({label:l,vals:['население','КФХ, ИП','юрлица'].map(c=>cat(k,c))})),[{name:'Личные хозяйства населения',color:S1},{name:'Крестьянские хозяйства, ИП',color:S2},{name:'Юридические лица',color:S3}])
+    +`<p class="take">${(()=>{const C=[['население','у населения'],['КФХ, ИП','в крестьянских хозяйствах'],['юрлица','у юридических лиц']];const top=k=>C.map(([c,n])=>[n,cat(k,c)/tot(k)*100]).sort((a,b)=>b[1]-a[1])[0];return ['КРС','МРС','Лошади'].map(k=>{const [n,v]=top(k);return `${k==='Лошади'?'лошадей':k} больше всего ${n} (${fmt(v,0)}%)`}).join(', ').replace(/^./,c=>c.toUpperCase())+'.'})()} Коровы поделены почти поровну между населением и крестьянскими хозяйствами.</p><p class="src">${SRC_AK}</p>`)}
+  </div>
+  ${card('Хватает ли пастбищ: обеспеченность по нормам нагрузки',hbars(prov,[{name:'Обеспеченность',color:S1}],{unit:'%',ref:100,colorOf:v=>provCol(v),valText:r=>fmt0(r.vals[0])+'%'})
+    +`<p class="take">${short.length?`Пастбищ не хватает в ${short.length===1?'одном округе':short.length+' округах'}: ${short.map(r=>`${r.label} (${fmt0(r.vals[0])}%)`).join(', ')}. `:''}В целом по округам пастбищ ${fmt(have/1000,0)} тыс. га при потребности ${fmt(need/1000,0)} тыс. га, но запас сосредоточен в отдалённых Коктерекском, Кайратском и Карасуском округах.</p>
+    <p class="src">Расчёт проекта: потребность = КРС × ${fmt(RA.norms.pasture['КРС'][0])} га + МРС × ${fmt(RA.norms.pasture['МРС'][0])} га + лошади × ${fmt(RA.norms.pasture['Лошади'][0])} га (${esc(RA.norms.pasture_src)}, пастбищный период 160–180 дней). Площадь пастбищ и поголовье – из ответа акимата. Пунктир – 100%.</p>`,'пастбища округа к потребности, %')}
+  <div class="grid2">
+  ${card('Заготовка кормов по району',colChart(FK.map(k=>k.replace(', т','')),[{name:'2025',color:S1L,values:FK.map(k=>ft(2025,k)/1000)},{name:'2026',color:S1,values:FK.map(k=>ft(2026,k)/1000)}],{unit:'тыс. т',d:1,ad:0,h:200})
+    +`<p class="take">В 2026 году сена заготовлено ${fmt(ft(2026,'Сено, т')/1000,1)} тыс. т (${ft(2026,'Сено, т')>ft(2025,'Сено, т')?'+':''}${fmt((ft(2026,'Сено, т')/ft(2025,'Сено, т')-1)*100,0)}% к 2025), сенажа ${fmt(ft(2026,'Сенаж, т')/1000,1)}, силоса ${fmt(ft(2026,'Силос, т')/1000,1)} тыс. т. Площадь кормовых культур при этом сократилась с ${fmt(sum(RA.feed.filter(r=>r['Год']===2025).map(r=>r['Площадь кормовых культур, тыс. га'])),1)} до ${fmt(sum(RA.feed.filter(r=>r['Год']===2026).map(r=>r['Площадь кормовых культур, тыс. га'])),1)} тыс. га.</p><p class="src">${SRC_AK}</p>`,'тыс. т')}
+  ${card('Сено, сенаж и силос на 1 голову КРС и лошадей',hbars(fph,[{name:'2025',color:S1L},{name:'2026',color:S1}],{unit:'т',d:1})+`<p class="src">Расчёт проекта: (сено + сенаж + силос) / (КРС + лошади) по округу. Показывает, где кормов на голову больше или меньше, но это не норма потребности.</p>`,'т на голову')}
+  </div>
+  <div class="grid2">
+  ${card('Продуктивность животноводства',`<dl class="facts">${prod.map(f=>`<dt>${esc(f['Показатель'])}</dt><dd>${esc(String(f['Значение']).replace('.',','))} ${esc(f['Единица']||'')}</dd>`).join('')}</dl><p class="src">${SRC_AK}</p>`)}
+  ${card('Кормовые культуры',`<p class="take"><b>Возделываются:</b> ${esc(fact('Кормовые культуры'))}.</p><dl class="facts">${RA.facts.filter(f=>f['Раздел']==='Кормовая база'&&f['Показатель']!=='Кормовые культуры').map(f=>`<dt>${esc(f['Показатель'])}</dt><dd>${esc(String(f['Значение']))} ${esc(f['Единица']||'')}</dd>`).join('')}<dt>Урожайность пастбищ и сенокосов</dt><dd>${esc(fact('Урожайность пастбищ и сенокосов'))} ц/га</dd></dl>
+    <p class="take">Выход кормовых единиц с гектара, площадь деградированных пастбищ и пастбищная нагрузка в районе не учитываются («нет данных» в ответе акимата). Обследование проекта 019 восполняет эти данные по 44 площадкам – см. карту.</p><p class="src">${SRC_AK}</p>`)}
+  </div>
+  <div class="grid2">
+  ${card('Посевные площади по району',colChart(GR,[{name:'2025',color:S1L,values:GR.map(g=>ca(2025,g))},{name:'2026',color:S1,values:GR.map(g=>ca(2026,g))}],{unit:'тыс. га',d:1,h:200})+`<p class="src">${SRC_AK} Без Карасуского и Кулыкольского округов (нет в данных).</p>`,'тыс. га')}
+  ${card('Средняя урожайность',colChart(GR,[{name:'2025',color:S1L,values:GR.map(g=>cy(2025,g))},{name:'2026',color:S1,values:GR.map(g=>cy(2026,g))}],{unit:'ц/га',d:1,h:200})
+    +`<p class="take">Урожайность зерновых упала с ${fmt(cy(2025,'Зерновые'),1)} до ${fmt(cy(2026,'Зерновые'),1)} ц/га, масличных – с ${fmt(cy(2025,'Масличные'),1)} до ${fmt(cy(2026,'Масличные'),1)} ц/га.</p><p class="src">Средняя по району = валовой сбор / площадь.</p>`,'ц/га')}
+  </div>
+  ${card('Основные сельхозтоваропроизводители',`<div class="fsel"><label for="farm-okr">Округ</label><select id="farm-okr"><option value="">Все округа</option>${okrs.map(o=>`<option>${esc(o)}</option>`).join('')}</select></div>`
+    +sortTable(['Хозяйство','Округ','Зерновые, га','в т.ч. пшеница','ячмень','Масличные, га','в т.ч. лён','рапс','Скот, гол.','Лошади','КРС','МРС'],farms.map(f=>({attr:` data-okr="${escA(f['Сельский округ'])}"`,cells:[[esc(f['Хозяйство']),f['Хозяйство']],[esc(f['Сельский округ']),f['Сельский округ']],
+      ...['Зерновые и зернобобовые всего, га','Пшеница, га','Ячмень, га','Масличные всего, га','Лён, га','Рапс, га','Поголовье всего, гол.','Лошади, гол.','КРС, гол.','МРС, гол.'].map(k=>[f[k]?fmt0(f[k]):'–',f[k]||0])]})))
+    +`<p class="src">${SRC_AK} Отдельные хозяйства указаны в двух округах.</p>`)}`;
+};
+
+PAGE.klimat=()=>{
+  const P=RA.precip, Tm=RA.temp, Mo=RA.moist;
+  const st=['Кишкенеколь (МС)','Актуесай (АП)'];
+  const yrs=[...new Set(P.rows.map(r=>r.year))].sort();
+  const pr=(s,y)=>P.rows.find(r=>r.st===s&&r.year===y);
+  const veg=(s,y)=>{const r=pr(s,y);return r?sum(r.v.slice(12,24)):null};
+  const ann=(s,y)=>{const r=pr(s,y);return r?sum(r.v):null};
+  const base=yrs.filter(y=>y<2026);
+  const vegMean=sum(base.map(y=>veg(st[0],y)))/base.length;
+  const MON=['янв','фев','мар','апр','май','июн','июл','авг','сен','окт','ноя','дек'];
+  const mon=(r,m)=>r?sum(r.v.slice(m*3,m*3+3)):null;
+  const monMean=m=>sum(base.map(y=>mon(pr(st[0],y),m)))/base.length;
+  const r26=pr(st[0],2026);
+  const tr=(y)=>Tm.rows.find(r=>r.st===st[0]&&r.year===y);
+  const tMean=Tm.cols.map((c,i)=>{const v=base.map(y=>(tr(y)||{v:[]}).v[i]).filter(x=>x!=null);return v.length?sum(v)/v.length:null});
+  const t26=(tr(2026)||{v:[]}).v;
+  const DECN=c=>{const [m,d]=c.split(' ');return d+' декада, '+({янв:'январь',фев:'февраль',мар:'март',апр:'апрель',май:'май',июн:'июнь',июл:'июль',авг:'август',сен:'сентябрь',окт:'октябрь',ноя:'ноябрь',дек:'декабрь'}[m])};
+  const mr=(y)=>Mo.rows.find(r=>r.year===y&&r.layer==='0–100');
+  const mMean=Mo.cols.map((c,i)=>{const v=base.map(y=>(mr(y)||{v:[]}).v[i]).filter(x=>x!=null);return v.length?sum(v)/v.length:null});
+  const m26=(mr(2026)||{v:[]}).v, m25=(mr(2025)||{v:[]}).v;
+  const avg=a=>{const v=a.filter(x=>x!=null);return v.length?sum(v)/v.length:null};
+  // пастбища агропост
+  const PO=RA.pasture_obs, PM=['Апрель','Май','Июнь','Июль','Август','Сентябрь'], PY=[...new Set(PO.map(r=>r['Год']))].sort();
+  const pv=(y,m,k,plant)=>{const r=PO.filter(x=>x['Год']===y&&x['Месяц']===m&&(!plant||String(x['Растение-эдификатор']).startsWith(plant)));return r.length?r[0][k]:null};
+  const SC=M=>v=>SEQ[Math.max(0,Math.min(5,Math.round(v)))];
+  const scoreM=PY.map(y=>PM.map(m=>pv(y,m,'Оценка состояния травостоя (балл)')));
+  const hM=PY.map(y=>PM.map(m=>pv(y,m,'Высота, см','Пырей')));
+  const hmax=Math.max(...hM.flat().filter(v=>v!=null));
+  const monScore=PM.map((m,j)=>avg(scoreM.map(r=>r[j])));
+  return `<h2>Климат и пастбища</h2><p class="lead">Наблюдения Казгидромета за 2016–2026 годы: метеостанция Кишкенеколь и агропост Актуесай. Здесь видно, сколько влаги получают пастбища и как меняется травостой по месяцам. Сравнение идёт со <b>средним за 2016–2025 годы</b>.</p>
+  <div class="kpis">${kpi(fmt(vegMean,0)+' мм','осадков за май–август','среднее 2016–2025, Кишкенеколь')}${kpi(fmt(veg(st[0],2026),0)+' мм','за май–август 2026',(veg(st[0],2026)>=vegMean?'+':'')+fmt((veg(st[0],2026)/vegMean-1)*100,0)+'% к среднему')}
+  ${kpi(fmt(sum(base.map(y=>ann(st[0],y)))/base.length,0)+' мм','осадков за год','среднее 2016–2025')}${kpi(fmt(avg(m26),0)+' мм','влаги в метровом слое почвы','май–август 2026, Актуесай; среднее '+fmt(avg(mMean),0)+' мм')}</div>
+  ${card('Осадки за вегетацию (май–август)',colChart(yrs.map(String),st.map((s,i)=>({name:s,color:i?S2:S1,values:yrs.map(y=>veg(s,y))})),{unit:'мм',d:0,ref:vegMean,refLabel:'среднее Кишкенеколь '+fmt(vegMean,0)+' мм',w:1100,h:280})
+    +`<p class="take">Летние осадки сильно меняются год от года: от ${fmt(Math.min(...base.map(y=>veg(st[0],y))),0)} до ${fmt(Math.max(...base.map(y=>veg(st[0],y))),0)} мм в Кишкенеколе. Сухие годы для пастбищ – ${base.filter(y=>veg(st[0],y)<vegMean*0.8).join(', ')}.</p><p class="src">Сумма по декадам мая–августа. Источник: Казгидромет (МС Кишкенеколь, АП Актуесай).</p>`,'мм')}
+  <div class="grid2">
+  ${card('Осадки по месяцам: 2026 и среднее',colChart(MON.slice(0,9),[{name:'Среднее 2016–2025',color:S1L,values:MON.slice(0,9).map((m,i)=>monMean(i))},{name:'2026',color:S1,values:MON.slice(0,9).map((m,i)=>mon(r26,i))}],{unit:'мм',d:0,h:210})+`<p class="src">Кишкенеколь. Сентябрь 2026 – только две декады.</p>`,'мм')}
+  ${card('Осадки за год',colChart(base.map(String),st.map((s,i)=>({name:s,color:i?S2:S1,values:base.map(y=>ann(s,y))})),{unit:'мм',d:0,h:210})+`<p class="src">2026 год не показан – данные только по сентябрь. У Актуесая в ноябре 2018 г. убрана опечатка (333 мм за декаду).</p>`,'мм')}
+  ${card('Температура воздуха по декадам',lineChart(Tm.cols,[{name:'Среднее 2016–2025',color:MUT,values:tMean,dash:true},{name:'2026',color:S2,values:Tm.cols.map((c,i)=>t26[i]??null)}],{unit:'°C',d:1,ad:0,noZero:true,catTitle:c=>DECN(c),xLabel:(c,i)=>i%3===0?c.split(' ')[0]:''}),'°C, Кишкенеколь')}
+  ${card('Запасы продуктивной влаги в слое 0–100 см',lineChart(Mo.cols,[{name:'Среднее 2016–2025',color:MUT,values:mMean,dash:true},{name:'2025',color:S1L,values:m25},{name:'2026',color:S1,values:m26}],{unit:'мм',d:0,noZero:true,catTitle:c=>DECN(c),xLabel:(c,i)=>i%3===0?c.split(' ')[0]:''})
+    +`<p class="take">В 2025–2026 годах влаги в почве больше среднего почти всё лето.</p><p class="src">Агропост Актуесай, май–август.</p>`,'мм')}
+  </div>
+  <div class="grid2">
+  ${card('Состояние травостоя по месяцам',heat(PY.map(String),PM.map(m=>m.slice(0,3).toLowerCase()),scoreM,{label:'Оценка состояния',color:v=>SEQ[Math.max(0,Math.min(5,v))],ink:v=>v>=4?'#fff':'#1c2420',txt:v=>fmt(v,0)})
+    +`<p class="take">В мае–июле травостой почти всегда в лучшем состоянии (средний балл: май ${fmt(monScore[1],1)}, июнь ${fmt(monScore[2],1)}, июль ${fmt(monScore[3],1)}), к сентябрю выгорает (${fmt(monScore[5],1)}). План развития называет оптимальным периодом для пастбищ май–июнь.</p><p class="src">Агропост Кишкенеколь, средне- и сухостепные злаковые пастбища. Балл 5 – лучшее состояние, 1 – худшее.</p>`,'балл 1–5')}
+  ${card('Высота пырея',heat(PY.map(String),PM.map(m=>m.slice(0,3).toLowerCase()),hM,{label:'Высота',color:v=>SEQ[Math.min(5,Math.floor(v/hmax*5.99))],ink:v=>v/hmax>.55?'#fff':'#1c2420',txt:v=>fmt(v,0)})+`<p class="src">Агропост Кишкенеколь, см. Пустые клетки – высота не указана.</p>`,'см')}
+  </div>`;
+};
+
+PAGE.naselenie=()=>{
+  const pm=RA.pop_months, mc=pm.cols.map(c=>c.replace('на ','').replace('.2026',''));
+  const tot=pm.cols.map((c,i)=>sum(pm.rows.map(r=>r[c])));
+  const M=RA.migration, Y=RA.pop_years, Sc=RA.schools;
+  const age=[['до 16 лет','Население до 16 лет (01.01.2026)'],['16–29 лет','Население 16–29 лет (01.01.2026)'],['30–62 лет','Население 30–62 лет (01.01.2026)'],['63 года и старше','Население старше 63 лет (01.01.2026)']].map(([l,k])=>({label:l,vals:[fact(k)]}));
+  const ageT=sum(age.map(a=>a.vals[0]));
+  const vils=[];OKN.forEach(o=>OK[o].villages.forEach(v=>vils.push(Object.assign({okr:o},v))));
+  const net=sum(M.filter(m=>!String(m['Период']).includes('2026')).map(m=>m['Миграционное сальдо, чел.']));
+  const pupils=sum(Sc.map(s=>s['Учеников, чел.']));
+  return `<h2>Население</h2><p class="lead">Численность, миграция, возраст и школы по данным акимата. Население района <b>сокращается</b>: с 2023 года – на ${fmt0(Y[0]['Население, чел.']-Y[Y.length-1]['Население, чел.'])} человек, в основном из-за выезда.</p>
+  <div class="kpis">${kpi(fmt0(tot[tot.length-1]),'жителей на 01.10.2026',(tot[tot.length-1]-tot[0])+' с начала года')}${kpi(fmt0(okrSum(o=>o.hh)),'дворов')}
+  ${kpi(fmt0(fact('Трудоспособное население')),'трудоспособных','занято '+fmt0(fact('Занятое население'))+', безработных '+fmt0(fact('Безработные')))}
+  ${kpi(fmt0(net),'миграционное сальдо','2021–2025 годы')}${kpi(fmt0(pupils),'школьников','24 школы, работают 23')}</div>
+  <div class="grid2">
+  ${card('Численность по годам',colChart(Y.map(r=>String(r['Год'])),[{name:'Население',color:S1,values:Y.map(r=>r['Население, чел.'])}],{unit:'чел.',d:0,h:200,catTitle:c=>c==='2026'?'2026 (январь–июль)':c})+`<p class="src">${SRC_AK} 2026 – январь–июль.</p>`,'чел.')}
+  ${card('2026 год по месяцам',lineChart(mc,[{name:'Население',color:S1,values:tot}],{unit:'чел.',d:0,noZero:true,h:200,catTitle:c=>'на '+c+'.2026'})+`<p class="src">Фактическая численность на 1-е число месяца, сумма по 24 сёлам (АТУ 2026).</p>`,'чел.')}
+  ${card('Миграция',colChart(M.map(m=>String(m['Период']).replace(' г','').replace('Январь-май ','янв–май ')),[{name:'Прибыло',color:S3,values:M.map(m=>m['Прибыло, чел.'])},{name:'Выбыло',color:S2,values:M.map(m=>m['Выбыло, чел.'])}],{unit:'чел.',d:0,h:210})
+    +`<p class="take">Выезжает в ${fmt(Math.min(...M.map(m=>m['Выбыло, чел.']/m['Прибыло, чел.'])),1)}–${fmt(Math.max(...M.map(m=>m['Выбыло, чел.']/m['Прибыло, чел.'])),1)} раза больше людей, чем приезжает. Сальдо: ${M.map(m=>String(m['Период']).replace(' г','')+' '+fmt0(m['Миграционное сальдо, чел.'])).join(' · ')}.</p><p class="src">${SRC_AK}</p>`,'чел.')}
+  ${card('Возрастные группы',hbars(age,[{name:'Человек',color:S1}],{unit:'чел.',valText:r=>fmt0(r.vals[0])+' · '+fmt(r.vals[0]/ageT*100,0)+'%'})+`<p class="src">На 01.01.2026. ${SRC_AK}</p>`)}
+  ${card('Ученики по классам',colChart(Sc.map(s=>String(s['Класс'])),[{name:'Учеников',color:S1,values:Sc.map(s=>s['Учеников, чел.'])}],{unit:'чел.',d:0,h:190,catTitle:c=>c+' класс',allLabels:true})+`<p class="take">В 10–11 классах учеников вдвое меньше, чем в 9-м: после 9 класса примерно половина не продолжает учёбу в школе.</p><p class="src">${SRC_AK}</p>`)}
+  ${card('Трудовые ресурсы',`<dl class="facts"><dt>Трудоспособное население</dt><dd>${fmt0(fact('Трудоспособное население'))}</dd><dt>Занятые</dt><dd>${fmt0(fact('Занятое население'))}</dd><dt>Безработные</dt><dd>${fmt0(fact('Безработные'))}</dd><dt>Работники сельского хозяйства, специалисты с/х профиля</dt><dd>нет данных</dd><dt>Обеспеченность с/х предприятий кадрами</dt><dd style="white-space:normal">${esc(fact('Обеспеченность с/х предприятий трудовыми ресурсами'))}</dd></dl><p class="src">${SRC_AK}</p>`)}
+  </div>
+  ${card('Сёла района',sortTable(['Село','Округ','Жителей','Дворов','До райцентра, км','До Петропавловска, км'],vils.map(v=>({go:'vil:'+v.name,cells:[[esc(v.name)+(v.center?' <span class="meta">центр</span>':''),v.name],[esc(v.okr),v.okr],[fmt0(v.pop),v.pop],[fmt0(v.hh),v.hh],[v.d_rc==null?'–':fmt0(v.d_rc),v.d_rc||0],[fmt0(v.d_obl),v.d_obl]]})))+`<p class="src">На 01.10.2026. Нажмите на строку – село откроется на карте.</p>`)}`;
+};
+
+PAGE.plan=()=>{
+  const P=RA.plan, sc=P['сценарии'];
+  const sv=(k,i)=>{const r=sc.find(x=>x['Показатель']===k);return r?r[['Пессимистический','Реальный','Оптимистический'][i]]:null};
+  const doc=RA.docs.find(d=>d.file.includes('plan-'));
+  const cap=sum(P['затраты'].map(x=>x['Сумма, тыс. тенге']))/1000, cur=sum(P['текущие'].map(x=>x['Сумма, млн тенге в год'])), subs=sum(P['субсидии'].map(x=>x['Сумма, тыс. тенге']))/1000;
+  const prices=P['цены'].filter(x=>!String(x['Город']).startsWith('Казахстан')).sort((a,b)=>b['Баранина, тенге/кг']-a['Баранина, тенге/кг']);
+  const avgP=(P['цены'].find(x=>String(x['Город']).startsWith('Казахстан'))||{})['Баранина, тенге/кг'];
+  const free=fact('Свободные земли: пастбища');
+  return `<h2>План развития: овцеводческий кластер</h2>
+  <p class="lead">Проект создания овцеводческого кластера в Уалихановском районе (автор – Сиволап). Расчёт сделан на <b>одну маточную отару в 1000 овцематок</b> эдильбаевской породы; в перспективе кластер – до 60 тыс. овцематок.${doc?` <a href="${doc.file}" download>Скачать проект (${doc.ext}, ${fmt0(doc.kb)} КБ)</a>`:''}</p>
+  <div class="kpis">${kpi(fmt(cap,0)+' млн ₸','капитальные затраты на отару',fmt(cap-26.65,1)+' млн ₸ с учётом субсидий')}${kpi(fmt(cur,1)+' млн ₸','текущие затраты в год','корма, зарплата, ветеринария')}
+  ${kpi(fmt(sv('Выручка на 1 голову, тыс. тенге',0),0)+'–'+fmt(sv('Выручка на 1 голову, тыс. тенге',2),0)+' млн ₸','выручка в год','по трём сценариям')}${kpi(fmt(sv('Окупаемость без субсидий, лет',2),1)+'–'+fmt(sv('Окупаемость без субсидий, лет',0),1)+' года','окупаемость','с субсидиями '+fmt(sv('Окупаемость с субсидиями, лет',2),1)+'–'+fmt(sv('Окупаемость с субсидиями, лет',0),1))}</div>
+  <div class="grid2">
+  ${card('Почему овцеводство',`<ul style="margin:0;padding-left:18px;display:flex;flex-direction:column;gap:6px;font-size:13.5px">
+    <li>Почвы района малоплодородны, а летом не хватает осадков – вложения в зерновое производство рискованны.</li>
+    <li>В районе большие площади природных пастбищ и сенокосов, но в травостое преобладают травы, которые хорошо поедают только овцы; КРС и лошадям летом корма не хватает.</li>
+    <li>Пастбища в оптимальном состоянии только в мае–июне, дальше жара и сухость угнетают травы (это видно и в наблюдениях агропоста – вкладка «Климат и пастбища»).</li>
+    <li>Нагрузка, заложенная в план: <b>1 овцематка или голова молодняка на нагуле на 1 га пастбищ</b>.</li></ul>
+    <p class="take">Свободных пастбищ в районе ${fmt(free/1000,1)} тыс. га. При нагрузке из плана этого хватает примерно на ${fmt(free/1000,0)} тыс. овцематок – больше целевых 60 тыс. <span class="meta">(расчёт проекта)</span></p>`)}
+  ${card('Требования к проекту',`<ol style="margin:0;padding-left:20px;display:flex;flex-direction:column;gap:4px;font-size:13.5px"><li>Создание большого числа рабочих мест.</li><li>Вложения в инфраструктуру сёл.</li><li>Кластер с глубокой переработкой продукции овцеводства.</li><li>Высококачественная экспортно ориентированная продукция.</li><li>Доступные цены на внутреннем рынке.</li><li>Сохранение экологической ситуации.</li><li>Коренное и поверхностное улучшение сенокосов и пастбищ.</li><li>Ветеринарное благополучие территорий.</li></ol>`)}
+  </div>
+  ${card('Устройство кластера: три модуля',`<div class="mods">
+    <div class="mod"><h4>1. Кормопроизводство</h4><ul><li>пашня под сенаж, концентраты и солому</li><li>природные пастбища и сенокосы</li><li>кормозаготовительная техника, хранилища, приготовление и раздача кормов</li><li>улучшение пастбищ, искусственные кормовые угодья</li></ul></div>
+    <div class="mod"><h4>2. Производство</h4><ul><li>товарные отары эдильбаевских овцематок (до 60 тыс.)</li><li>племенной репродуктор: селекция на плодовитость, рост, качество туш</li><li>промышленное скрещивание с мясными породами</li><li>станция искусственного осеменения и контрольно-испытательная станция</li></ul></div>
+    <div class="mod"><h4>3. Переработка и реализация</h4><ul><li>откормочная площадка</li><li>мясокомбинат: убой и переработка туш</li><li>переработка шерсти, шкур и отходов убоя</li><li>собственная торговая сеть</li></ul></div></div>
+    ${RA.plan_img?`<figure style="margin:0;display:flex;flex-direction:column;gap:6px;align-items:center"><img src="${RA.plan_img}" alt="Схема модуля переработки и реализации: откормплощадка, мясокомбинат, переработка туш, шерсти, шкур и отходов убоя, реализация" style="max-width:420px;width:100%;border-radius:8px;background:#fff"><figcaption class="src">Модуль переработки и реализации продукции овцеводства (схема из проекта)</figcaption></figure>`:''}`)}
+  ${card('Породы',`<div class="breeds">
+    <div class="breed"><span class="role">основная порода</span><h4>Эдильбаевская</h4><p style="margin:0">Курдючная, мясо-сального направления, выведена в Западном Казахстане. Бараны 100–120 кг, матки 65–90 кг. Скороспелая, неприхотливая, хорошо приспособлена к климату. Минусы – невысокая плодовитость и жёсткая шерсть.</p></div>
+    <div class="breed"><span class="role">для скрещивания</span><h4>Дорпер</h4><p style="margin:0">Мясная порода из Южной Африки. Бараны 90–140 кг, матки 60–80 кг. Ягнята набирают 40–50 кг к 4–5 месяцам, 140–170 ягнят на 100 маток. Не требует стрижки, переносит жару и засуху.</p></div>
+    <div class="breed"><span class="role">для скрещивания</span><h4>Тексель</h4><p style="margin:0">Мясная порода из Голландии. Бараны 85–100 кг, матки 75–80 кг. Туша ягнёнка 7–8 месяцев – 25–28 кг, убойный выход 50–55%, плодовитость 170–190%.</p></div></div>`)}
+  <div class="grid2">
+  ${card('Капитальные затраты на отару',hbars(P['затраты'].map(x=>({label:x['Статья'],vals:[x['Сумма, тыс. тенге']/1000]})),[{name:'Затраты',color:S1}],{unit:'млн ₸',d:1})+`<p class="src">Итого ${fmt(cap,0)} млн ₸. Ярки по 130 тыс. ₸, бараны по 200 тыс. ₸, ангар 120 × 24 м по 25 тыс. ₸ за м².</p>`,'млн ₸')}
+  ${card('Текущие затраты в год',hbars(P['текущие'].map(x=>({label:x['Статья'],vals:[x['Сумма, млн тенге в год']]})),[{name:'Затраты',color:S2}],{unit:'млн ₸',d:2})+`<p class="src">Итого ${fmt(cur,2)} млн ₸. Постоянный штат – чабан и 2 помощника, в окот 4 временных работника. Зимний рацион на голову: сенаж 3 кг, сено 0,6 кг, солома 0,8 кг, концентраты 0,2 кг в сутки, 120 дней.</p>`,'млн ₸')}
+  </div>
+  ${card('Три сценария',`<div class="tw"><table class="dt"><thead><tr><th>Показатель</th><th>Пессимистический</th><th>Реальный</th><th>Оптимистический</th></tr></thead><tbody>${sc.map(r=>`<tr><td class="txt">${esc(r['Показатель'])}</td>${['Пессимистический','Реальный','Оптимистический'].map(k=>`<td>${fmt(r[k],2)}</td>`).join('')}</tr>`).join('')}</tbody></table></div>`
+    +colChart(['Пессимистический','Реальный','Оптимистический'],[{name:'Без субсидий',color:S1L,values:[0,1,2].map(i=>sv('Окупаемость без субсидий, лет',i))},{name:'С субсидиями',color:S1,values:[0,1,2].map(i=>sv('Окупаемость с субсидиями, лет',i))}],{unit:'лет',d:1,w:1100,h:220,table:false,allLabels:true})
+    +`<p class="src">Окупаемость = капитальные затраты / годовая прибыль. Цена реализации заложена 1500–1600 ₸ за кг живой массы – ниже рыночной (по рознице баранины расчётная цена живой массы 2 252–2 477 ₸/кг).</p>`,'окупаемость, лет')}
+  <div class="grid2">
+  ${card('Государственные субсидии',`<dl class="facts">${P['субсидии'].map(x=>`<dt>${esc(x['Направление'])}</dt><dd>${fmt(x['Сумма, тыс. тенге']/1000,2)} млн ₸</dd>`).join('')}<dt><b>Итого на отару</b></dt><dd><b>${fmt(subs,2)} млн ₸</b></dd></dl>
+    <p class="src">Ставки: племенные овцы отечественные – 26 тыс. ₸/гол., племенной молодняк – 4 тыс. ₸/гол., баранчики на убой (сезонные поставки) – 7 тыс. ₸/гол. Заявки – через ГИСС.</p>`)}
+  ${card('Розничная цена баранины на 14.10.2026',hbars(prices.map(x=>({label:x['Город'],vals:[x['Баранина, тенге/кг']]})),[{name:'Цена',color:S1L}],{unit:'₸/кг',max:Math.max(...prices.map(x=>x['Баранина, тенге/кг'])),colorOf:(v,r)=>r.label==='Петропавловск'?S2:S1L,table:true})
+    +`<p class="src">Петропавловск выделен. Среднее по Казахстану – ${fmt0(avgP)} ₸/кг. Источник – Бюро национальной статистики (по данным проекта).</p>`,'₸/кг')}
+  </div>`;
+};
+
+PAGE.istochniki=()=>{
+  const groups=[...new Set(RA.docs.map(d=>d.group))];
+  return `<h2>Документы и источники</h2><p class="lead">Все исходные документы, из которых собран сайт, можно скачать. Цифры перенесены без изменений, кроме явных опечаток – они перечислены в листе «замечания» файла с данными района.</p>
+  ${groups.map(g=>card(esc(g),`<div class="doclist">${RA.docs.filter(d=>d.group===g).map(d=>`<a class="doc" href="${d.file}" download><span class="x">${esc(d.ext)}</span><span class="t">${esc(d.title)}</span><span class="s">${fmt0(d.kb)} КБ</span></a>`).join('')}</div>`)).join('')}
+  ${card('Методы и нормативы',`<dl class="facts" style="grid-template-columns:minmax(0,1fr) minmax(0,1.4fr)">
+    <dt>Полевые данные</dt><dd style="white-space:normal;text-align:left;font-family:var(--f-body)">Проект 019, СКУ им. М. Козыбаева: выезды 6–12 августа и 12–22 сентября 2026 г., 44 площадки почвы и травостоя, 44 точки воды, пробы молока; протокол испытаний № 212.</dd>
+    <dt>Нагрузка на пастбища</dt><dd style="white-space:normal;text-align:left;font-family:var(--f-body)">${esc(RA.norms.pasture_src)}: КРС ${fmt(RA.norms.pasture['КРС'][0])}, МРС ${fmt(RA.norms.pasture['МРС'][0])}, лошади ${fmt(RA.norms.pasture['Лошади'][0])} га на голову (для деградированных пастбищ – ${fmt(RA.norms.pasture['КРС'][1])}, ${fmt(RA.norms.pasture['МРС'][1])} и ${fmt(RA.norms.pasture['Лошади'][1])}).</dd>
+    <dt>Металлы в воде</dt><dd style="white-space:normal;text-align:left;font-family:var(--f-body)">${esc(RA.metals.src)}. 1 ppm = 1 мг/л.</dd>
+    <dt>Молоко</dt><dd style="white-space:normal;text-align:left;font-family:var(--f-body)">ТР ТС 033/2013, СТ РК 1760-2019.</dd>
+    <dt>Агрохимия почвы</dt><dd style="white-space:normal;text-align:left;font-family:var(--f-body)">Группировки по обеспеченности; P₂O₅ и K₂O – по Мачигину для карбонатных почв.</dd>
+    <dt>Границы и координаты сёл</dt><dd style="white-space:normal;text-align:left;font-family:var(--f-body)">© участники OpenStreetMap (ODbL).</dd>
+    <dt>Погода</dt><dd style="white-space:normal;text-align:left;font-family:var(--f-body)">Казгидромет: метеостанция Кишкенеколь, агропост Актуесай, 2016–2026.</dd></dl>`)}`;
+};
+
+// ---- маршрутизация вкладок ----
+const PAGES=['map','raion','zhivotnovodstvo','klimat','naselenie','plan','istochniki'], built={};
+function bindPage(h,el){
+  el.querySelectorAll('table.sortable').forEach(t=>t.querySelectorAll('th.sort').forEach(th=>th.addEventListener('click',()=>{
+    const i=+th.dataset.i, asc=th.getAttribute('aria-sort')==='descending';
+    t.querySelectorAll('th').forEach(x=>x.removeAttribute('aria-sort')); th.setAttribute('aria-sort',asc?'ascending':'descending');
+    const rows=[...t.tBodies[0].rows]; const key=r=>{const s=r.cells[i].dataset.s;const n=parseFloat(s);return isNaN(n)?s:n};
+    rows.sort((a,b)=>{const x=key(a),y=key(b);const c=typeof x==='number'&&typeof y==='number'?x-y:String(x).localeCompare(String(y),'ru');return asc?c:-c});
+    rows.forEach(r=>t.tBodies[0].appendChild(r));})));
+  const fo=el.querySelector('#farm-okr'); if(fo) fo.onchange=()=>el.querySelectorAll('tr[data-okr]').forEach(r=>r.hidden=fo.value&&r.dataset.okr!==fo.value);
+}
+function route(){
+  let h=decodeURIComponent(location.hash.slice(1))||'map'; if(!PAGES.includes(h)) h='map';
+  PAGES.forEach(p=>{document.getElementById('pg-'+p).hidden=p!==h});
+  document.querySelectorAll('nav.tabs a').forEach(a=>{if(a.getAttribute('href')==='#'+h)a.setAttribute('aria-current','page');else a.removeAttribute('aria-current')});
+  TT.hidden=true;
+  if(h==='map'){map.invalidateSize();return}
+  const el=document.getElementById('pg-'+h);
+  if(!built[h]){el.innerHTML=`<div class="wrap">${PAGE[h]()}</div>`;built[h]=1;bindPage(h,el)}
+  el.scrollTop=0; if(window.innerWidth<=820) window.scrollTo(0,0);
+}
+addEventListener('hashchange',route);
+document.addEventListener('click',e=>{const g=e.target.closest('[data-go]'); if(!g) return;
+  const [t,n]=g.dataset.go.split(/:(.*)/);
+  if(location.hash!=='#map'){location.hash='#map';}
+  setTimeout(()=>{route(); if(t==='okr'){showOkr(n);map.fitBounds(okrLayers[n].getBounds(),{padding:[20,20]})} else {showVil(n); const m=vilById[n]; if(m) map.setView(m.getLatLng(),Math.max(map.getZoom(),9))}},0);});
+
 setTrip(TR);
+route();
 })();
 </script>

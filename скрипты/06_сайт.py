@@ -1,4 +1,4 @@
-"""Шаг 5. Сборка сайта docs/index.html.
+"""Шаг 6. Сборка сайта docs/index.html.
 
 Что делает:
   1) Переводит слои базы в формат для веб-карты (GeoJSON, координаты WGS 84).
@@ -8,7 +8,8 @@
      значения обрезаются по контуру района. Каждая поверхность – картинка PNG внутри страницы.
   3) Молоко: все пробы из листа «молоко» с проверкой по нормам (НОРМЫ_МОЛОКА ниже).
   4) Берёт шаблон  шаблон/index_шаблон.html  и вставляет в него все данные:
-     точки, округа, оценки (build/оценка.json), фото (build/фото.json), подписи соседей.
+     точки, округа, оценки (build/оценка.json), фото (build/фото.json), подписи соседей,
+     данные о районе и металлы (build/район.json, шаг 5).
   5) Пишет docs/index.html – это и есть сайт. GitHub Pages публикует папку docs.
 
 Внешний вид сайта (цвета, тексты кнопок, раскладка) правится в шаблоне, а не здесь.
@@ -165,6 +166,7 @@ for (trip, la, lo), grp in pd.DataFrame(пробы).dropna(subset=['lat']).group
 данные['interp'] = оценка
 данные['photos'] = json.load(open(BUILD / 'фото.json'))
 данные['ctx'] = json.load(open(BUILD / 'соседи.json'))
+данные['raion'] = json.load(open(BUILD / 'район.json'))   # шаг 5: район в целом, металлы, документы
 
 # ---------- сборка страницы ----------
 css = re.sub(r'url\([^)]*\)', 'none', open(ШАБЛОН / 'leaflet.css').read())
@@ -179,4 +181,4 @@ if not html.lstrip().lower().startswith('<!doctype'):
             '</head>\n<body>\n' + html + '\n</body>\n</html>\n')
 (САЙТ / 'index.html').write_text(html, encoding='utf-8')
 (САЙТ / '.nojekyll').write_text('')   # GitHub Pages: отдавать файлы как есть
-print(f'Шаг 5 готов: docs/index.html ({len(html) // 1024} КБ), выездов {len(ИДЫ)}, проб молока {len(пробы)}')
+print(f'Шаг 6 готов: docs/index.html ({len(html) // 1024} КБ), выездов {len(ИДЫ)}, проб молока {len(пробы)}')
