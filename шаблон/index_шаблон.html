@@ -318,7 +318,7 @@ path.ch{stroke:none}
       <a href="#zhivotnovodstvo">Животноводство и корма</a>
       <a href="#klimat">Климат и пастбища</a>
       <a href="#naselenie">Население</a>
-      <a href="#plan">План развития</a>
+      /*ПЛАН*/<a href="#plan">План развития</a>/*КОНЕЦ_ПЛАНА*/
       <a href="#istochniki">Документы и источники</a>
     </nav>
   </header>
@@ -326,7 +326,7 @@ path.ch{stroke:none}
   <section class="page" id="pg-zhivotnovodstvo" hidden></section>
   <section class="page" id="pg-klimat" hidden></section>
   <section class="page" id="pg-naselenie" hidden></section>
-  <section class="page" id="pg-plan" hidden></section>
+  /*ПЛАН*/<section class="page" id="pg-plan" hidden></section>/*КОНЕЦ_ПЛАНА*/
   <section class="page" id="pg-istochniki" hidden></section>
   <div class="page" id="pg-map">
    <div class="mapzone">
@@ -837,7 +837,7 @@ function home(){
   <div class="mini"><div><b>${fmt0(Object.values(OK).reduce((a,o)=>a+o.pop,0))}</b><span>жителей</span></div>
   <div><b>${fmt(fact('Пастбища')/1000,0)}</b><span>тыс. га пастбищ</span></div>
   <div><b>${fmt(Object.values(OK).reduce((a,o)=>a+o.livestock['КРС'].всего+o.livestock['МРС'].всего+o.livestock['Лошади'].всего,0)/1000,1)}</b><span>тыс. голов скота</span></div></div>
-  <p class="hint">Подробно о районе – во вкладках: <a href="#raion">район в цифрах</a>, <a href="#zhivotnovodstvo">животноводство</a>, <a href="#klimat">климат</a>, <a href="#naselenie">население</a>, <a href="#plan">план развития</a>.</p>
+  <p class="hint">Подробно о районе – во вкладках: <a href="#raion">район в цифрах</a>, <a href="#zhivotnovodstvo">животноводство</a>, <a href="#klimat">климат</a>, <a href="#naselenie">население</a>/*ПЛАН*/, <a href="#plan">план развития</a>/*КОНЕЦ_ПЛАНА*/.</p>
   ${Object.entries(gen).map(([g,l])=>`<div class="blk"><h4>${esc(g)}</h4>${gallery(l.map(x=>Object.assign({},x,{cap:''})),g)}</div>`).join('')}
   <details class="blk"><summary>Шкалы оценки показателей</summary><table class="kv"><thead><tr><th>Показатель</th><th>Градации</th></tr></thead><tbody>
   ${Object.values(sc).map(s=>`<tr><td>${esc(s.name)}, ${esc(s.unit)}<br><span class="meta">${esc(s.src)}</span></td><td class="n" style="white-space:normal;text-align:left">${s.names.map((n,i)=>`${esc(n)}${i<s.edges.length?' ≤ '+String(s.edges[i]).replace('.',','):' > '+String(s.edges[s.edges.length-1]).replace('.',',')}`).join('<br>')}</td></tr>`).join('')}
@@ -1239,7 +1239,7 @@ PAGE.klimat=()=>{
   </div>
   <div class="grid2">
   ${card('Состояние травостоя по месяцам',heat(PY.map(String),PM.map(m=>m.slice(0,3).toLowerCase()),scoreM,{label:'Оценка состояния',color:v=>SEQ[Math.max(0,Math.min(5,v))],ink:v=>v>=4?'#fff':'#1c2420',txt:v=>fmt(v,0)})
-    +`<p class="take">В мае–июле травостой почти всегда в лучшем состоянии (средний балл: май ${fmt(monScore[1],1)}, июнь ${fmt(monScore[2],1)}, июль ${fmt(monScore[3],1)}), к сентябрю выгорает (${fmt(monScore[5],1)}). План развития называет оптимальным периодом для пастбищ май–июнь.</p><p class="src">Агропост Кишкенеколь, средне- и сухостепные злаковые пастбища. Балл 5 – лучшее состояние, 1 – худшее.</p>`,'балл 1–5')}
+    +`<p class="take">В мае–июле травостой почти всегда в лучшем состоянии (средний балл: май ${fmt(monScore[1],1)}, июнь ${fmt(monScore[2],1)}, июль ${fmt(monScore[3],1)}), к сентябрю выгорает (${fmt(monScore[5],1)})./*ПЛАН*/ План развития называет оптимальным периодом для пастбищ май–июнь./*КОНЕЦ_ПЛАНА*/</p><p class="src">Агропост Кишкенеколь, средне- и сухостепные злаковые пастбища. Балл 5 – лучшее состояние, 1 – худшее.</p>`,'балл 1–5')}
   ${card('Высота пырея',heat(PY.map(String),PM.map(m=>m.slice(0,3).toLowerCase()),hM,{label:'Высота',color:v=>SEQ[Math.min(5,Math.floor(v/hmax*5.99))],ink:v=>v/hmax>.55?'#fff':'#1c2420',txt:v=>fmt(v,0)})+`<p class="src">Агропост Кишкенеколь, см. Пустые клетки – высота не указана.</p>`,'см')}
   </div>`;
 };
@@ -1269,6 +1269,7 @@ PAGE.naselenie=()=>{
   ${card('Сёла района',sortTable(['Село','Округ','Жителей','Дворов','До райцентра, км','До Петропавловска, км'],vils.map(v=>({go:'vil:'+v.name,cells:[[esc(v.name)+(v.center?' <span class="meta">центр</span>':''),v.name],[esc(v.okr),v.okr],[fmt0(v.pop),v.pop],[fmt0(v.hh),v.hh],[v.d_rc==null?'–':fmt0(v.d_rc),v.d_rc||0],[fmt0(v.d_obl),v.d_obl]]})))+`<p class="src">На 01.10.2026. Нажмите на строку – село откроется на карте.</p>`)}`;
 };
 
+/*ПЛАН*/
 PAGE.plan=()=>{
   const P=RA.plan, sc=P['сценарии'];
   const sv=(k,i)=>{const r=sc.find(x=>x['Показатель']===k);return r?r[['Пессимистический','Реальный','Оптимистический'][i]]:null};
@@ -1313,6 +1314,7 @@ PAGE.plan=()=>{
     +`<p class="src">Петропавловск выделен. Среднее по Казахстану – ${fmt0(avgP)} ₸/кг. Источник – Бюро национальной статистики (по данным проекта).</p>`,'₸/кг')}
   </div>`;
 };
+/*КОНЕЦ_ПЛАНА*/
 
 PAGE.istochniki=()=>{
   const groups=[...new Set(RA.docs.map(d=>d.group))];
@@ -1329,7 +1331,7 @@ PAGE.istochniki=()=>{
 };
 
 // ---- маршрутизация вкладок ----
-const PAGES=['map','raion','zhivotnovodstvo','klimat','naselenie','plan','istochniki'], built={};
+const PAGES=['map','raion','zhivotnovodstvo','klimat','naselenie',/*ПЛАН*/'plan',/*КОНЕЦ_ПЛАНА*/'istochniki'], built={};
 function bindPage(h,el){
   bindSort(el);
   const fo=el.querySelector('#farm-okr'); if(fo) fo.onchange=()=>el.querySelectorAll('tr[data-okr]').forEach(r=>r.hidden=fo.value&&r.dataset.okr!==fo.value);

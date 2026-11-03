@@ -118,6 +118,11 @@ for (trip, la, lo), grp in pd.DataFrame(пробы).dropna(subset=['lat']).group
 # ---------- сборка страницы ----------
 css = re.sub(r'url\([^)]*\)', 'none', open(ШАБЛОН / 'leaflet.css').read())
 html = open(ШАБЛОН / 'index_шаблон.html').read()
+# Куски про план развития помечены в шаблоне /*ПЛАН*/ … /*КОНЕЦ_ПЛАНА*/ (см. ПОКАЗЫВАТЬ_ПЛАН в общее.py)
+if ПОКАЗЫВАТЬ_ПЛАН:
+    html = html.replace('/*ПЛАН*/', '').replace('/*КОНЕЦ_ПЛАНА*/', '')
+else:
+    html = re.sub(r'/\*ПЛАН\*/.*?/\*КОНЕЦ_ПЛАНА\*/', '', html, flags=re.S)
 html = html.replace('/*LEAFLET_CSS*/', css).replace(
     '/*ДАННЫЕ*/', 'window.GIS=' + json.dumps(данные, ensure_ascii=False, separators=(',', ':'), default=чисто) + ';')
 САЙТ.mkdir(exist_ok=True)

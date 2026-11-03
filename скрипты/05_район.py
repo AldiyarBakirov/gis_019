@@ -11,6 +11,7 @@
 Нормы и коэффициенты – не данные, поэтому заданы здесь, в начале файла.
 """
 import json, math, numbers, re, shutil, unicodedata
+import openpyxl
 import pandas as pd
 from общее import *
 
@@ -57,6 +58,19 @@ from общее import *
 ]
 
 ОКР = sorted(ОКРУГА)
+
+
+def район_без_плана(src, dst):
+    """Копия Район_019.xlsx для скачивания, когда вкладка плана скрыта: без листов и строк о плане."""
+    wb = openpyxl.load_workbook(src)
+    for имя in [n for n in wb.sheetnames if n.startswith('план_')]:
+        del wb[имя]
+    for ws in (wb['Инструкция'], wb['замечания']):
+        for r in range(ws.max_row, 0, -1):
+            if str(ws.cell(r, 1).value or '').startswith('план'):
+                ws.delete_rows(r)
+    wb['Инструкция']['A2'] = wb['Инструкция']['A2'].value.replace(' и план развития', '')
+    wb.save(dst)
 
 
 def лист(имя):
@@ -179,7 +193,8 @@ out['precip'] = погода('осадки')
 out['temp'] = погода('температура')
 out['moist'] = погода('влага_почвы')
 out['pasture_obs'] = записи(лист('пастбища_агропост'))
-out['plan'] = {k: записи(лист('план_' + k)) for k in ('затраты', 'текущие', 'сценарии', 'субсидии', 'цены')}
+if ПОКАЗЫВАТЬ_ПЛАН:
+    out['plan'] = {k: записи(лист('план_' + k)) for k in ('затраты', 'текущие', 'сценарии', 'субсидии', 'цены')}
 
 # ---------- металлы в воде ----------
 M = pd.read_excel(ДАННЫЕ, sheet_name='металлы').dropna(subset=['Выезд'])
@@ -226,12 +241,18 @@ out['metals'] = dict(trips=мет, src='Гигиенические нормат�
 nfc = lambda s: unicodedata.normalize('NFC', s)
 наличие = {nfc(p.name): p for p in ДОКИ.glob('*')} if ДОКИ.exists() else {}
 for имя, сайт_имя, подпись, раздел in ДОКУМЕНТЫ:
+    if сайт_имя.startswith('plan-') and not ПОКАЗЫВАТЬ_ПЛАН:
+        (файлы / сайт_имя).unlink(missing_ok=True)
+        continue
     src = наличие.get(nfc(имя)) or {'Район_019.xlsx': РАЙОН, 'Данные_019.xlsx': ДАННЫЕ}.get(имя)
     if not src or not src.exists():
         print(f'  ! нет файла для скачивания: {имя} (положите его в исходные_данные/документы/)')
         continue
-    shutil.copyfile(src, файлы / сайт_имя)
-    доки.append(dict(file='files/' + сайт_имя, title=подпись, group=раздел, kb=round(src.stat().st_size / 1024),
+    if имя == 'Район_019.xlsx' and not ПОКАЗЫВАТЬ_ПЛАН:
+        район_без_плана(src, файлы / сайт_имя)
+    else:
+        shutil.copyfile(src, файлы / сайт_имя)
+    доки.append(dict(file='files/' + сайт_имя, title=подпись, group=раздел, kb=round((файлы / сайт_имя).stat().st_size / 1024),
                      ext=сайт_имя.rsplit('.', 1)[1].upper()))
 out['docs'] = доки
 
@@ -239,7 +260,8 @@ out['docs'] = доки
 import zipfile
 план = наличие.get(nfc('План развития животноводства Сиволап.docx'))
 out['plan_img'] = None
-if план:
+shutil.rmtree(ФОТО / 'plan', ignore_errors=True)
+if план and ПОКАЗЫВАТЬ_ПЛАН:
     (ФОТО / 'plan').mkdir(parents=True, exist_ok=True)
     with zipfile.ZipFile(план) as z:
         if 'word/media/image1.png' in z.namelist():
